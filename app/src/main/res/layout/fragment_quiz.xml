@@ -25,26 +25,27 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:text="queow"
-        />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/enterDifficultyQuiz"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/menu_enter_difficulty"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="20sp"  />
 
     <Spinner
         android:id="@+id/quizDifficulty"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:layout_marginTop="-28dp"
         android:layout_marginEnd="8dp"
         android:spinnerMode="dropdown" />
 

@@ -24,7 +24,6 @@ public class HomeworkFragment extends Fragment {
 
     private HomeworkViewModel homeworkViewModel;
     private static int homeworkDifficulty;
-    private static int week;
     private static Spinner homework;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -40,16 +39,16 @@ public class HomeworkFragment extends Fragment {
             }
         });
 
-        week = 0;
         homework = root.findViewById(R.id.hwDifficulty);
+
         Random random = new Random();
         int optimumHW = random.nextInt(10);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
-                R.array.difficulty, android.R.layout.simple_spinner_item);
+                R.array.difficulty, R.layout.spinner_layout);
         // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.spinner_layout);
         // Apply the adapter to the spinner
         homework.setAdapter(adapter);
 
