@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.geoffsgeob.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_forum"
+        android:name="com.example.geoffsgeob.ui.forum.ForumFragment"
+        android:label="@string/menu_forum"
+        tools:layout="@layout/fragment_forum" />
+
+    <fragment
+        android:id="@+id/nav_mail"
+        android:name="com.example.geoffsgeob.ui.mail.MailFragment"
+        android:label="@string/menu_university_mail"
+        tools:layout="@layout/fragment_mail" />
+
+    <fragment
+        android:id="@+id/nav_homework"
+        android:name="com.example.geoffsgeob.ui.homework.HomeworkFragment"
+        android:label="@string/menu_homework"
+        tools:layout="@layout/fragment_homework" />
+
+    <fragment
+        android:id="@+id/nav_quiz"
+        android:name="com.example.geoffsgeob.ui.quiz.QuizFragment"
+        android:label="@string/menu_quiz"
+        tools:layout="@layout/fragment_quiz" />
+
+    <fragment
+        android:id="@+id/nav_midterm"
+        android:name="com.example.geoffsgeob.ui.midterm.MidtermFragment"
+        android:label="@string/menu_midterm"
+        tools:layout="@layout/fragment_midterm" />
+
+    <fragment
+        android:id="@+id/nav_mp"
+        android:name="com.example.geoffsgeob.ui.mp.MpFragment"
+        android:label="@string/menu_machine_project"
+        tools:layout="@layout/fragment_mp" />
+
+</navigation>

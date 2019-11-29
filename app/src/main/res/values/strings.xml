@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Geoff\'s Geob</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">gawd\'s controls</string>
+    <string name="nav_header_subtitle">Navigation Menu</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_forum">Forum</string>
+    <string name="menu_university_mail">University Mail</string>
+    <string name="menu_quiz">Quiz</string>
+    <string name="menu_homework">Homework</string>
+    <string name="menu_midterm">Midterm</string>
+    <string name="menu_machine_project">Machine Project</string>
+    <string name="menu_random_encounter">Random Encounter</string>
+    <string name="menu_button">Button</string>
+    <string name="menu_enter_difficulty">Enter difficulty: </string>
+    <string name="menu_help">Help</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_about">About</string>
+    <string-array name="difficulty">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+</resources>

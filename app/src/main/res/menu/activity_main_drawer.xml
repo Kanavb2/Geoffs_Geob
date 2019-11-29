@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_forum"
+            android:icon="@drawable/ic_forum_black_24dp"
+            android:title="@string/menu_forum" />
+        <item
+            android:id="@+id/nav_mail"
+            android:icon="@drawable/ic_email"
+            android:title="@string/menu_university_mail" />
+        <item
+            android:id="@+id/nav_homework"
+            android:icon="@drawable/ic_code_black_24dp"
+            android:title="@string/menu_homework" />
+        <item
+            android:id="@+id/nav_quiz"
+            android:icon="@drawable/ic_question_mark"
+            android:title="@string/menu_quiz" />
+        <item
+            android:id="@+id/nav_midterm"
+            android:icon="@drawable/ic_assessment_black_24dp"
+            android:title="@string/menu_midterm" />
+        <item
+            android:id="@+id/nav_mp"
+            android:icon="@drawable/ic_android_black_24dp"
+            android:title="@string/menu_machine_project" />
+    </group>
+
+</menu>
