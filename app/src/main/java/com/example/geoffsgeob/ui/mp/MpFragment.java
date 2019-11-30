@@ -61,10 +61,12 @@ public class MpFragment extends Fragment {
 
         TextView mpAdvice = root.findViewById(R.id.mpAdvice);
         TextView enterDiff = root.findViewById(R.id.enterDifficultyMp);
-        if (HomeFragment.getWeek() < 2 || HomeFragment.getWeek() % 2 == 1 || HomeFragment.getWeek() > 14) {
+        if ((HomeFragment.getWeek() < 2 || HomeFragment.getWeek() % 2 == 1) && HomeFragment.getWeek() <= 12) {
             mp.setVisibility(View.GONE);
             enterDiff.setVisibility(View.GONE);
             mpAdvice.setText("There is no MP this week. Check back later!");
+        } else if (HomeFragment.getWeek() > 12) {
+            mpAdvice.setVisibility(View.GONE);
         } else {
             Random random = new Random();
             int optimumHW = random.nextInt(10);

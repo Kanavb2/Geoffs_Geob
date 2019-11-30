@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#3F51B5"
+            android:background="#2B3EAA"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -26,8 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="#2196F3"
-        app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp" />
+        app:backgroundTint="#2B3EAA"
+        app:srcCompat="@drawable/ic_keyboard_arrow_right_white_24dp" />
 
     <include layout="@layout/content_main" />
 

@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -86,6 +85,7 @@ public class MidtermFragment extends Fragment {
                 public void onNothingSelected(final AdapterView<?> parent) {
                     // Called when the selection becomes empty
                     // Not relevant to the MP - can be left blank
+
                 }
             });
             int midtermChange = Math.abs(midtermDifficulty - optimumMidterm) + 2;

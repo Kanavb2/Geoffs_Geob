@@ -54,16 +54,16 @@
         android:id="@+id/positiveButton"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="75dp"
+        android:layout_marginStart="75dp"
         android:text="@string/menu_button" />
 
     <Button
         android:id="@+id/negativeButton"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:layout_marginTop="-50dp"
-        android:layout_marginRight="75dp"
+        android:layout_marginEnd="75dp"
         android:text="@string/menu_button" />
 
 </LinearLayout>

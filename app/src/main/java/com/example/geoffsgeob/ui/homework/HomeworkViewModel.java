@@ -1,17 +1,23 @@
 package com.example.geoffsgeob.ui.homework;
 
+import android.app.Application;
 
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-public class HomeworkViewModel extends ViewModel {
+import com.example.geoffsgeob.R;
+import com.example.geoffsgeob.ui.home.HomeFragment;
+
+public class HomeworkViewModel extends AndroidViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeworkViewModel() {
+    public HomeworkViewModel(Application application) {
+        super(application);
+        String[] hwNames = getApplication().getResources().getStringArray(R.array.homework_names);
         mText = new MutableLiveData<>();
-        mText.setValue("Set the average difficulty level for this week's homework by entering a number from 0 to 9, where 0 is the easiest and 9 is the hardest.");
+        mText.setValue("Homework " + HomeFragment.getWeek() + ": " + hwNames[HomeFragment.getWeek()]);
     }
 
     public LiveData<String> getText() {

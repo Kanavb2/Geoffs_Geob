@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
                 MpFragment.nextWeek();
                 QuizFragment.nextWeek();
                 MidtermFragment.nextWeek();
-
                  */
             }
         });

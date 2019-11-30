@@ -1,6 +1,5 @@
 package com.example.geoffsgeob.ui.mail;
 
-import android.view.View;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -11,7 +10,7 @@ public class MailViewModel extends ViewModel {
 
     public MailViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("mail text");
+        mText.setValue("Welcome challen@illinois.edu!");
     }
 
     public LiveData<String> getText() {

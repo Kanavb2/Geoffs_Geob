@@ -23,6 +23,10 @@
         <activity android:name=".Settings" />
         <activity android:name=".About" />
         <activity android:name=".GameActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
