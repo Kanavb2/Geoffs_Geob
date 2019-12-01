@@ -32,6 +32,52 @@
         <item>8</item>
         <item>9</item>
     </string-array>
+
+    <string-array name="quiz_names">
+        <item>Course Policies and Procedures</item>
+        <item>Variables and Conditionals</item>
+        <item>Loops, Arrays, and Functions</item>
+        <item>Strings, More Functions, and Multi-Dimensional Arrays</item>
+        <item>Introduction to Objects</item>
+        <item>Objects, Continued</item>
+        <item>Polymorphism and References</item>
+        <item>Interfaces</item>
+        <item>Algorithm Analysis and Lists</item>
+        <item>Trees and Recursion</item>
+        <item>Sorting</item>
+        <item>Internet, Exceptions, Hashing</item>
+    </string-array>
+    <string-array name="midterm_names">
+        <item>Imperative Programming</item>
+        <item>Object-Oriented Programming</item>
+        <item>meowdterm 2</item>
+    </string-array>
+    <string-array name="mp_names">
+        <item>Target Mode</item>
+        <item>Area Mode</item>
+        <item>Web APIs</item>
+        <item>Refactoring and More JSON</item>
+        <item>Polymorphism</item>
+        <item>Final Project</item>
+    </string-array>
+    <string-array name="homework_names">
+        <item>Simple Conditionals</item>
+        <item>Arrays</item>
+        <item>Loops</item>
+        <item>Functions</item>
+        <item>Strings</item>
+        <item>Objects</item>
+        <item>Inheritance</item>
+        <item>Polymorphism</item>
+        <item>Interfaces</item>
+        <item>Lists</item>
+        <item>Binary Trees</item>
+        <item>Recursion</item>
+        <item>Sorting</item>
+        <item>Exceptions</item>
+        <item>Hashing</item>
+    </string-array>
+
     <string name="help_title">Help</string>
     <string name="help_intro">Welcome, Geoff! You’re back for the Fall 2019 semester to teach CS 125.
        Your students last Spring were moderately happy with your work, congrats!

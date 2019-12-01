@@ -141,6 +141,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
+            android:onClick="toggle_contents"
             android:fontFamily="@font/alegreya_sc_bold"
             android:layout_gravity="center"
             android:text="@string/help_mp_title" />
