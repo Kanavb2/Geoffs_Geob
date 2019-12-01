@@ -35,6 +35,14 @@ import android.view.Menu;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private boolean hwSubmit;
+    private boolean quizSubmit;
+    private boolean midtermSubmit;
+    private boolean mpSubmit;
+    private int hwSelection;
+    private int quizSelection;
+    private int midtermSelection;
+    private int mpSelection;
 
     /** Runs when the menu button is clicked.
      * @param savedInstanceState is a bundle man we didn't learn this in the MPs.
@@ -49,14 +57,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*HomeFragment.nextWeek();
-                ForumFragment.nextWeek();
-                MailFragment.nextWeek();
-                HomeworkFragment.nextWeek();
-                MpFragment.nextWeek();
-                QuizFragment.nextWeek();
-                MidtermFragment.nextWeek();
-                 */
+                HomeFragment.nextWeek();
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

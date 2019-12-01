@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
     android:orientation="vertical">
 
     <TextView
@@ -12,10 +14,114 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
+        android:text="@string/text_settings"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/volumeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/text_volume"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/bgText"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bg_volume" />
+
+    <SeekBar
+        android:id="@+id/bgVolume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="50"
+        android:progressTint="@color/colorProgressBar"
+        android:thumbTint="@color/colorProgressBar" />
+
+    <TextView
+        android:id="@+id/bgNumber"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text="@string/half"
+        android:layout_gravity="end" />
+
+    <TextView
+        android:id="@+id/sfxText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sfx_volume" />
+
+    <SeekBar
+        android:id="@+id/sfxVolume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="50"
+        android:progressTint="@color/colorProgressBar"
+        android:thumbTint="@color/colorProgressBar" />
+
+    <TextView
+        android:id="@+id/sfxNumber"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/half" />
+
+    <CheckBox
+        android:id="@+id/muteSounds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mute_sounds" />
+
+    <TextView
+        android:id="@+id/generalHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/text_general"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    <CheckBox
+        android:id="@+id/disableProgressBars"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/disable_progress_bars" />
+
+    <CheckBox
+        android:id="@+id/disableEncounters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/disable_encounters" />
+
+    <CheckBox
+        android:id="@+id/catMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cat_mode" />
+
+    <Button
+        android:id="@+id/resetGame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:text="@string/reset_game" />
 
 </LinearLayout>

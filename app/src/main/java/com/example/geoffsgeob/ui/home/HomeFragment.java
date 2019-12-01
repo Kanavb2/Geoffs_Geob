@@ -1,11 +1,7 @@
 package com.example.geoffsgeob.ui.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -13,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -60,4 +55,18 @@ public class HomeFragment extends Fragment {
     public static int getWeek() {
         return week;
     }
+
+    public static void hideProgressBars() {
+        ProgressBar universityBar = root.findViewById(R.id.universityProgress);
+        ProgressBar studentBar = root.findViewById(R.id.studentProgress);
+        universityBar.setVisibility(View.GONE);
+        studentBar.setVisibility(View.GONE);
+    }
+    public static void showProgressBars() {
+        ProgressBar universityBar = root.findViewById(R.id.universityProgress);
+        ProgressBar studentBar = root.findViewById(R.id.studentProgress);
+        universityBar.setVisibility(View.VISIBLE);
+        studentBar.setVisibility(View.VISIBLE);
+    }
+
 }

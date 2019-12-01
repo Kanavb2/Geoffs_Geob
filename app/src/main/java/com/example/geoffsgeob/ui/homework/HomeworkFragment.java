@@ -23,8 +23,8 @@ import java.util.Random;
 public class HomeworkFragment extends Fragment {
 
     private HomeworkViewModel homeworkViewModel;
-    private static int homeworkDifficulty;
-    private static Spinner homework;
+    private int homeworkDifficulty;
+    private Spinner homework;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -67,31 +67,13 @@ public class HomeworkFragment extends Fragment {
                 // Not relevant to the MP - can be left blank
             }
         });
-        int hwChange = Math.abs(homeworkDifficulty - optimumHW) + 2;
-        HomeFragment.progressBar(0, hwChange);
+
+        int hwChange = (homeworkDifficulty - optimumHW) - 2;  //create a function: +3, +2, +1, 0, -1, -2....
+        HomeFragment.progressBar(0, hwChange); //put function in mainactivity
+        //put homefragment.nextweek in MainActivity
+        //do the boolean logic thing
+        //previous week = hwdifficulty using that one variable that doesn't change until the end of the function
 
         return root;
-    }
-
-    public static void nextWeek() {
-        Random random = new Random();
-        int optimumHW = random.nextInt(10);
-        homework.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(final AdapterView<?> parent, final View view,
-                                       final int position, final long id) {
-                // Called when the user selects a different item in the dropdown
-                // The position parameter is the selected index
-                // The other parameters can be ignored
-                homeworkDifficulty = position;
-            }
-            @Override
-            public void onNothingSelected(final AdapterView<?> parent) {
-                // Called when the selection becomes empty
-                // Not relevant to the MP - can be left blank
-            }
-        });
-        int hwChange = Math.abs(homeworkDifficulty - optimumHW) + 2;
-        HomeFragment.progressBar(0, hwChange);
     }
 }
