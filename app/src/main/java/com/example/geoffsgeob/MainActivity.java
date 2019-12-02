@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_help:
                 intent = new Intent(this, Help.class);
+
                 startActivity(intent);
                 return true;
             case R.id.action_settings:
