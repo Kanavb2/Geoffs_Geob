@@ -3,15 +3,8 @@ package com.example.geoffsgeob;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.geoffsgeob.ui.forum.ForumFragment;
 import com.example.geoffsgeob.ui.home.HomeFragment;
-import com.example.geoffsgeob.ui.homework.HomeworkFragment;
-import com.example.geoffsgeob.ui.mail.MailFragment;
-import com.example.geoffsgeob.ui.midterm.MidtermFragment;
-import com.example.geoffsgeob.ui.mp.MpFragment;
-import com.example.geoffsgeob.ui.quiz.QuizFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.view.MenuItem;
 import android.view.View;
@@ -39,20 +32,22 @@ public class MainActivity extends AppCompatActivity {
     private static boolean quizSubmit;
     private static boolean midtermSubmit;
     private static boolean mpSubmit;
-    private int hwSelection;
-    private int quizSelection;
-    private int midtermSelection;
-    private int mpSelection;
+    private static int hwSelection;
+    private static int quizSelection;
+    private static int midtermSelection;
+    private static int mpSelection;
+    private static int week;
+
     /*Current issues to fix:
         1. The previousWeek algorithm
-        2. You have to open MP/Midterm fragments every week just to set their booleans to true
-        3. Next week FAB doesn't go to the next week kmn in ANY of them
-        4. The submit button in quiz just pops up in week 1 for some reason
-        5. MP fragment isn't showing the right text
+        2. You have to open MP/Midterm fragments every week just to set their booleans to true. resolved :)
+        3. Next week FAB doesn't go to the next week kmn in ANY of them. kinda sorta did it maybe i dunno im sorry
+        4. The submit button in quiz just pops up in week 1 for some reason. resolved :)
+        5. MP fragment isn't showing the right text. resolved :)
      */
 
     /** Runs when the menu button is clicked.
-     * @param savedInstanceState is a bundle man we didn't learn this in the MPs.
+     * @param savedInstanceState is a bundle man idk we didn't learn this in the MPs.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,25 +56,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        week = 0;
         hwSubmit = false;
         quizSubmit = false;
         midtermSubmit = false;
         mpSubmit = false;
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (hwSubmit && quizSubmit && mpSubmit && midtermSubmit) {
-                    hwSubmit = false;
-                    quizSubmit = false;
-                    midtermSubmit = false;
-                    mpSubmit = false;
-                    HomeFragment.nextWeek();
-                } else {
-                    //alertdialog to tell the player which difficulty they haven't set yet
-                }
-            }
-        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -139,47 +121,60 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void toggleHW() {
-        if (!hwSubmit) {
-            hwSubmit = true;
-        } else {
-            hwSubmit = false;
-        }
-
+        hwSubmit = !hwSubmit;
     }
     public static boolean getHWSubmit() {
         return hwSubmit;
     }
-    public static void toggleMidterm() {
-        if (midtermSubmit) {
-            midtermSubmit = false;
-        } else {
-            midtermSubmit = true;
-        }
+    public static void setHwSelection(int toSet) {
+        hwSelection = toSet;
+    }
+    public static int getHwSelection() {
+        return hwSelection;
+    }
 
+    public static void toggleMidterm() {
+        midtermSubmit = !midtermSubmit;
     }
     public static boolean getMidtermSubmit() {
         return midtermSubmit;
     }
-    public static void toggleMP() {
-        if (mpSubmit) {
-            mpSubmit = false;
-        } else {
-            mpSubmit = true;
-        }
+    public static void setMidtermSelection(int toSet) {
+        midtermSelection = toSet;
+    }
+    public static int getMidtermSelection() {
+        return midtermSelection;
+    }
 
+    public static void toggleMP() {
+        mpSubmit = !mpSubmit;
     }
     public static boolean getMPSubmit() {
         return mpSubmit;
     }
+    public static void setMpSelection(int toSet) {
+        mpSelection = toSet;
+    }
+    public static int getMpSelection() {
+        return mpSelection;
+    }
+
     public static void toggleQuiz() {
-        if (quizSubmit) {
-            quizSubmit = false;
-        } else {
-            quizSubmit = true;
-        }
+        quizSubmit = !quizSubmit;
     }
     public static boolean getQuizSubmit() {
         return quizSubmit;
     }
-
+    public static void setQuizSelection(int toSet) {
+        quizSelection = toSet;
+    }
+    public static int getQuizSelection() {
+        return quizSelection;
+    }
+    public static void nextWeek() {
+        week++;
+    }
+    public static int getWeek() {
+        return week;
+    }
 }

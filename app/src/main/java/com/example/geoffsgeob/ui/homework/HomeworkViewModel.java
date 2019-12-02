@@ -6,8 +6,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
-import com.example.geoffsgeob.ui.home.HomeFragment;
 
 public class HomeworkViewModel extends AndroidViewModel {
 
@@ -17,7 +17,7 @@ public class HomeworkViewModel extends AndroidViewModel {
         super(application);
         String[] hwNames = getApplication().getResources().getStringArray(R.array.homework_names);
         mText = new MutableLiveData<>();
-        mText.setValue("Homework " + HomeFragment.getWeek() + ": " + hwNames[HomeFragment.getWeek()]);
+        mText.setValue("Homework " + MainActivity.getWeek() + ": " + hwNames[MainActivity.getWeek()]);
     }
 
     public LiveData<String> getText() {

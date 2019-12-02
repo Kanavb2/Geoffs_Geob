@@ -13,13 +13,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private static View root;
-    private static int week;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -35,7 +36,26 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        week = 0;
+        FloatingActionButton fab = root.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (MainActivity.getHWSubmit() &&
+                        (MainActivity.getQuizSubmit() || (MainActivity.getWeek() + 1) % 5 == 0)
+                        && (MainActivity.getMidtermSubmit() || ((MainActivity.getWeek() + 1) % 5 != 0))
+                        && (MainActivity.getMPSubmit() || ((MainActivity.getWeek() < 2 || MainActivity.getWeek() % 2 == 1) && MainActivity.getWeek() <= 12))) {
+                    /*hwSubmit = false;
+                    quizSubmit = false;
+                    midtermSubmit = false;
+                    mpSubmit = false;
+
+                     */
+                    MainActivity.nextWeek();
+                } else {
+                    //alertdialog to tell the player which difficulty they haven't set yet
+                }
+            }
+        });
 
         return root;
     }
@@ -46,14 +66,6 @@ public class HomeFragment extends Fragment {
 
         universityBar.setProgress(universityProgress, true);
         studentBar.setProgress(studentProgress, true);
-    }
-
-    public static void nextWeek() {
-        week++;
-    }
-
-    public static int getWeek() {
-        return week;
     }
 
     public static void hideProgressBars() {
@@ -68,5 +80,4 @@ public class HomeFragment extends Fragment {
         universityBar.setVisibility(View.VISIBLE);
         studentBar.setVisibility(View.VISIBLE);
     }
-
 }

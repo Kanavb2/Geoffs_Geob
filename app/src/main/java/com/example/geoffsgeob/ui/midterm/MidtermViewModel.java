@@ -6,8 +6,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
-import com.example.geoffsgeob.ui.home.HomeFragment;
 
 public class MidtermViewModel extends AndroidViewModel {
 
@@ -17,10 +17,10 @@ public class MidtermViewModel extends AndroidViewModel {
         super(application);
         String[] midtermNames = getApplication().getResources().getStringArray(R.array.midterm_names);
         mText = new MutableLiveData<>();
-        if ((HomeFragment.getWeek() + 1) % 5 == 0) {
-            mText.setValue("Midterm " + (HomeFragment.getWeek()) / 5 );
+        if ((MainActivity.getWeek() + 1) % 5 == 0) {
+            mText.setValue("Midterm " + (MainActivity.getWeek()) / 5 );
         } else {
-            mText.setValue("Upcoming\n Midterm " + HomeFragment.getWeek() / 5 + ": " + midtermNames[HomeFragment.getWeek() / 5]);
+            mText.setValue("Upcoming\n Midterm " + MainActivity.getWeek() / 5 + ": " + midtermNames[MainActivity.getWeek() / 5]);
         }
     }
 

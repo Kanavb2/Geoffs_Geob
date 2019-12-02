@@ -44,14 +44,15 @@ public class MidtermFragment extends Fragment {
         midterm = root.findViewById(R.id.midtermDifficulty);
 
         final TextView submitted = root.findViewById(R.id.submittedMidterm);
-        submitted.setVisibility(View.GONE);
         final TextView advice = root.findViewById(R.id.midtermAdvice);
         final TextView enterDiff = root.findViewById(R.id.enterDifficultyMidterm);
         final Button submitButton = root.findViewById(R.id.midtermSubmit);
+        submitted.setVisibility(View.GONE);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 MainActivity.toggleMidterm();
+                MainActivity.setMidtermSelection(midtermDifficulty);
                 midterm.setVisibility(View.GONE);
                 submitButton.setVisibility(View.GONE);
                 text.setVisibility(View.GONE);
@@ -61,17 +62,7 @@ public class MidtermFragment extends Fragment {
             }
         });
 
-        if (MainActivity.getMidtermSubmit()) {
-            midterm.setVisibility(View.GONE);
-            submitButton.setVisibility(View.GONE);
-            text.setVisibility(View.GONE);
-            advice.setVisibility(View.GONE);
-            enterDiff.setVisibility(View.GONE);
-            submitted.setVisibility(View.VISIBLE);
-
-        }
-        if ((HomeFragment.getWeek() + 1) % 5 != 0) {
-            MainActivity.toggleMP();
+        if ((MainActivity.getWeek() + 1) % 5 != 0) {
             midterm.setVisibility(View.GONE);
             enterDiff.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
@@ -111,6 +102,16 @@ public class MidtermFragment extends Fragment {
             int midtermChange = Math.abs(midtermDifficulty - optimumMidterm) + 2;
             HomeFragment.progressBar(0, midtermChange);
         }
+
+        if (MainActivity.getMidtermSubmit()) {
+            midterm.setVisibility(View.GONE);
+            submitButton.setVisibility(View.GONE);
+            text.setVisibility(View.GONE);
+            advice.setVisibility(View.GONE);
+            enterDiff.setVisibility(View.GONE);
+            submitted.setVisibility(View.VISIBLE);
+        }
+
         return root;
     }
 }

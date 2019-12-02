@@ -20,7 +20,6 @@ import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
 import com.example.geoffsgeob.ui.home.HomeFragment;
 
-import org.w3c.dom.Text;
 
 import java.util.Random;
 
@@ -53,6 +52,7 @@ public class HomeworkFragment extends Fragment {
             @Override
             public void onClick(final View v) {
                 MainActivity.toggleHW();
+                MainActivity.setHwSelection(homeworkDifficulty);
                 homework.setVisibility(View.GONE);
                 submitButton.setVisibility(View.GONE);
                 text.setVisibility(View.GONE);
@@ -69,7 +69,6 @@ public class HomeworkFragment extends Fragment {
             advice.setVisibility(View.GONE);
             enterDifficulty.setVisibility(View.GONE);
             submitted.setVisibility(View.VISIBLE);
-
         }
         Random random = new Random();
         int optimumHW = random.nextInt(10);

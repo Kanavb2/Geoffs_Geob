@@ -42,6 +42,7 @@ public class MpFragment extends Fragment {
         });
 
         mp = root.findViewById(R.id.mpDifficulty);
+
         final TextView enterDiff = root.findViewById(R.id.enterDifficultyMp);
         final Button submitButton = root.findViewById(R.id.mpSubmit);
         final TextView advice = root.findViewById(R.id.mpAdvice);
@@ -51,6 +52,7 @@ public class MpFragment extends Fragment {
             @Override
             public void onClick(final View v) {
                 MainActivity.toggleMP();
+                MainActivity.setMpSelection(mpDifficulty);
                 mp.setVisibility(View.GONE);
                 submitButton.setVisibility(View.GONE);
                 text.setVisibility(View.GONE);
@@ -60,32 +62,16 @@ public class MpFragment extends Fragment {
             }
         });
 
-        if (MainActivity.getMPSubmit()) {
-            mp.setVisibility(View.GONE);
-            submitButton.setVisibility(View.GONE);
-            text.setVisibility(View.GONE);
-            advice.setVisibility(View.GONE);
-            enterDiff.setVisibility(View.GONE);
-            submitted.setVisibility(View.VISIBLE);
-        }
-
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                MainActivity.toggleMP();
-            }
-        });
-
-        if ((HomeFragment.getWeek() < 2 || HomeFragment.getWeek() % 2 == 1) && HomeFragment.getWeek() <= 12) {
-            MainActivity.toggleMP();
+        if ((MainActivity.getWeek() < 2 || MainActivity.getWeek() % 2 == 1) && MainActivity.getWeek() <= 12) {
             mp.setVisibility(View.GONE);
             enterDiff.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
             advice.setText(R.string.no_mp);
-
-        } else if (HomeFragment.getWeek() > 12) {
+        } else if (MainActivity.getWeek() > 12) {
             advice.setVisibility(View.GONE);
-
+            mp.setVisibility(View.GONE);
+            enterDiff.setVisibility(View.GONE);
+            submitButton.setVisibility(View.GONE);
         } else {
             Random random = new Random();
             int optimum = random.nextInt(10);
@@ -120,6 +106,16 @@ public class MpFragment extends Fragment {
             int mpChange = Math.abs(mpDifficulty - optimum) + 2;
             HomeFragment.progressBar(0, mpChange);
         }
+
+        if (MainActivity.getMPSubmit()) {
+            mp.setVisibility(View.GONE);
+            submitButton.setVisibility(View.GONE);
+            text.setVisibility(View.GONE);
+            advice.setVisibility(View.GONE);
+            enterDiff.setVisibility(View.VISIBLE);
+            submitted.setVisibility(View.VISIBLE);
+        }
+
         return root;
     }
 }

@@ -7,8 +7,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
-import com.example.geoffsgeob.ui.home.HomeFragment;
 
 public class QuizViewModel extends AndroidViewModel {
 
@@ -17,10 +17,10 @@ public class QuizViewModel extends AndroidViewModel {
         super(application);
         mText = new MutableLiveData<>();
         String[] quizNames = getApplication().getResources().getStringArray(R.array.quiz_names);
-        int quizNumber = HomeFragment.getWeek();
-        if (HomeFragment.getWeek() > 4) {
+        int quizNumber = MainActivity.getWeek();
+        if (MainActivity.getWeek() > 4) {
             quizNumber--;
-            if (HomeFragment.getWeek() > 9) {
+            if (MainActivity.getWeek() > 9) {
                 quizNumber--;
             }
         }

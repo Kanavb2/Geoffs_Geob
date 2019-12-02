@@ -44,12 +44,13 @@ public class QuizFragment extends Fragment {
         final TextView advice = root.findViewById(R.id.quizAdvice);
         final TextView enterDifficulty = root.findViewById(R.id.enterDifficultyQuiz);
         final TextView submitted = root.findViewById(R.id.submittedQuiz);
-        submitted.setVisibility(View.GONE);
         final Button submitButton = root.findViewById(R.id.quizSubmit);
+        submitted.setVisibility(View.GONE);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 MainActivity.toggleQuiz();
+                MainActivity.setQuizSelection(quizDifficulty);
                 quiz.setVisibility(View.GONE);
                 submitButton.setVisibility(View.GONE);
                 text.setVisibility(View.GONE);
@@ -59,16 +60,7 @@ public class QuizFragment extends Fragment {
             }
         });
 
-        if (MainActivity.getQuizSubmit()) {
-            quiz.setVisibility(View.GONE);
-            submitButton.setVisibility(View.GONE);
-            text.setVisibility(View.GONE);
-            advice.setVisibility(View.GONE);
-            enterDifficulty.setVisibility(View.GONE);
-            submitted.setVisibility(View.VISIBLE);
-
-        }
-        if ((HomeFragment.getWeek() + 1) % 5 == 0) {
+        if ((MainActivity.getWeek() + 1) % 5 == 0) {
             quiz.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
             advice.setText(R.string.no_quiz);
@@ -104,6 +96,15 @@ public class QuizFragment extends Fragment {
             });
             int quizChange = Math.abs(quizDifficulty - optimum) + 2;
             HomeFragment.progressBar(0, quizChange);
+        }
+
+        if (MainActivity.getQuizSubmit()) {
+            quiz.setVisibility(View.GONE);
+            submitButton.setVisibility(View.GONE);
+            text.setVisibility(View.GONE);
+            advice.setVisibility(View.GONE);
+            enterDifficulty.setVisibility(View.GONE);
+            submitted.setVisibility(View.VISIBLE);
         }
         return root;
     }
