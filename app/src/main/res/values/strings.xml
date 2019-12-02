@@ -76,6 +76,11 @@
         <item>Exceptions</item>
         <item>Hashing</item>
     </string-array>
+    <string name="already_submit_quiz">You have already submitted the quiz difficulty for this week!</string>
+    <string name="already_submit_mp">You have already submitted the MP difficulty for this week!</string>
+    <string name="already_submit_hw">You have already submitted the homework difficulty for this week!</string>
+    <string name="already_submit_midterm">You have already submitted the midterm difficulty for this week!</string>
+    <string name="submitted_difficulty">meow</string>
     <string name="no_quiz">There are no quizzes this week. Check back later!</string>
     <string name="no_mp">There is no MP this week. Check back later!</string>
     <string name="no_midterm">There are no midterms this week. Check back later!</string>

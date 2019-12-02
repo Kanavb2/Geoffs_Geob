@@ -49,6 +49,24 @@
         android:layout_marginEnd="8dp"
         android:spinnerMode="dropdown" />
 
+    <TextView
+        android:id="@+id/submittedHw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/already_submit_hw"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
     <Button
         android:id="@+id/hwSubmit"
         android:layout_width="match_parent"
@@ -58,7 +76,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="250dp"
         android:text="@string/text_submit" />
 
 </LinearLayout>

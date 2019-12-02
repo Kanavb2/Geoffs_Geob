@@ -49,6 +49,13 @@
         android:layout_marginEnd="8dp"
         android:spinnerMode="dropdown" />
 
+    <TextView
+        android:id="@+id/submittedHw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="TextView" />
+
     <Button
         android:id="@+id/midtermSubmit"
         android:layout_width="match_parent"
