@@ -50,11 +50,13 @@
         android:spinnerMode="dropdown" />
 
     <TextView
-        android:id="@+id/submittedHw"
+        android:id="@+id/submittedMidterm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="TextView" />
+        android:text="@string/already_submit_midterm"
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/midtermSubmit"

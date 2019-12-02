@@ -43,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
     private int quizSelection;
     private int midtermSelection;
     private int mpSelection;
+    /*Current issues to fix:
+        1. The previousWeek algorithm
+        2. You have to open MP/Midterm fragments every week just to set their booleans to true
+        3. Next week FAB doesn't go to the next week kmn in ANY of them
+        4. The submit button in quiz just pops up in week 1 for some reason
+        5. MP fragment isn't showing the right text
+     */
 
     /** Runs when the menu button is clicked.
      * @param savedInstanceState is a bundle man we didn't learn this in the MPs.
@@ -62,7 +69,15 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HomeFragment.nextWeek();
+                if (hwSubmit && quizSubmit && mpSubmit && midtermSubmit) {
+                    hwSubmit = false;
+                    quizSubmit = false;
+                    midtermSubmit = false;
+                    mpSubmit = false;
+                    HomeFragment.nextWeek();
+                } else {
+                    //alertdialog to tell the player which difficulty they haven't set yet
+                }
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -124,28 +139,44 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void toggleHW() {
-        hwSubmit = true;
+        if (!hwSubmit) {
+            hwSubmit = true;
+        } else {
+            hwSubmit = false;
+        }
 
     }
     public static boolean getHWSubmit() {
         return hwSubmit;
     }
     public static void toggleMidterm() {
-        midtermSubmit = true;
+        if (midtermSubmit) {
+            midtermSubmit = false;
+        } else {
+            midtermSubmit = true;
+        }
 
     }
     public static boolean getMidtermSubmit() {
         return midtermSubmit;
     }
     public static void toggleMP() {
-        mpSubmit = true;
+        if (mpSubmit) {
+            mpSubmit = false;
+        } else {
+            mpSubmit = true;
+        }
+
     }
     public static boolean getMPSubmit() {
         return mpSubmit;
     }
     public static void toggleQuiz() {
-        quizSubmit = true;
-
+        if (quizSubmit) {
+            quizSubmit = false;
+        } else {
+            quizSubmit = true;
+        }
     }
     public static boolean getQuizSubmit() {
         return quizSubmit;

@@ -35,30 +35,40 @@ public class HomeworkFragment extends Fragment {
         homeworkViewModel =
                 ViewModelProviders.of(this).get(HomeworkViewModel.class);
         View root = inflater.inflate(R.layout.fragment_homework, container, false);
-        final TextView hwText = root.findViewById(R.id.text_homework);
+        final TextView text = root.findViewById(R.id.text_homework);
         homeworkViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                hwText.setText(s);
+                text.setText(s);
             }
         });
 
-        TextView hwAdvice = root.findViewById(R.id.hwAdvice);
-        TextView enterDifficulty = root.findViewById(R.id.enterDifficultyHw);
+        final TextView advice = root.findViewById(R.id.hwAdvice);
+        final TextView enterDifficulty = root.findViewById(R.id.enterDifficultyHw);
+        final TextView submitted = root.findViewById(R.id.submittedHw);
+        submitted.setVisibility(View.GONE);
         homework = root.findViewById(R.id.hwDifficulty);
-        Button submitButton = root.findViewById(R.id.hwSubmit);
+        final Button submitButton = root.findViewById(R.id.hwSubmit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 MainActivity.toggleHW();
+                homework.setVisibility(View.GONE);
+                submitButton.setVisibility(View.GONE);
+                text.setVisibility(View.GONE);
+                advice.setVisibility(View.GONE);
+                enterDifficulty.setVisibility(View.GONE);
+                submitted.setVisibility(View.VISIBLE);
             }
         });
+
         if (MainActivity.getHWSubmit()) {
             homework.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
-            hwText.setVisibility(View.GONE);
-            hwAdvice.setVisibility(View.GONE);
+            text.setVisibility(View.GONE);
+            advice.setVisibility(View.GONE);
             enterDifficulty.setVisibility(View.GONE);
+            submitted.setVisibility(View.VISIBLE);
 
         }
         Random random = new Random();

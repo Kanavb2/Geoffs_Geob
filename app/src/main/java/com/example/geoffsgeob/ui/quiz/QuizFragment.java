@@ -32,30 +32,49 @@ public class QuizFragment extends Fragment {
         quizViewModel =
                 ViewModelProviders.of(this).get(QuizViewModel.class);
         View root = inflater.inflate(R.layout.fragment_quiz, container, false);
-        final TextView textView = root.findViewById(R.id.text_quiz);
+        final TextView text = root.findViewById(R.id.text_quiz);
         quizViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                text.setText(s);
             }
         });
 
         quiz = root.findViewById(R.id.quizDifficulty);
-        TextView quizAdvice = root.findViewById(R.id.quizAdvice);
-        Button submitButton = root.findViewById(R.id.quizSubmit);
+        final TextView advice = root.findViewById(R.id.quizAdvice);
+        final TextView enterDifficulty = root.findViewById(R.id.enterDifficultyQuiz);
+        final TextView submitted = root.findViewById(R.id.submittedQuiz);
+        submitted.setVisibility(View.GONE);
+        final Button submitButton = root.findViewById(R.id.quizSubmit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 MainActivity.toggleQuiz();
+                quiz.setVisibility(View.GONE);
+                submitButton.setVisibility(View.GONE);
+                text.setVisibility(View.GONE);
+                advice.setVisibility(View.GONE);
+                enterDifficulty.setVisibility(View.GONE);
+                submitted.setVisibility(View.VISIBLE);
             }
         });
+
+        if (MainActivity.getQuizSubmit()) {
+            quiz.setVisibility(View.GONE);
+            submitButton.setVisibility(View.GONE);
+            text.setVisibility(View.GONE);
+            advice.setVisibility(View.GONE);
+            enterDifficulty.setVisibility(View.GONE);
+            submitted.setVisibility(View.VISIBLE);
+
+        }
         if ((HomeFragment.getWeek() + 1) % 5 == 0) {
             quiz.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
-            quizAdvice.setText(R.string.no_quiz);
+            advice.setText(R.string.no_quiz);
         } else {
             Random random = new Random();
-            int optimumHW = random.nextInt(10);
+            int optimum = random.nextInt(10);
             quiz.setVisibility(View.VISIBLE);
             submitButton.setVisibility(View.VISIBLE);
 
@@ -83,8 +102,8 @@ public class QuizFragment extends Fragment {
                     // Not relevant to the MP - can be left blank
                 }
             });
-            int hwChange = Math.abs(quizDifficulty - optimumHW) + 2;
-            HomeFragment.progressBar(0, hwChange);
+            int quizChange = Math.abs(quizDifficulty - optimum) + 2;
+            HomeFragment.progressBar(0, quizChange);
         }
         return root;
     }

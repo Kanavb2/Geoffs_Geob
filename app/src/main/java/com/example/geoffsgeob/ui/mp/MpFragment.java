@@ -33,36 +33,62 @@ public class MpFragment extends Fragment {
         mpViewModel =
                 ViewModelProviders.of(this).get(MpViewModel.class);
         View root = inflater.inflate(R.layout.fragment_mp, container, false);
-        final TextView textView = root.findViewById(R.id.text_mp);
+        final TextView text = root.findViewById(R.id.text_mp);
         mpViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                text.setText(s);
             }
         });
 
         mp = root.findViewById(R.id.mpDifficulty);
-        TextView mpAdvice = root.findViewById(R.id.mpAdvice);
-        TextView enterDiff = root.findViewById(R.id.enterDifficultyMp);
-        Button submitButton = root.findViewById(R.id.mpSubmit);
+        final TextView enterDiff = root.findViewById(R.id.enterDifficultyMp);
+        final Button submitButton = root.findViewById(R.id.mpSubmit);
+        final TextView advice = root.findViewById(R.id.mpAdvice);
+        final TextView submitted = root.findViewById(R.id.submittedMP);
+        submitted.setVisibility(View.GONE);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                MainActivity.toggleMP();
+                mp.setVisibility(View.GONE);
+                submitButton.setVisibility(View.GONE);
+                text.setVisibility(View.GONE);
+                advice.setVisibility(View.GONE);
+                enterDiff.setVisibility(View.GONE);
+                submitted.setVisibility(View.VISIBLE);
+            }
+        });
+
+        if (MainActivity.getMPSubmit()) {
+            mp.setVisibility(View.GONE);
+            submitButton.setVisibility(View.GONE);
+            text.setVisibility(View.GONE);
+            advice.setVisibility(View.GONE);
+            enterDiff.setVisibility(View.GONE);
+            submitted.setVisibility(View.VISIBLE);
+        }
+
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 MainActivity.toggleMP();
             }
         });
+
         if ((HomeFragment.getWeek() < 2 || HomeFragment.getWeek() % 2 == 1) && HomeFragment.getWeek() <= 12) {
+            MainActivity.toggleMP();
             mp.setVisibility(View.GONE);
             enterDiff.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
-            mpAdvice.setText(R.string.no_mp);
+            advice.setText(R.string.no_mp);
 
         } else if (HomeFragment.getWeek() > 12) {
-            mpAdvice.setVisibility(View.GONE);
+            advice.setVisibility(View.GONE);
 
         } else {
             Random random = new Random();
-            int optimumHW = random.nextInt(10);
+            int optimum = random.nextInt(10);
             enterDiff.setVisibility(View.VISIBLE);
             mp.setVisibility(View.VISIBLE);
             submitButton.setVisibility(View.VISIBLE);
@@ -91,8 +117,8 @@ public class MpFragment extends Fragment {
                     // Not relevant to the MP - can be left blank
                 }
             });
-            int hwChange = Math.abs(mpDifficulty - optimumHW) + 2;
-            HomeFragment.progressBar(0, hwChange);
+            int mpChange = Math.abs(mpDifficulty - optimum) + 2;
+            HomeFragment.progressBar(0, mpChange);
         }
         return root;
     }
