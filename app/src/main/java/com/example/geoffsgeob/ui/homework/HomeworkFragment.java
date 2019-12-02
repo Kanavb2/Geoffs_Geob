@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -15,32 +16,51 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
 import com.example.geoffsgeob.ui.home.HomeFragment;
+
+import org.w3c.dom.Text;
 
 import java.util.Random;
 
 public class HomeworkFragment extends Fragment {
 
     private HomeworkViewModel homeworkViewModel;
-    private static int homeworkDifficulty;
-    private static Spinner homework;
+    private int homeworkDifficulty;
+    private Spinner homework;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeworkViewModel =
                 ViewModelProviders.of(this).get(HomeworkViewModel.class);
         View root = inflater.inflate(R.layout.fragment_homework, container, false);
-        final TextView textView = root.findViewById(R.id.text_homework);
+        final TextView hwText = root.findViewById(R.id.text_homework);
         homeworkViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                hwText.setText(s);
             }
         });
 
+        TextView hwAdvice = root.findViewById(R.id.hwAdvice);
+        TextView enterDifficulty = root.findViewById(R.id.enterDifficultyHw);
         homework = root.findViewById(R.id.hwDifficulty);
+        Button submitButton = root.findViewById(R.id.hwSubmit);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                MainActivity.toggleHW();
+            }
+        });
+        if (MainActivity.getHWSubmit()) {
+            homework.setVisibility(View.GONE);
+            submitButton.setVisibility(View.GONE);
+            hwText.setVisibility(View.GONE);
+            hwAdvice.setVisibility(View.GONE);
+            enterDifficulty.setVisibility(View.GONE);
 
+        }
         Random random = new Random();
         int optimumHW = random.nextInt(10);
 
@@ -67,31 +87,13 @@ public class HomeworkFragment extends Fragment {
                 // Not relevant to the MP - can be left blank
             }
         });
-        int hwChange = Math.abs(homeworkDifficulty - optimumHW) + 2;
-        HomeFragment.progressBar(0, hwChange);
+
+        int hwChange = (homeworkDifficulty - optimumHW) - 2;  //create a function: +3, +2, +1, 0, -1, -2....
+        HomeFragment.progressBar(0, hwChange); //put function in mainactivity
+        //put homefragment.nextweek in MainActivity
+        //do the boolean logic thing
+        //previous week = hwdifficulty using that one variable that doesn't change until the end of the function
 
         return root;
-    }
-
-    public static void nextWeek() {
-        Random random = new Random();
-        int optimumHW = random.nextInt(10);
-        homework.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(final AdapterView<?> parent, final View view,
-                                       final int position, final long id) {
-                // Called when the user selects a different item in the dropdown
-                // The position parameter is the selected index
-                // The other parameters can be ignored
-                homeworkDifficulty = position;
-            }
-            @Override
-            public void onNothingSelected(final AdapterView<?> parent) {
-                // Called when the selection becomes empty
-                // Not relevant to the MP - can be left blank
-            }
-        });
-        int hwChange = Math.abs(homeworkDifficulty - optimumHW) + 2;
-        HomeFragment.progressBar(0, hwChange);
     }
 }

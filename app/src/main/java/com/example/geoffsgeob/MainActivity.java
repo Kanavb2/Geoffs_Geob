@@ -35,6 +35,14 @@ import android.view.Menu;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private static boolean hwSubmit;
+    private static boolean quizSubmit;
+    private static boolean midtermSubmit;
+    private static boolean mpSubmit;
+    private int hwSelection;
+    private int quizSelection;
+    private int midtermSelection;
+    private int mpSelection;
 
     /** Runs when the menu button is clicked.
      * @param savedInstanceState is a bundle man we didn't learn this in the MPs.
@@ -45,18 +53,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        hwSubmit = false;
+        quizSubmit = false;
+        midtermSubmit = false;
+        mpSubmit = false;
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*HomeFragment.nextWeek();
-                ForumFragment.nextWeek();
-                MailFragment.nextWeek();
-                HomeworkFragment.nextWeek();
-                MpFragment.nextWeek();
-                QuizFragment.nextWeek();
-                MidtermFragment.nextWeek();
-                 */
+                HomeFragment.nextWeek();
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -71,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
     }
 
     @Override
@@ -114,4 +121,33 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    public static void toggleHW() {
+        hwSubmit = true;
+
+    }
+    public static boolean getHWSubmit() {
+        return hwSubmit;
+    }
+    public static void toggleMidterm() {
+        midtermSubmit = true;
+
+    }
+    public static boolean getMidtermSubmit() {
+        return midtermSubmit;
+    }
+    public static void toggleMP() {
+        mpSubmit = true;
+    }
+    public static boolean getMPSubmit() {
+        return mpSubmit;
+    }
+    public static void toggleQuiz() {
+        quizSubmit = true;
+
+    }
+    public static boolean getQuizSubmit() {
+        return quizSubmit;
+    }
+
 }
