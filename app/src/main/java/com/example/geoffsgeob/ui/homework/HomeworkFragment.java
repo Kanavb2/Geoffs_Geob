@@ -58,7 +58,6 @@ public class HomeworkFragment extends Fragment {
         {
             homework.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
-            text.setVisibility(View.GONE);
             advice.setVisibility(View.GONE);
             enterDifficulty.setVisibility(View.GONE);
             submitted.setVisibility(View.VISIBLE);
@@ -67,7 +66,7 @@ public class HomeworkFragment extends Fragment {
         };
 
         submitButton.setOnClickListener(v -> {
-            MainActivity.toggleHW();
+            MainActivity.setHwSubmit(true);
             MainActivity.setHwSelection(homeworkDifficulty);
             r.onSubmit();
         });

@@ -56,7 +56,6 @@ public class QuizFragment extends Fragment {
         {
             quiz.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
-            text.setVisibility(View.GONE);
             advice.setVisibility(View.GONE);
             enterDifficulty.setVisibility(View.GONE);
             submitted.setVisibility(View.VISIBLE);
@@ -65,7 +64,7 @@ public class QuizFragment extends Fragment {
         };
 
         submitButton.setOnClickListener(v -> {
-            MainActivity.toggleQuiz();
+            MainActivity.setQuizSubmit(true);
             MainActivity.setQuizSelection(quizDifficulty);
             r.onSubmit();
         });
@@ -73,6 +72,7 @@ public class QuizFragment extends Fragment {
         if ((MainActivity.getWeek() + 1) % 5 == 0) {
             quiz.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
+            enterDifficulty.setVisibility(View.GONE);
             advice.setText(R.string.no_quiz);
         } else {
             Random random = new Random();

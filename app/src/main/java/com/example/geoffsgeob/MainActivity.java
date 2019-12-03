@@ -1,19 +1,15 @@
 package com.example.geoffsgeob;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-
-import com.example.geoffsgeob.ui.home.HomeFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import android.view.MenuItem;
-import android.view.View;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.geoffsgeob.ui.home.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -21,7 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.Menu;
+import android.widget.Button;
 
 /** Navigation menu.
  */
@@ -32,11 +28,19 @@ public class MainActivity extends AppCompatActivity {
     private static boolean quizSubmit;
     private static boolean midtermSubmit;
     private static boolean mpSubmit;
+    private static int universityProgress;
+    private static int studentProgress;
     private static int hwSelection;
     private static int quizSelection;
     private static int midtermSelection;
     private static int mpSelection;
     private static int week;
+    private static int bgValue = 50;
+    private static int sfxValue = 50;
+    private static int storeBG;
+    private static int storeSFX;
+    private static boolean muteSounds = false;
+    private static boolean disableProgress = false;
 
     /*Current issues to fix:
         1. The previousWeek algorithm
@@ -57,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         week = 0;
+        universityProgress = 70;
+        studentProgress = 70;
         hwSubmit = false;
         quizSubmit = false;
         midtermSubmit = false;
@@ -75,15 +81,21 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-    }
+        Button settings = findViewById(R.id.settings);
+        Button help = findViewById(R.id.help);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+        settings.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Settings.class);
+            startActivity(intent);
+        });
 
+        help.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Help.class);
+            startActivity(intent);
+        });
+        MediaPlayer music= MediaPlayer.create(this, R.raw.videoplayback);
+        music.start();
+    }
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -92,36 +104,8 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    /** Menu item for settings, about, help at top right.
-     * @param item the option selected
-     * @return whether the selection processed correctly or not
-     *
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        Intent intent;
-        switch (item.getItemId()) {
-            case R.id.action_help:
-                intent = new Intent(this, Help.class);
-
-                startActivity(intent);
-                return true;
-            case R.id.action_settings:
-                intent = new Intent(this, Settings.class);
-                startActivity(intent);
-                return true;
-            case R.id.action_about:
-                intent = new Intent(this, About.class);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    public static void toggleHW() {
-        hwSubmit = !hwSubmit;
+    public static void setHwSubmit(boolean set) {
+        hwSubmit = set;
     }
     public static boolean getHWSubmit() {
         return hwSubmit;
@@ -133,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
         return hwSelection;
     }
 
-    public static void toggleMidterm() {
-        midtermSubmit = !midtermSubmit;
+    public static void setMidtermSubmit(boolean set) {
+        midtermSubmit = set;
     }
     public static boolean getMidtermSubmit() {
         return midtermSubmit;
@@ -149,8 +133,8 @@ public class MainActivity extends AppCompatActivity {
         return getMidtermSubmit() || ((getWeek() + 1) % 5 != 0);
     }
 
-    public static void toggleMP() {
-        mpSubmit = !mpSubmit;
+    public static void setMPSubmit(boolean set) {
+        mpSubmit = set;
     }
     public static boolean getMPSubmit() {
         return mpSubmit;
@@ -162,11 +146,11 @@ public class MainActivity extends AppCompatActivity {
         return mpSelection;
     }
     public static boolean mpDone() {
-        return getMPSubmit() || (getWeek() < 2 || getWeek() % 2 == 1) && getWeek() <= 12;
+        return getMPSubmit() || ((getWeek() < 2 || getWeek() % 2 == 1) && getWeek() <= 12) || getWeek() > 12;
     }
 
-    public static void toggleQuiz() {
-        quizSubmit = !quizSubmit;
+    public static void setQuizSubmit(boolean set) {
+        quizSubmit = set;
     }
     public static boolean getQuizSubmit() {
         return quizSubmit;
@@ -185,5 +169,53 @@ public class MainActivity extends AppCompatActivity {
     }
     public static int getWeek() {
         return week;
+    }
+
+    public static void setBgValue(int set) {
+        bgValue = set;
+    }
+    public static void setSfxValue(int set) {
+        sfxValue = set;
+    }
+    public static int getBgValue() {
+        return bgValue;
+    }
+    public static int getSfxValue() {
+        return sfxValue;
+    }
+    public static void setStoreBG(int set) {
+        storeBG = set;
+    }
+    public static void setStoreSFX(int set) {
+        storeSFX = set;
+    }
+    public static int getStoreBG() {
+        return storeBG;
+    }
+    public static int getStoreSFX() {
+        return storeSFX;
+    }
+    public static void setMuteSounds(boolean b) {
+        muteSounds = b;
+    }
+    public static boolean getMuteSounds() {
+        return muteSounds;
+    }
+    public static void setDisableProgress(boolean b) {
+        disableProgress = b;
+        if (b) {
+            HomeFragment.hideProgressBars();
+        } else {
+            HomeFragment.showProgressBars();
+        }
+    }
+    public static boolean getDisableProgress() {
+        return disableProgress;
+    }
+    public static int getUniversityProgress() {
+        return universityProgress;
+    }
+    public static int getStudentProgress() {
+        return studentProgress;
     }
 }

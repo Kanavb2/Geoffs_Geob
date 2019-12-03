@@ -58,7 +58,6 @@ public class MpFragment extends Fragment {
         {
             mp.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
-            text.setVisibility(View.GONE);
             advice.setVisibility(View.GONE);
             enterDiff.setVisibility(View.GONE);
             submitted.setVisibility(View.VISIBLE);
@@ -67,7 +66,7 @@ public class MpFragment extends Fragment {
         };
 
         submitButton.setOnClickListener(v -> {
-            MainActivity.toggleMP();
+            MainActivity.setMPSubmit(true);
             MainActivity.setMpSelection(mpDifficulty);
             r.onSubmit();
         });

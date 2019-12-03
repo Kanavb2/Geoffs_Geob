@@ -58,7 +58,6 @@ public class MidtermFragment extends Fragment {
         {
             midterm.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
-            text.setVisibility(View.GONE);
             advice.setVisibility(View.GONE);
             enterDiff.setVisibility(View.GONE);
             submitted.setVisibility(View.VISIBLE);
@@ -67,7 +66,7 @@ public class MidtermFragment extends Fragment {
         };
 
         submitButton.setOnClickListener(v -> {
-            MainActivity.toggleMidterm();
+            MainActivity.setMidtermSubmit(true);
             MainActivity.setMidtermSelection(midtermDifficulty);
             r.onSubmit();
         });
