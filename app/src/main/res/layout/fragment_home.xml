@@ -18,6 +18,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/universitySatisfaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/satisfaction_university" />
+
     <ProgressBar
         android:id="@+id/universityProgress"
         style="?android:attr/progressBarStyleHorizontal"
@@ -25,7 +33,21 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:scaleY="2.5"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/universityNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:gravity="end" />
+
+    <TextView
+        android:id="@+id/studentSatisfaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/satisfaction_student" />
 
     <ProgressBar
         android:id="@+id/studentProgress"
@@ -34,7 +56,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:scaleY="2.5"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/studentNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:gravity="end" />
 
     <TextView
         android:id="@+id/encounter"

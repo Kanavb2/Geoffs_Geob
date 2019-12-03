@@ -3,29 +3,27 @@ package com.example.geoffsgeob;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.example.geoffsgeob.ui.home.HomeFragment;
 
 public class Settings extends Activity {
 
-    private int bgValue = 50;
-    private int sfxValue = 50;
-    private int storeBG;
-    private int storeSFX;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        TextView bgNumber = findViewById(R.id.bgNumber);
+        TextView sfxNumber = findViewById(R.id.sfxNumber);
+
         final SeekBar bgVolume = findViewById(R.id.bgVolume);
+        bgVolume.setProgress(MainActivity.getBgValue());
         bgVolume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                bgValue = progress;
-                TextView bgNumber = findViewById(R.id.bgNumber);
-                bgNumber.setText(bgValue + "%");
+                MainActivity.setBgValue(progress);
+                bgNumber.setText(MainActivity.getBgValue() + "%");
+                BackgroundSoundService.changeVolume(progress);
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -36,12 +34,13 @@ public class Settings extends Activity {
 
             }
         });
+        bgNumber.setText(MainActivity.getBgValue() + "%");
         final SeekBar sfxVolume = findViewById(R.id.sfxVolume);
+        sfxVolume.setProgress(MainActivity.getSfxValue());
         sfxVolume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                sfxValue = progress;
-                TextView sfxNumber = findViewById(R.id.sfxNumber);
-                sfxNumber.setText(sfxValue + "%");
+                MainActivity.setSfxValue(progress);
+                sfxNumber.setText(MainActivity.getSfxValue() + "%");
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -52,30 +51,35 @@ public class Settings extends Activity {
 
             }
         });
+        sfxNumber.setText(MainActivity.getSfxValue() + "%");
         CheckBox muteSounds = findViewById(R.id.muteSounds);
-        muteSounds.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (compoundButton.isChecked()) {
-                    storeBG = bgValue;
-                    storeSFX = sfxValue;
-                    bgVolume.setProgress(0, true);
-                    sfxVolume.setProgress(0, true);
-                } else {
-                    bgVolume.setProgress(storeBG, true);
-                    sfxVolume.setProgress(storeSFX, true);
-                }
+        if (MainActivity.getMuteSounds()) {
+            muteSounds.setChecked(true);
+        }
+        muteSounds.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (compoundButton.isChecked()) {
+                MainActivity.setStoreBG(MainActivity.getBgValue());
+                MainActivity.setStoreSFX(MainActivity.getSfxValue());
+                MainActivity.setMuteSounds(true);
+                bgVolume.setProgress(0, true);
+                sfxVolume.setProgress(0, true);
+            } else {
+                MainActivity.setBgValue(MainActivity.getStoreBG());
+                MainActivity.setSfxValue(MainActivity.getStoreSFX());
+                MainActivity.setMuteSounds(false);
+                bgVolume.setProgress(MainActivity.getBgValue(), true);
+                sfxVolume.setProgress(MainActivity.getSfxValue(), true);
             }
         });
         CheckBox disableProgress = findViewById(R.id.disableProgressBars);
-        disableProgress.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (compoundButton.isChecked()) {
-                    HomeFragment.hideProgressBars();
-                } else {
-                    HomeFragment.showProgressBars();
-                }
+        if (MainActivity.getDisableProgress()) {
+            disableProgress.setChecked(true);
+        }
+        disableProgress.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (compoundButton.isChecked()) {
+                MainActivity.setDisableProgress(true);
+            } else {
+                MainActivity.setDisableProgress(false);
             }
         });
     }

@@ -2,7 +2,7 @@
     <string name="app_name">Geoff\'s Geob</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">gawd\'s controls</string>
+    <string name="nav_header_title">Your laptop</string>
     <string name="nav_header_subtitle">Navigation Menu</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
@@ -76,6 +76,8 @@
         <item>Exceptions</item>
         <item>Hashing</item>
     </string-array>
+    <string name="satisfaction_university">University Satisfaction: </string>
+    <string name="satisfaction_student">Student Satisfaction: </string>
     <string name="already_submit_quiz">You have submitted the quiz difficulty for this week!</string>
     <string name="already_submit_mp">You have submitted the MP difficulty for this week!</string>
     <string name="already_submit_hw">You have submitted the homework difficulty for this week!</string>

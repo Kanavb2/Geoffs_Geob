@@ -18,7 +18,7 @@ public class MidtermViewModel extends AndroidViewModel {
         String[] midtermNames = getApplication().getResources().getStringArray(R.array.midterm_names);
         mText = new MutableLiveData<>();
         if ((MainActivity.getWeek() + 1) % 5 == 0) {
-            mText.setValue("Midterm " + (MainActivity.getWeek()) / 5 );
+            mText.setValue("Midterm " + (MainActivity.getWeek()) / 5 + ": " + midtermNames[MainActivity.getWeek() / 5]);
         } else {
             mText.setValue("Upcoming\n Midterm " + MainActivity.getWeek() / 5 + ": " + midtermNames[MainActivity.getWeek() / 5]);
         }

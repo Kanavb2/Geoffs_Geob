@@ -42,15 +42,27 @@ public class HomeFragment extends Fragment {
                     && MainActivity.quizDone()
                     && MainActivity.midtermDone()
                     && MainActivity.mpDone()) {
-                MainActivity.toggleHW();
-                MainActivity.toggleMidterm();
-                MainActivity.toggleMP();
-                MainActivity.toggleQuiz();
+                MainActivity.setHwSubmit(false);
+                MainActivity.setMidtermSubmit(false);
+                MainActivity.setMPSubmit(false);
+                MainActivity.setQuizSubmit(false);
                 MainActivity.nextWeek();
+                textView.setText("Fall 2019: Week " + MainActivity.getWeek());
             } else {
                 //alertdialog to tell the player which difficulty they haven't set yet
             }
         });
+        ProgressBar universityBar = root.findViewById(R.id.universityProgress);
+        ProgressBar studentBar = root.findViewById(R.id.studentProgress);
+
+        universityBar.setProgress(MainActivity.getUniversityProgress());
+        studentBar.setProgress(MainActivity.getStudentProgress());
+
+        TextView universityNumber = root.findViewById(R.id.universityNumber);
+        TextView studentNumber = root.findViewById(R.id.studentNumber);
+
+        universityNumber.setText(universityBar.getProgress() + "%");
+        studentNumber.setText(studentBar.getProgress() + "%");
 
         return root;
     }
@@ -61,6 +73,7 @@ public class HomeFragment extends Fragment {
 
         universityBar.setProgress(universityProgress, true);
         studentBar.setProgress(studentProgress, true);
+
     }
 
     public static void hideProgressBars() {
