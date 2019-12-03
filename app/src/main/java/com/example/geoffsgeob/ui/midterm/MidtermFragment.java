@@ -24,6 +24,9 @@ import java.util.Random;
 
 public class MidtermFragment extends Fragment {
 
+    interface iLikePrettyCode {
+        void onSubmit();
+    }
     private MidtermViewModel midtermViewModel;
     private int midtermDifficulty;
     private Spinner midterm;
@@ -46,20 +49,27 @@ public class MidtermFragment extends Fragment {
         final TextView submitted = root.findViewById(R.id.submittedMidterm);
         final TextView advice = root.findViewById(R.id.midtermAdvice);
         final TextView enterDiff = root.findViewById(R.id.enterDifficultyMidterm);
+        TextView difficultySet = root.findViewById(R.id.difficultySet);
+        difficultySet.setVisibility(View.GONE);
         final Button submitButton = root.findViewById(R.id.midtermSubmit);
         submitted.setVisibility(View.GONE);
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                MainActivity.toggleMidterm();
-                MainActivity.setMidtermSelection(midtermDifficulty);
-                midterm.setVisibility(View.GONE);
-                submitButton.setVisibility(View.GONE);
-                text.setVisibility(View.GONE);
-                advice.setVisibility(View.GONE);
-                enterDiff.setVisibility(View.GONE);
-                submitted.setVisibility(View.VISIBLE);
-            }
+
+        iLikePrettyCode r = () ->
+        {
+            midterm.setVisibility(View.GONE);
+            submitButton.setVisibility(View.GONE);
+            text.setVisibility(View.GONE);
+            advice.setVisibility(View.GONE);
+            enterDiff.setVisibility(View.GONE);
+            submitted.setVisibility(View.VISIBLE);
+            difficultySet.setVisibility(View.VISIBLE);
+            difficultySet.setText("You selected a difficulty of " + MainActivity.getMidtermSelection());
+        };
+
+        submitButton.setOnClickListener(v -> {
+            MainActivity.toggleMidterm();
+            MainActivity.setMidtermSelection(midtermDifficulty);
+            r.onSubmit();
         });
 
         if ((MainActivity.getWeek() + 1) % 5 != 0) {
@@ -74,44 +84,43 @@ public class MidtermFragment extends Fragment {
             Random random = new Random();
             int optimumMidterm = random.nextInt(10);
 
-            // Create an ArrayAdapter using the string array and a default spinner layout
-            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
-                    R.array.difficulty, R.layout.spinner_layout);
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(R.layout.spinner_layout);
-            // Apply the adapter to the spinner
-            midterm.setAdapter(adapter);
-
-            midterm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(final AdapterView<?> parent, final View view,
-                                           final int position, final long id) {
-                    // Called when the user selects a different item in the dropdown
-                    // The position parameter is the selected index
-                    // The other parameters can be ignored
-                    midtermDifficulty = position;
-                }
-
-                @Override
-                public void onNothingSelected(final AdapterView<?> parent) {
-                    // Called when the selection becomes empty
-                    // Not relevant to the MP - can be left blank
-
-                }
-            });
+            runSpinner();
             int midtermChange = Math.abs(midtermDifficulty - optimumMidterm) + 2;
             HomeFragment.progressBar(0, midtermChange);
         }
 
         if (MainActivity.getMidtermSubmit()) {
-            midterm.setVisibility(View.GONE);
-            submitButton.setVisibility(View.GONE);
-            text.setVisibility(View.GONE);
-            advice.setVisibility(View.GONE);
-            enterDiff.setVisibility(View.GONE);
-            submitted.setVisibility(View.VISIBLE);
+           r.onSubmit();
         }
 
         return root;
+    }
+
+    public void runSpinner() {
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
+                R.array.difficulty, R.layout.spinner_layout);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(R.layout.spinner_layout);
+        // Apply the adapter to the spinner
+        midterm.setAdapter(adapter);
+
+        midterm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(final AdapterView<?> parent, final View view,
+                                       final int position, final long id) {
+                // Called when the user selects a different item in the dropdown
+                // The position parameter is the selected index
+                // The other parameters can be ignored
+                midtermDifficulty = position;
+            }
+
+            @Override
+            public void onNothingSelected(final AdapterView<?> parent) {
+                // Called when the selection becomes empty
+                // Not relevant to the MP - can be left blank
+
+            }
+        });
     }
 }

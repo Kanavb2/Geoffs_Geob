@@ -24,6 +24,9 @@ import java.util.Random;
 
 public class QuizFragment extends Fragment {
 
+    interface iLikePrettyCode {
+        void onSubmit();
+    }
     private QuizViewModel quizViewModel;
     private int quizDifficulty;
     private Spinner quiz;
@@ -44,20 +47,27 @@ public class QuizFragment extends Fragment {
         final TextView advice = root.findViewById(R.id.quizAdvice);
         final TextView enterDifficulty = root.findViewById(R.id.enterDifficultyQuiz);
         final TextView submitted = root.findViewById(R.id.submittedQuiz);
+        TextView difficultySet = root.findViewById(R.id.difficultySet);
+        difficultySet.setVisibility(View.GONE);
         final Button submitButton = root.findViewById(R.id.quizSubmit);
         submitted.setVisibility(View.GONE);
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                MainActivity.toggleQuiz();
-                MainActivity.setQuizSelection(quizDifficulty);
-                quiz.setVisibility(View.GONE);
-                submitButton.setVisibility(View.GONE);
-                text.setVisibility(View.GONE);
-                advice.setVisibility(View.GONE);
-                enterDifficulty.setVisibility(View.GONE);
-                submitted.setVisibility(View.VISIBLE);
-            }
+
+        iLikePrettyCode r = () ->
+        {
+            quiz.setVisibility(View.GONE);
+            submitButton.setVisibility(View.GONE);
+            text.setVisibility(View.GONE);
+            advice.setVisibility(View.GONE);
+            enterDifficulty.setVisibility(View.GONE);
+            submitted.setVisibility(View.VISIBLE);
+            difficultySet.setVisibility(View.VISIBLE);
+            difficultySet.setText("You selected a difficulty of " + MainActivity.getQuizSelection());
+        };
+
+        submitButton.setOnClickListener(v -> {
+            MainActivity.toggleQuiz();
+            MainActivity.setQuizSelection(quizDifficulty);
+            r.onSubmit();
         });
 
         if ((MainActivity.getWeek() + 1) % 5 == 0) {
@@ -70,42 +80,41 @@ public class QuizFragment extends Fragment {
             quiz.setVisibility(View.VISIBLE);
             submitButton.setVisibility(View.VISIBLE);
 
-            // Create an ArrayAdapter using the string array and a default spinner layout
-            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
-                    R.array.difficulty, R.layout.spinner_layout);
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(R.layout.spinner_layout);
-            // Apply the adapter to the spinner
-            quiz.setAdapter(adapter);
-
-            quiz.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(final AdapterView<?> parent, final View view,
-                                           final int position, final long id) {
-                    // Called when the user selects a different item in the dropdown
-                    // The position parameter is the selected index
-                    // The other parameters can be ignored
-                    quizDifficulty = position;
-                }
-
-                @Override
-                public void onNothingSelected(final AdapterView<?> parent) {
-                    // Called when the selection becomes empty
-                    // Not relevant to the MP - can be left blank
-                }
-            });
+            runSpinner();
             int quizChange = Math.abs(quizDifficulty - optimum) + 2;
             HomeFragment.progressBar(0, quizChange);
         }
 
         if (MainActivity.getQuizSubmit()) {
-            quiz.setVisibility(View.GONE);
-            submitButton.setVisibility(View.GONE);
-            text.setVisibility(View.GONE);
-            advice.setVisibility(View.GONE);
-            enterDifficulty.setVisibility(View.GONE);
-            submitted.setVisibility(View.VISIBLE);
+            r.onSubmit();
         }
         return root;
+    }
+
+    public void runSpinner() {
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
+                R.array.difficulty, R.layout.spinner_layout);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(R.layout.spinner_layout);
+        // Apply the adapter to the spinner
+        quiz.setAdapter(adapter);
+
+        quiz.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(final AdapterView<?> parent, final View view,
+                                       final int position, final long id) {
+                // Called when the user selects a different item in the dropdown
+                // The position parameter is the selected index
+                // The other parameters can be ignored
+                quizDifficulty = position;
+            }
+
+            @Override
+            public void onNothingSelected(final AdapterView<?> parent) {
+                // Called when the selection becomes empty
+                // Not relevant to the MP - can be left blank
+            }
+        });
     }
 }

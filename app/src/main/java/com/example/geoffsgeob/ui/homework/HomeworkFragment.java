@@ -25,6 +25,9 @@ import java.util.Random;
 
 public class HomeworkFragment extends Fragment {
 
+    interface iLikePrettyCode {
+        void onSubmit();
+    }
     private HomeworkViewModel homeworkViewModel;
     private int homeworkDifficulty;
     private Spinner homework;
@@ -44,35 +47,49 @@ public class HomeworkFragment extends Fragment {
 
         final TextView advice = root.findViewById(R.id.hwAdvice);
         final TextView enterDifficulty = root.findViewById(R.id.enterDifficultyHw);
+        TextView difficultySet = root.findViewById(R.id.difficultySet);
+        difficultySet.setVisibility(View.GONE);
         final TextView submitted = root.findViewById(R.id.submittedHw);
         submitted.setVisibility(View.GONE);
         homework = root.findViewById(R.id.hwDifficulty);
         final Button submitButton = root.findViewById(R.id.hwSubmit);
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                MainActivity.toggleHW();
-                MainActivity.setHwSelection(homeworkDifficulty);
-                homework.setVisibility(View.GONE);
-                submitButton.setVisibility(View.GONE);
-                text.setVisibility(View.GONE);
-                advice.setVisibility(View.GONE);
-                enterDifficulty.setVisibility(View.GONE);
-                submitted.setVisibility(View.VISIBLE);
-            }
-        });
 
-        if (MainActivity.getHWSubmit()) {
+        iLikePrettyCode r = () ->
+        {
             homework.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
             text.setVisibility(View.GONE);
             advice.setVisibility(View.GONE);
             enterDifficulty.setVisibility(View.GONE);
             submitted.setVisibility(View.VISIBLE);
+            difficultySet.setVisibility(View.VISIBLE);
+            difficultySet.setText("You selected a difficulty of " + MainActivity.getHwSelection());
+        };
+
+        submitButton.setOnClickListener(v -> {
+            MainActivity.toggleHW();
+            MainActivity.setHwSelection(homeworkDifficulty);
+            r.onSubmit();
+        });
+
+        if (MainActivity.getHWSubmit()) {
+            r.onSubmit();
         }
         Random random = new Random();
         int optimumHW = random.nextInt(10);
 
+        runSpinner();
+
+        int hwChange = (homeworkDifficulty - optimumHW) - 2;  //create a function: +3, +2, +1, 0, -1, -2....
+        HomeFragment.progressBar(0, hwChange); //put function in mainactivity
+        //put homefragment.nextweek in MainActivity
+        //do the boolean logic thing
+        //previous week = hwdifficulty using that one variable that doesn't change until the end of the function
+
+        return root;
+    }
+
+    public void runSpinner() {
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.difficulty, R.layout.spinner_layout);
@@ -96,13 +113,5 @@ public class HomeworkFragment extends Fragment {
                 // Not relevant to the MP - can be left blank
             }
         });
-
-        int hwChange = (homeworkDifficulty - optimumHW) - 2;  //create a function: +3, +2, +1, 0, -1, -2....
-        HomeFragment.progressBar(0, hwChange); //put function in mainactivity
-        //put homefragment.nextweek in MainActivity
-        //do the boolean logic thing
-        //previous week = hwdifficulty using that one variable that doesn't change until the end of the function
-
-        return root;
     }
 }

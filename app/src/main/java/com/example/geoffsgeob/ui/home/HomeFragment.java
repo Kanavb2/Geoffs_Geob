@@ -37,23 +37,18 @@ public class HomeFragment extends Fragment {
         });
 
         FloatingActionButton fab = root.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (MainActivity.getHWSubmit() &&
-                        (MainActivity.getQuizSubmit() || (MainActivity.getWeek() + 1) % 5 == 0)
-                        && (MainActivity.getMidtermSubmit() || ((MainActivity.getWeek() + 1) % 5 != 0))
-                        && (MainActivity.getMPSubmit() || ((MainActivity.getWeek() < 2 || MainActivity.getWeek() % 2 == 1) && MainActivity.getWeek() <= 12))) {
-                    /*hwSubmit = false;
-                    quizSubmit = false;
-                    midtermSubmit = false;
-                    mpSubmit = false;
-
-                     */
-                    MainActivity.nextWeek();
-                } else {
-                    //alertdialog to tell the player which difficulty they haven't set yet
-                }
+        fab.setOnClickListener(view -> {
+            if (MainActivity.getHWSubmit()
+                    && MainActivity.quizDone()
+                    && MainActivity.midtermDone()
+                    && MainActivity.mpDone()) {
+                MainActivity.toggleHW();
+                MainActivity.toggleMidterm();
+                MainActivity.toggleMP();
+                MainActivity.toggleQuiz();
+                MainActivity.nextWeek();
+            } else {
+                //alertdialog to tell the player which difficulty they haven't set yet
             }
         });
 

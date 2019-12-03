@@ -145,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
     public static int getMidtermSelection() {
         return midtermSelection;
     }
+    public static boolean midtermDone() {
+        return getMidtermSubmit() || ((getWeek() + 1) % 5 != 0);
+    }
 
     public static void toggleMP() {
         mpSubmit = !mpSubmit;
@@ -158,6 +161,9 @@ public class MainActivity extends AppCompatActivity {
     public static int getMpSelection() {
         return mpSelection;
     }
+    public static boolean mpDone() {
+        return getMPSubmit() || (getWeek() < 2 || getWeek() % 2 == 1) && getWeek() <= 12;
+    }
 
     public static void toggleQuiz() {
         quizSubmit = !quizSubmit;
@@ -170,6 +176,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public static int getQuizSelection() {
         return quizSelection;
+    }
+    public static boolean quizDone() {
+        return MainActivity.getQuizSubmit() || (MainActivity.getWeek() + 1) % 5 == 0;
     }
     public static void nextWeek() {
         week++;
