@@ -24,6 +24,8 @@ public class Settings extends Activity {
                 MainActivity.setBgValue(progress);
                 bgNumber.setText(MainActivity.getBgValue() + "%");
                 BackgroundSoundService.changeVolume(progress);
+                System.out.println(progress);
+                BackgroundSoundService.startPlayer();
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -69,6 +71,8 @@ public class Settings extends Activity {
                 MainActivity.setMuteSounds(false);
                 bgVolume.setProgress(MainActivity.getBgValue(), true);
                 sfxVolume.setProgress(MainActivity.getSfxValue(), true);
+                BackgroundSoundService.startPlayer();
+                BackgroundSoundService.changeVolume(MainActivity.getBgValue());
             }
         });
         CheckBox disableProgress = findViewById(R.id.disableProgressBars);

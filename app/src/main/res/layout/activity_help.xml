@@ -86,80 +86,23 @@
             android:text="@string/help_mail_body" />
 
         <TextView
-            android:id="@+id/help_homework_title"
+            android:id="@+id/help_hqmm_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:clickable="true"
             android:focusable="true"
-            android:layout_gravity="center"
-            android:textStyle="bold"
             android:fontFamily="@font/alegreya_sc_bold"
-            android:text="@string/help_homework_title" />
+            android:text="@string/help_hqmm_title"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/help_homework_body"
+            android:id="@+id/help_hqmm_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:text="@string/help_homework_body" />
+            android:text="@string/help_hqmm_body" />
 
-        <TextView
-            android:id="@+id/help_quiz_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:textStyle="bold"
-            android:fontFamily="@font/alegreya_sc_bold"
-            android:text="@string/help_quiz_title"
-            android:layout_gravity="center" />
-
-        <TextView
-            android:id="@+id/help_quiz_body"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:text="@string/help_quiz_body" />
-
-        <TextView
-            android:id="@+id/help_midterm_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:textStyle="bold"
-            android:fontFamily="@font/alegreya_sc_bold"
-            android:layout_gravity="center"
-            android:text="@string/help_midterms_title" />
-
-        <TextView
-            android:id="@+id/help_midterm_body"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:text="@string/help_midterms_body" />
-
-        <TextView
-            android:id="@+id/help_mp_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:textStyle="bold"
-            android:onClick="toggle_contents"
-            android:fontFamily="@font/alegreya_sc_bold"
-            android:layout_gravity="center"
-            android:text="@string/help_mp_title" />
-
-        <TextView
-            android:id="@+id/help_mp_body"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:text="@string/help_mp_body" />
     </LinearLayout>
 </ScrollView>
