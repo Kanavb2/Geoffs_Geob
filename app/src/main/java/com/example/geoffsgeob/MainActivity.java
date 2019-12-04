@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private static int storeSFX;
     private static boolean muteSounds = false;
     private static boolean disableProgress = false;
+    private static boolean disableEncounters = false;
 
     /*Current issues to fix:
         1. The previousWeek algorithm
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, Help.class);
             startActivity(intent);
         });
-        MediaPlayer music= MediaPlayer.create(this, R.raw.videoplayback);
+        MediaPlayer music = MediaPlayer.create(this, R.raw.videoplayback);
         music.start();
     }
 
@@ -211,6 +212,17 @@ public class MainActivity extends AppCompatActivity {
     }
     public static boolean getDisableProgress() {
         return disableProgress;
+    }
+    public static void setDisableEncounters(boolean b) {
+        disableEncounters = b;
+        if (b) {
+            HomeFragment.hideEncounters();
+        } else {
+            HomeFragment.showEncounters();
+        }
+    }
+    public static boolean getDisableEncounters() {
+        return disableEncounters;
     }
     public static int getUniversityProgress() {
         return universityProgress;

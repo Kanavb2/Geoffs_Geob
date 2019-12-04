@@ -81,5 +81,17 @@ public class Settings extends Activity {
                 MainActivity.setDisableProgress(false);
             }
         });
+
+        CheckBox disableEncounters = findViewById(R.id.disableEncounters);
+        if (MainActivity.getDisableEncounters()) {
+            disableEncounters.setChecked(true);
+        }
+        disableEncounters.setOnCheckedChangeListener(((compoundButton, b) -> {
+            if (compoundButton.isChecked()) {
+                MainActivity.setDisableEncounters(true);
+            } else {
+                MainActivity.setDisableEncounters(false);
+            }
+        }));
     }
 }

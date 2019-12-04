@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -79,13 +80,53 @@ public class HomeFragment extends Fragment {
     public static void hideProgressBars() {
         ProgressBar universityBar = root.findViewById(R.id.universityProgress);
         ProgressBar studentBar = root.findViewById(R.id.studentProgress);
+
+        TextView universityNumber = root.findViewById(R.id.universityNumber);
+        TextView studentNumber = root.findViewById(R.id.studentNumber);
+
+        TextView university = root.findViewById(R.id.universitySatisfaction);
+        TextView student = root.findViewById(R.id.studentSatisfaction);
+
         universityBar.setVisibility(View.GONE);
         studentBar.setVisibility(View.GONE);
+        universityNumber.setVisibility(View.GONE);
+        studentNumber.setVisibility(View.GONE);
+        university.setVisibility(View.GONE);
+        student.setVisibility(View.GONE);
     }
     public static void showProgressBars() {
         ProgressBar universityBar = root.findViewById(R.id.universityProgress);
         ProgressBar studentBar = root.findViewById(R.id.studentProgress);
+
+        TextView universityNumber = root.findViewById(R.id.universityNumber);
+        TextView studentNumber = root.findViewById(R.id.studentNumber);
+
+        TextView university = root.findViewById(R.id.universitySatisfaction);
+        TextView student = root.findViewById(R.id.studentSatisfaction);
+
         universityBar.setVisibility(View.VISIBLE);
         studentBar.setVisibility(View.VISIBLE);
+        universityNumber.setVisibility(View.VISIBLE);
+        studentNumber.setVisibility(View.VISIBLE);
+        university.setVisibility(View.VISIBLE);
+        student.setVisibility(View.VISIBLE);
+    }
+    public static void hideEncounters() {
+        TextView randomEncounters = root.findViewById(R.id.encounter);
+        Button yesButton = root.findViewById(R.id.positiveButton);
+        Button noButton = root.findViewById(R.id.negativeButton);
+
+        randomEncounters.setVisibility(View.GONE);
+        yesButton.setVisibility(View.GONE);
+        noButton.setVisibility(View.GONE);
+    }
+    public static void showEncounters() {
+        TextView randomEncounters = root.findViewById(R.id.encounter);
+        Button yesButton = root.findViewById(R.id.positiveButton);
+        Button noButton = root.findViewById(R.id.negativeButton);
+
+        randomEncounters.setVisibility(View.VISIBLE);
+        yesButton.setVisibility(View.VISIBLE);
+        noButton.setVisibility(View.VISIBLE);
     }
 }
