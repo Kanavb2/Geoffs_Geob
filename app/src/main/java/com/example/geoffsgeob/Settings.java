@@ -1,6 +1,8 @@
 package com.example.geoffsgeob;
 
 import android.app.Activity;
+import android.content.Context;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
@@ -19,10 +21,21 @@ public class Settings extends Activity {
 
         final SeekBar bgVolume = findViewById(R.id.bgVolume);
         bgVolume.setProgress(MainActivity.getBgValue());
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        bgVolume.setMax(audioManager
+                .getStreamMaxVolume(AudioManager.STREAM_MUSIC));
+        bgVolume.setProgress(audioManager
+                .getStreamVolume(AudioManager.STREAM_MUSIC));
+        MainActivity.setBgValue(bgVolume.getProgress() * 100 / 15);
+        bgNumber.setText(MainActivity.getBgValue() + "%");
+
         bgVolume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                MainActivity.setBgValue(progress);
+                MainActivity.setBgValue(progress * 100 / 15);
                 bgNumber.setText(MainActivity.getBgValue() + "%");
+                BackgroundSoundService.changeVolume(progress);
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
+                        progress, 0);
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -51,25 +64,7 @@ public class Settings extends Activity {
             }
         });
         sfxNumber.setText(MainActivity.getSfxValue() + "%");
-        CheckBox muteSounds = findViewById(R.id.muteSounds);
-        if (MainActivity.getMuteSounds()) {
-            muteSounds.setChecked(true);
-        }
-        muteSounds.setOnCheckedChangeListener((compoundButton, b) -> {
-            if (compoundButton.isChecked()) {
-                MainActivity.setStoreBG(MainActivity.getBgValue());
-                MainActivity.setStoreSFX(MainActivity.getSfxValue());
-                MainActivity.setMuteSounds(true);
-                bgVolume.setProgress(0, true);
-                sfxVolume.setProgress(0, true);
-            } else {
-                MainActivity.setBgValue(MainActivity.getStoreBG());
-                MainActivity.setSfxValue(MainActivity.getStoreSFX());
-                MainActivity.setMuteSounds(false);
-                bgVolume.setProgress(MainActivity.getBgValue(), true);
-                sfxVolume.setProgress(MainActivity.getSfxValue(), true);
-            }
-        });
+
         CheckBox disableProgress = findViewById(R.id.disableProgressBars);
         if (MainActivity.getDisableProgress()) {
             disableProgress.setChecked(true);
@@ -93,5 +88,18 @@ public class Settings extends Activity {
                 MainActivity.setDisableEncounters(false);
             }
         }));
+
+        CheckBox disableBonuses = findViewById(R.id.disableBonuses);
+        if (MainActivity.getDisableBonuses()) {
+            disableBonuses.setChecked(true);
+        }
+        disableBonuses.setOnCheckedChangeListener(((compoundButton, b) -> {
+            if (compoundButton.isChecked()) {
+                MainActivity.setDisableBonuses(true);
+            } else {
+                MainActivity.setDisableBonuses(false);
+            }
+        }));
+
     }
 }

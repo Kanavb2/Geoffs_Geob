@@ -18,7 +18,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
-import com.example.geoffsgeob.ui.home.HomeFragment;
 
 import java.util.Random;
 
@@ -28,7 +27,7 @@ public class MpFragment extends Fragment {
         void onSubmit();
     }
     private MpViewModel mpViewModel;
-    private int mpDifficulty;
+    private int optimumMp;
     private Spinner mp;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -67,7 +66,8 @@ public class MpFragment extends Fragment {
 
         submitButton.setOnClickListener(v -> {
             MainActivity.setMPSubmit(true);
-            MainActivity.setMpSelection(mpDifficulty);
+            int mpChange = 2 - Math.abs(MainActivity.getMpSelection() - optimumMp);
+            MainActivity.thisWeekChange(0, mpChange);
             r.onSubmit();
         });
 
@@ -83,14 +83,12 @@ public class MpFragment extends Fragment {
             submitButton.setVisibility(View.GONE);
         } else {
             Random random = new Random();
-            int optimum = random.nextInt(10);
+            optimumMp = random.nextInt(10);
             enterDiff.setVisibility(View.VISIBLE);
             mp.setVisibility(View.VISIBLE);
             submitButton.setVisibility(View.VISIBLE);
 
             runSpinner();
-            int mpChange = Math.abs(mpDifficulty - optimum) + 2;
-            HomeFragment.progressBar(0, mpChange);
         }
 
         if (MainActivity.getMPSubmit()) {
@@ -116,7 +114,7 @@ public class MpFragment extends Fragment {
                 // Called when the user selects a different item in the dropdown
                 // The position parameter is the selected index
                 // The other parameters can be ignored
-                mpDifficulty = position;
+                MainActivity.setMpSelection(position);
             }
 
             @Override

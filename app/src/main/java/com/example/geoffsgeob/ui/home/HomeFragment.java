@@ -1,5 +1,6 @@
 package com.example.geoffsgeob.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.geoffsgeob.Bonuses;
 import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -37,6 +39,12 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        Button button = root.findViewById(R.id.bonuses);
+        button.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity(), Bonuses.class);
+            startActivity(intent);
+        });
+
         FloatingActionButton fab = root.findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             if (MainActivity.getHWSubmit()
@@ -48,6 +56,8 @@ public class HomeFragment extends Fragment {
                 MainActivity.setMPSubmit(false);
                 MainActivity.setQuizSubmit(false);
                 MainActivity.nextWeek();
+                HomeFragment.progressBar(MainActivity.getUniChange(), MainActivity.getStudentChange());
+                MainActivity.resetWeekChange();
                 textView.setText("Fall 2019: Week " + MainActivity.getWeek());
             } else {
                 //alertdialog to tell the player which difficulty they haven't set yet
@@ -72,8 +82,17 @@ public class HomeFragment extends Fragment {
         ProgressBar universityBar = root.findViewById(R.id.universityProgress);
         ProgressBar studentBar = root.findViewById(R.id.studentProgress);
 
-        universityBar.setProgress(universityProgress, true);
-        studentBar.setProgress(studentProgress, true);
+        MainActivity.setStudentProgress(studentProgress);
+        MainActivity.setUniversityProgress(universityProgress);
+
+        universityBar.setProgress(MainActivity.getUniversityProgress(), true);
+        studentBar.setProgress(MainActivity.getStudentProgress(), true);
+
+        TextView universityNumber = root.findViewById(R.id.universityNumber);
+        TextView studentNumber = root.findViewById(R.id.studentNumber);
+
+        universityNumber.setText(universityBar.getProgress() + "%");
+        studentNumber.setText(studentBar.getProgress() + "%");
 
     }
 
@@ -128,5 +147,13 @@ public class HomeFragment extends Fragment {
         randomEncounters.setVisibility(View.VISIBLE);
         yesButton.setVisibility(View.VISIBLE);
         noButton.setVisibility(View.VISIBLE);
+    }
+    public static void hideBonuses() {
+        Button button = root.findViewById(R.id.bonuses);
+        button.setVisibility(View.GONE);
+    }
+    public static void showBonuses() {
+        Button button = root.findViewById(R.id.bonuses);
+        button.setVisibility(View.VISIBLE);
     }
 }

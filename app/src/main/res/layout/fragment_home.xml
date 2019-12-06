@@ -103,6 +103,16 @@
         android:orientation="vertical"
         android:gravity="bottom|end">
 
+        <Button
+            android:id="@+id/bonuses"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginBottom="-70dp"
+            android:background="@android:color/transparent"
+            android:textAllCaps="false"
+            android:text="@string/bonuses" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="match_parent"
@@ -111,6 +121,7 @@
             android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="#2B3EAA"
             app:srcCompat="@drawable/ic_keyboard_arrow_right_white_24dp" />
+
     </LinearLayout>
 
 </LinearLayout>

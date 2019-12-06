@@ -18,8 +18,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
-import com.example.geoffsgeob.ui.home.HomeFragment;
-
 
 import java.util.Random;
 
@@ -29,7 +27,7 @@ public class HomeworkFragment extends Fragment {
         void onSubmit();
     }
     private HomeworkViewModel homeworkViewModel;
-    private int homeworkDifficulty;
+    private int optimumHw;
     private Spinner homework;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -67,7 +65,8 @@ public class HomeworkFragment extends Fragment {
 
         submitButton.setOnClickListener(v -> {
             MainActivity.setHwSubmit(true);
-            MainActivity.setHwSelection(homeworkDifficulty);
+            int hwChange = 2 - Math.abs(MainActivity.getHwSelection() - optimumHw);
+            MainActivity.thisWeekChange(0, hwChange);
             r.onSubmit();
         });
 
@@ -75,15 +74,8 @@ public class HomeworkFragment extends Fragment {
             r.onSubmit();
         }
         Random random = new Random();
-        int optimumHW = random.nextInt(10);
-
+        optimumHw = random.nextInt(10);
         runSpinner();
-
-        int hwChange = (homeworkDifficulty - optimumHW) - 2;  //create a function: +3, +2, +1, 0, -1, -2....
-        HomeFragment.progressBar(0, hwChange); //put function in mainactivity
-        //put homefragment.nextweek in MainActivity
-        //do the boolean logic thing
-        //previous week = hwdifficulty using that one variable that doesn't change until the end of the function
 
         return root;
     }
@@ -104,7 +96,7 @@ public class HomeworkFragment extends Fragment {
                 // Called when the user selects a different item in the dropdown
                 // The position parameter is the selected index
                 // The other parameters can be ignored
-                homeworkDifficulty = position;
+                MainActivity.setHwSelection(position);
             }
             @Override
             public void onNothingSelected(final AdapterView<?> parent) {

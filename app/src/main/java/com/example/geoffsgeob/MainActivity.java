@@ -1,7 +1,6 @@
 package com.example.geoffsgeob;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.navigation.NavController;
@@ -24,6 +23,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private static int totalWeeks = 15;
     private static boolean hwSubmit;
     private static boolean quizSubmit;
     private static boolean midtermSubmit;
@@ -37,11 +37,15 @@ public class MainActivity extends AppCompatActivity {
     private static int week;
     private static int bgValue = 50;
     private static int sfxValue = 50;
-    private static int storeBG;
-    private static int storeSFX;
-    private static boolean muteSounds = false;
     private static boolean disableProgress = false;
     private static boolean disableEncounters = false;
+    private static boolean disableBonuses = false;
+    private static boolean chuchu = false;
+    private static boolean xyz = false;
+    private static boolean ben = false;
+    private static boolean challen = false;
+    private static int uniChange;
+    private static int studentChange;
 
     /*Current issues to fix:
         1. The previousWeek algorithm
@@ -68,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         quizSubmit = false;
         midtermSubmit = false;
         mpSubmit = false;
+        resetWeekChange();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -94,8 +99,9 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, Help.class);
             startActivity(intent);
         });
-        MediaPlayer music = MediaPlayer.create(this, R.raw.videoplayback);
-        music.start();
+
+        Intent svc = new Intent(this, BackgroundSoundService.class);
+        startService(svc);
     }
 
     @Override
@@ -103,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public static void setTotalWeeks(int toSet) {
+        totalWeeks = toSet;
     }
 
     public static void setHwSubmit(boolean set) {
@@ -184,24 +194,6 @@ public class MainActivity extends AppCompatActivity {
     public static int getSfxValue() {
         return sfxValue;
     }
-    public static void setStoreBG(int set) {
-        storeBG = set;
-    }
-    public static void setStoreSFX(int set) {
-        storeSFX = set;
-    }
-    public static int getStoreBG() {
-        return storeBG;
-    }
-    public static int getStoreSFX() {
-        return storeSFX;
-    }
-    public static void setMuteSounds(boolean b) {
-        muteSounds = b;
-    }
-    public static boolean getMuteSounds() {
-        return muteSounds;
-    }
     public static void setDisableProgress(boolean b) {
         disableProgress = b;
         if (b) {
@@ -212,6 +204,18 @@ public class MainActivity extends AppCompatActivity {
     }
     public static boolean getDisableProgress() {
         return disableProgress;
+    }
+    public static void setUniversityProgress(int set) {
+        universityProgress += set;
+    }
+    public static void setStudentProgress(int set) {
+        studentProgress += set;
+    }
+    public static int getUniversityProgress() {
+        return universityProgress;
+    }
+    public static int getStudentProgress() {
+        return studentProgress;
     }
     public static void setDisableEncounters(boolean b) {
         disableEncounters = b;
@@ -224,10 +228,53 @@ public class MainActivity extends AppCompatActivity {
     public static boolean getDisableEncounters() {
         return disableEncounters;
     }
-    public static int getUniversityProgress() {
-        return universityProgress;
+    public static void setChuchu(boolean b) {
+        chuchu = b;
     }
-    public static int getStudentProgress() {
-        return studentProgress;
+    public static boolean getChuchu() {
+        return chuchu;
+    }
+    public static void setXyz(boolean b) {
+        xyz = b;
+    }
+    public static boolean getXyz() {
+        return xyz;
+    }
+    public static void setBen(boolean b) {
+        ben = b;
+    }
+    public static boolean getBen() {
+        return ben;
+    }
+    public static void setChallen(boolean b) {
+        challen = b;
+    }
+    public static boolean getChallen() {
+        return challen;
+    }
+    public static void setDisableBonuses(boolean b) {
+        disableBonuses = b;
+        if (b) {
+            HomeFragment.hideBonuses();
+        } else {
+            HomeFragment.showBonuses();
+        }
+    }
+    public static boolean getDisableBonuses() {
+        return disableBonuses;
+    }
+    public static void resetWeekChange() {
+        uniChange = 0;
+        studentChange = 0;
+    }
+    public static void thisWeekChange(int u, int s) {
+        uniChange += u;
+        studentChange += s;
+    }
+    public static int getUniChange() {
+        return uniChange;
+    }
+    public static int getStudentChange() {
+        return studentChange;
     }
 }

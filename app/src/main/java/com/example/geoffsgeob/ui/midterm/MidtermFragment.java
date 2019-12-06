@@ -18,7 +18,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
-import com.example.geoffsgeob.ui.home.HomeFragment;
 
 import java.util.Random;
 
@@ -28,7 +27,7 @@ public class MidtermFragment extends Fragment {
         void onSubmit();
     }
     private MidtermViewModel midtermViewModel;
-    private int midtermDifficulty;
+    private int optimumMidterm;
     private Spinner midterm;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -67,7 +66,8 @@ public class MidtermFragment extends Fragment {
 
         submitButton.setOnClickListener(v -> {
             MainActivity.setMidtermSubmit(true);
-            MainActivity.setMidtermSelection(midtermDifficulty);
+            int midtermChange = 2 - Math.abs(MainActivity.getMidtermSelection() - optimumMidterm);
+            MainActivity.thisWeekChange(0, midtermChange);
             r.onSubmit();
         });
 
@@ -81,11 +81,9 @@ public class MidtermFragment extends Fragment {
             enterDiff.setVisibility(View.VISIBLE);
             submitButton.setVisibility(View.VISIBLE);
             Random random = new Random();
-            int optimumMidterm = random.nextInt(10);
+            optimumMidterm = random.nextInt(10);
 
             runSpinner();
-            int midtermChange = Math.abs(midtermDifficulty - optimumMidterm) + 2;
-            HomeFragment.progressBar(0, midtermChange);
         }
 
         if (MainActivity.getMidtermSubmit()) {
@@ -111,7 +109,7 @@ public class MidtermFragment extends Fragment {
                 // Called when the user selects a different item in the dropdown
                 // The position parameter is the selected index
                 // The other parameters can be ignored
-                midtermDifficulty = position;
+                MainActivity.setMidtermSelection(position);
             }
 
             @Override

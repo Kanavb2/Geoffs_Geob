@@ -18,7 +18,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
-import com.example.geoffsgeob.ui.home.HomeFragment;
 
 import java.util.Random;
 
@@ -28,7 +27,7 @@ public class QuizFragment extends Fragment {
         void onSubmit();
     }
     private QuizViewModel quizViewModel;
-    private int quizDifficulty;
+    private int optimumQuiz;
     private Spinner quiz;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -65,7 +64,8 @@ public class QuizFragment extends Fragment {
 
         submitButton.setOnClickListener(v -> {
             MainActivity.setQuizSubmit(true);
-            MainActivity.setQuizSelection(quizDifficulty);
+            int quizChange = 2 - Math.abs(MainActivity.getQuizSelection() - optimumQuiz);
+            MainActivity.thisWeekChange(0, quizChange);
             r.onSubmit();
         });
 
@@ -76,13 +76,10 @@ public class QuizFragment extends Fragment {
             advice.setText(R.string.no_quiz);
         } else {
             Random random = new Random();
-            int optimum = random.nextInt(10);
+            optimumQuiz = random.nextInt(10);
             quiz.setVisibility(View.VISIBLE);
             submitButton.setVisibility(View.VISIBLE);
-
             runSpinner();
-            int quizChange = Math.abs(quizDifficulty - optimum) + 2;
-            HomeFragment.progressBar(0, quizChange);
         }
 
         if (MainActivity.getQuizSubmit()) {
@@ -107,7 +104,7 @@ public class QuizFragment extends Fragment {
                 // Called when the user selects a different item in the dropdown
                 // The position parameter is the selected index
                 // The other parameters can be ignored
-                quizDifficulty = position;
+                MainActivity.setQuizSelection(position);
             }
 
             @Override

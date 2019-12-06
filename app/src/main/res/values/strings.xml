@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Geoff\'s Geob</string>
+    <string name="app_name_title">Geoff\'s \nGeob</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Challen\'s Chontrols</string>
@@ -76,6 +77,15 @@
         <item>Exceptions</item>
         <item>Hashing</item>
     </string-array>
+    <string name="five_week">5 weeks</string>
+    <string name="ten_week">10 weeks</string>
+    <string name="fifteen_week">15 weeks</string>
+    <string name="disable_bonuses">Disable Bonuses</string>
+    <string name="chuchu">Chuchu</string>
+    <string name="xyz">Xyz</string>
+    <string name="ben_nordick">Ben Nordick</string>
+    <string name="geoffrey_challen">The real Geoffrey Challen</string>
+    <string name="bonuses">Bonuses</string>
     <string name="satisfaction_university">University Satisfaction: </string>
     <string name="satisfaction_student">Student Satisfaction: </string>
     <string name="already_submit_quiz">You have submitted the quiz difficulty for this week!</string>
