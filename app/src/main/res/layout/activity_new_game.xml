@@ -17,29 +17,37 @@
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/desc_main"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/fiveWeeks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
         android:text="@string/five_week" />
 
     <Button
         android:id="@+id/tenWeeks"
         android:layout_width="wrap_content"
-        android:layout_gravity="center"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
         android:text="@string/ten_week" />
 
     <Button
         android:id="@+id/fifteenWeeks"
         android:layout_width="wrap_content"
-        android:layout_gravity="center"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
         android:text="@string/fifteen_week" />
 </LinearLayout>

@@ -77,6 +77,7 @@
         <item>Exceptions</item>
         <item>Hashing</item>
     </string-array>
+
     <string name="five_week">5 weeks</string>
     <string name="ten_week">10 weeks</string>
     <string name="fifteen_week">15 weeks</string>
@@ -101,34 +102,34 @@
     <string name="disable_encounters">Disable encounters</string>
     <string name="text_general">General</string>
     <string name="text_volume">Volume</string>
+    <string name="half">50%</string>
     <string name="text_settings">Settings</string>
     <string name="mute_sounds">Mute all sounds</string>
     <string name="reset_game">Reset Game</string>
-    <string name="half">50%</string>
     <string name="bg_volume">Background Volume:</string>
     <string name="sfx_volume">SFX Volume:</string>
     <string name="help_title">Help</string>
-    <string name="help_intro">Welcome, Geoff! You’re back for the Fall 2019 semester to teach CS 125. Your students last Spring
-        were moderately happy with your teaching, congrats! However, that means that your new batch of students and
-        the university have high expectations from you to do a great job. This is your handy help page, informing you
-        of the various tools that’ll aid you in teaching your class. Tap a subheading to get more info on it.</string>
+    <string name="desc_main">Welcome, Geoff! You’re back for the Fall 2019 semester to teach CS 125.
+       Your students last Spring were moderately happy with your work, congrats!
+       However, that means that your new batch of students and the university have high expectations from you
+       to do a great job, yet again. \n\nLet\'s get started! Choose the number of weeks in the semester: </string>
+    <string name="help_intro"> Welcome, Geoff! You’re back for the Fall 2019 semester to teach CS 125.
+       Your students last Spring were moderately happy with your work, congrats!
+       However, that means that your new batch of students and the university have high expectations from you
+       to do a great job, yet again. This is your handy help page, informing you of the various tools that’ll
+       aid you in teaching your class. Tap the subheading to get more info on them.</string>
     <string name="help_home_title">\nHome</string>
-    <string name="help_home_body">The semester is divided into 5/10/15 weeks depending on what you chose.
-        You’ll be able to go to the next week only after planning the difficulties for homework, quiz (if any),
-        midterm (if any), and MP checkpoint (if any). Check the forum and university email every week for helpful tips!
+    <string name="help_home_body">Your semester is divided into weeks. After planning the homework, quiz, midterm (if any), and MP checkpoint (if any), you’ll be able to go on to the next week using the button in the bottom right corner. While it’s recommended that you check the forum and your university email every week, it isn’t necessary for you to do so in order to go on to the next week.
 
-\n\nYou have two satisfaction bars: student satisfaction, and university satisfaction. Your actions in the game will
-        affect these bars. If, at any point, either of the bars hit zero, you automatically lose the game.
+       \n\nIn this course, you have two satisfaction bars: student satisfaction, and university satisfaction. You’re supposed to keep both: your students, and the university, happy.  Based on your actions while teaching this class, the progress bars will go up or down. If, at any point, either of the bars hit zero, you automatically lose the game. As long as you keep the bars above zero, you’ll be able to reach the end of the semester and complete the game.
 
-\n\nEvery week, you’ll face a random encounter, and your actions will affect student and university satisfaction.
-        Choose wisely.
+       \n\nEvery week, you’ll face a small challenge. This involves making a decision, which may not leave everybody happy. These decisions will usually be tradeoffs; for example, fulfilling the university’s wishes may disappoint your students. You must choose wisely.
 
-\n\nYou have three bonuses:
-\n1. \tChuchu the dog/Xyz the cat (either one): boosts student \t   satisfaction
-\n2. \tThe real Geoff Challen: boosts university satisfaction
-\n3. \tJava Chad Ben Northicc: boosts both student and \t   university satisfaction by a little bit
-\nYou can use each bonus only once per game.
-
+       \n\nYou have three bonuses: Chuchu the dog or Xyz the cat, Ben Nordick the students’ main homie, and the real Geoff Challen. Each of them have a special power.
+       \nChuchu/Xyz boosts student satisfaction.
+       \nThe real Geoff Challen boosts university satisfaction.
+       \nBen Nordick, with his alpha Java powers, boosts both student and university satisfaction by a little bit.
+       \nYou can use each bonus only once per game.
 </string>
     <string name="help_forum_title">\nForum</string>
     <string name="help_forum_body">This is where you’ll learn what your students feel about the course so far. It can be helpful to know where you’re going wrong, or what you’re doing correctly.

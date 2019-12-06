@@ -1,5 +1,6 @@
 package com.example.geoffsgeob.ui.home;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,9 +17,13 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.geoffsgeob.Bonuses;
+import com.example.geoffsgeob.EndGame;
 import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -56,10 +61,37 @@ public class HomeFragment extends Fragment {
                 MainActivity.setMPSubmit(false);
                 MainActivity.setQuizSubmit(false);
                 MainActivity.nextWeek();
+                if (MainActivity.getWeek() == MainActivity.getTotalWeeks()) {
+                    Intent intent = new Intent(getActivity(), EndGame.class);
+                    startActivity(intent);
+                    getActivity().finish();
+                }
                 HomeFragment.progressBar(MainActivity.getUniChange(), MainActivity.getStudentChange());
                 MainActivity.resetWeekChange();
                 textView.setText("Fall 2019: Week " + MainActivity.getWeek());
             } else {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                List<String> list = new ArrayList<>();
+                if (!MainActivity.getHWSubmit()) {
+                    list.add("Homework\n");
+                }
+                if (!MainActivity.quizDone()) {
+                    list.add("Quiz\n");
+                }
+                if (!MainActivity.midtermDone()) {
+                    list.add("Midterm\n");
+                }
+                if (!MainActivity.mpDone()) {
+                    list.add("Machine Project\n");
+                }
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append("You can not move on to the next week till you set the difficulties for the following: \n\n");
+                for (int i = 0; i < list.size(); i++) {
+                    stringBuilder.append(list.get(i));
+                }
+                builder.setMessage(stringBuilder);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
                 //alertdialog to tell the player which difficulty they haven't set yet
             }
         });

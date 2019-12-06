@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.example.geoffsgeob.ui.home.HomeFragment;
 
 
 public class Settings extends Activity {
@@ -101,5 +104,11 @@ public class Settings extends Activity {
             }
         }));
 
+        Button resetGame = findViewById(R.id.resetGame);
+
+        resetGame.setOnClickListener(view -> {
+            MainActivity.setWeek(0);
+            HomeFragment.progressBar(70, 70);
+        });
     }
 }

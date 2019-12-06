@@ -114,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
     public static void setTotalWeeks(int toSet) {
         totalWeeks = toSet;
     }
+    public static int getTotalWeeks() {
+        return totalWeeks;
+    }
 
     public static void setHwSubmit(boolean set) {
         hwSubmit = set;
@@ -276,5 +279,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public static int getStudentChange() {
         return studentChange;
+    }
+    public static void setWeek(int toSet) {
+        week = toSet;
     }
 }
