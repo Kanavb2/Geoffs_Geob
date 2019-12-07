@@ -9,8 +9,6 @@ import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.example.geoffsgeob.ui.home.HomeFragment;
-
 
 public class Settings extends Activity {
 
@@ -20,8 +18,6 @@ public class Settings extends Activity {
         setContentView(R.layout.activity_settings);
 
         TextView bgNumber = findViewById(R.id.bgNumber);
-        TextView sfxNumber = findViewById(R.id.sfxNumber);
-
         final SeekBar bgVolume = findViewById(R.id.bgVolume);
         bgVolume.setProgress(MainActivity.getBgValue());
         AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
@@ -50,23 +46,6 @@ public class Settings extends Activity {
             }
         });
         bgNumber.setText(MainActivity.getBgValue() + "%");
-        final SeekBar sfxVolume = findViewById(R.id.sfxVolume);
-        sfxVolume.setProgress(MainActivity.getSfxValue());
-        sfxVolume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                MainActivity.setSfxValue(progress);
-                sfxNumber.setText(MainActivity.getSfxValue() + "%");
-            }
-
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-        sfxNumber.setText(MainActivity.getSfxValue() + "%");
 
         CheckBox disableProgress = findViewById(R.id.disableProgressBars);
         if (MainActivity.getDisableProgress()) {
@@ -108,7 +87,13 @@ public class Settings extends Activity {
 
         resetGame.setOnClickListener(view -> {
             MainActivity.setWeek(0);
-            HomeFragment.progressBar(70, 70);
+            MainActivity.resetProgress();
+            MainActivity.resetWeekChange();
+            MainActivity.setHwSubmit(false);
+            MainActivity.setQuizSubmit(false);
+            MainActivity.setMidtermSubmit(false);
+            MainActivity.setMPSubmit(false);
+            MainActivity.setEncounter(false);
         });
     }
 }

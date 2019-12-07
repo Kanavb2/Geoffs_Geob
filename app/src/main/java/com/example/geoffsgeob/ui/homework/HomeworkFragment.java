@@ -18,6 +18,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
+import com.example.geoffsgeob.ui.forum.ForumFragment;
+import com.example.geoffsgeob.ui.home.HomeFragment;
 
 import java.util.Random;
 
@@ -66,6 +68,7 @@ public class HomeworkFragment extends Fragment {
         submitButton.setOnClickListener(v -> {
             MainActivity.setHwSubmit(true);
             int hwChange = 2 - Math.abs(MainActivity.getHwSelection() - optimumHw);
+            HomeFragment.hwChange = hwChange;
             MainActivity.thisWeekChange(0, hwChange);
             r.onSubmit();
         });
@@ -75,6 +78,13 @@ public class HomeworkFragment extends Fragment {
         }
         Random random = new Random();
         optimumHw = random.nextInt(10);
+        if (optimumHw < 2) {
+            advice.setText(R.string.hw_advice_02);
+        } else if (optimumHw < 6) {
+            advice.setText(R.string.hw_advice_36);
+        } else {
+            advice.setText(R.string.hw_advice_79);
+        }
         runSpinner();
 
         return root;

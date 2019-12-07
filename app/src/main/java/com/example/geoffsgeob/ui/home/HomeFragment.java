@@ -20,6 +20,7 @@ import com.example.geoffsgeob.Bonuses;
 import com.example.geoffsgeob.EndGame;
 import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
+import com.example.geoffsgeob.ui.forum.ForumFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -29,6 +30,10 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private static View root;
+    private static int encounterButtons = 0;
+    public static int hwChange;
+    public static int quizChange;
+    public static int mpChange;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -45,9 +50,42 @@ public class HomeFragment extends Fragment {
         });
 
         Button button = root.findViewById(R.id.bonuses);
+        if (MainActivity.getChuchu() && MainActivity.getBen() && MainActivity.getChallen()) {
+            button.setVisibility(View.GONE);
+        }
         button.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(), Bonuses.class);
             startActivity(intent);
+        });
+
+        TextView encounter = root.findViewById(R.id.encounter);
+        String[] encounterText = root.getResources().getStringArray(R.array.random_encounters);
+        encounter.setText(encounterText[MainActivity.getWeek()]);
+
+        Button firstButton = root.findViewById(R.id.firstButton);
+        String[] positiveEncounter = root.getResources().getStringArray(R.array.positiveEncounter);
+        firstButton.setText(positiveEncounter[MainActivity.getWeek()]);
+
+        Button secondButton = root.findViewById(R.id.secondButton);
+        String[] negativeEncounter= root.getResources().getStringArray(R.array.negativeEncounter);
+        secondButton.setText(negativeEncounter[MainActivity.getWeek()]);
+
+        if (!MainActivity.getEncounter()) {
+            showEncounters();
+        } else {
+            hideEncounters();
+        }
+
+        firstButton.setOnClickListener(view -> {
+            MainActivity.setEncounter(true);
+            hideEncounters();
+            encounterButtons = 1;
+        });
+
+        secondButton.setOnClickListener(view -> {
+            MainActivity.setEncounter(true);
+            hideEncounters();
+            encounterButtons = 2;
         });
 
         FloatingActionButton fab = root.findViewById(R.id.fab);
@@ -55,20 +93,48 @@ public class HomeFragment extends Fragment {
             if (MainActivity.getHWSubmit()
                     && MainActivity.quizDone()
                     && MainActivity.midtermDone()
-                    && MainActivity.mpDone()) {
+                    && MainActivity.mpDone()
+                    && MainActivity.getEncounter()) {
                 MainActivity.setHwSubmit(false);
                 MainActivity.setMidtermSubmit(false);
                 MainActivity.setMPSubmit(false);
                 MainActivity.setQuizSubmit(false);
+                MainActivity.setEncounter(false);
+                progressBar(MainActivity.getUniChange(), MainActivity.getStudentChange());
                 MainActivity.nextWeek();
-                if (MainActivity.getWeek() == MainActivity.getTotalWeeks()) {
-                    Intent intent = new Intent(getActivity(), EndGame.class);
-                    startActivity(intent);
-                    getActivity().finish();
+                if (encounterButtons == 1) {
+                    MainActivity.setEncounterAnswer("first");
                 }
-                HomeFragment.progressBar(MainActivity.getUniChange(), MainActivity.getStudentChange());
+                if (encounterButtons == 2) {
+                    MainActivity.setEncounterAnswer("second");
+                }
+                encounter.setText(encounterText[MainActivity.getWeek()]);
+                firstButton.setText(positiveEncounter[MainActivity.getWeek()]);
+                secondButton.setText(negativeEncounter[MainActivity.getWeek()]);
+                showEncounters();
+                encounterProgress();
+                ForumFragment.setHwChange(hwChange);
+                ForumFragment.setQuizChange(quizChange);
+                ForumFragment.setMpChange(mpChange);
                 MainActivity.resetWeekChange();
                 textView.setText("Fall 2019: Week " + MainActivity.getWeek());
+                if (MainActivity.getWeek() == MainActivity.getTotalWeeks() || MainActivity.getUniversityProgress() <= 0 || MainActivity.getStudentProgress() <= 0) {
+                    Intent intent = new Intent(view.getContext(), EndGame.class);
+                    startActivity(intent);
+                    hideProgressBars();
+                    hideBonuses();
+                    hideEncounters();
+                    textView.setVisibility(View.GONE);
+                    if (MainActivity.getUniversityProgress() < 0) {
+                        MainActivity.setUniversityProgress(0);
+                    }
+                    if (MainActivity.getStudentProgress() < 0) {
+                        MainActivity.setStudentProgress(0);
+                    }
+                    EndGame.setStudentProgress(MainActivity.getStudentProgress());
+                    EndGame.setUniversityProgress(MainActivity.getUniversityProgress());
+                    getActivity().finish();
+                }
             } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 List<String> list = new ArrayList<>();
@@ -84,8 +150,11 @@ public class HomeFragment extends Fragment {
                 if (!MainActivity.mpDone()) {
                     list.add("Machine Project\n");
                 }
+                if (!MainActivity.getEncounter()) {
+                    list.add("Encounter");
+                }
                 StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append("You can not move on to the next week till you set the difficulties for the following: \n\n");
+                stringBuilder.append("You can't move on to the next week until you set the difficulties for the following: \n\n");
                 for (int i = 0; i < list.size(); i++) {
                     stringBuilder.append(list.get(i));
                 }
@@ -128,6 +197,22 @@ public class HomeFragment extends Fragment {
 
     }
 
+    private void encounterProgress() {
+        int[] arrFirstStudent = {1, 2};
+        int[] arrFirstUniversity = {1, 2};
+        int[] arrSecondStudent = {1, 2};
+        int[] arrSecondUniversity = {1, 2};
+
+        if (MainActivity.getEncounterAnswer().equals("first")) {
+            MainActivity.setStudentProgress(arrFirstStudent[MainActivity.getWeek()]);
+            MainActivity.setUniversityProgress(arrFirstUniversity[MainActivity.getWeek()]);
+        }
+        if (MainActivity.getEncounterAnswer().equals("second")) {
+            MainActivity.setStudentProgress(arrSecondStudent[MainActivity.getWeek()]);
+            MainActivity.setUniversityProgress(- arrSecondUniversity[MainActivity.getWeek()]);
+        }
+    }
+
     public static void hideProgressBars() {
         ProgressBar universityBar = root.findViewById(R.id.universityProgress);
         ProgressBar studentBar = root.findViewById(R.id.studentProgress);
@@ -164,18 +249,26 @@ public class HomeFragment extends Fragment {
     }
     public static void hideEncounters() {
         TextView randomEncounters = root.findViewById(R.id.encounter);
-        Button yesButton = root.findViewById(R.id.positiveButton);
-        Button noButton = root.findViewById(R.id.negativeButton);
+        Button yesButton = root.findViewById(R.id.firstButton);
+        Button noButton = root.findViewById(R.id.secondButton);
+        TextView encounterHeader = root.findViewById(R.id.encounterHeader);
+        View divider = root.findViewById(R.id.divider);
 
+        encounterHeader.setVisibility(View.GONE);
+        divider.setVisibility(View.GONE);
         randomEncounters.setVisibility(View.GONE);
         yesButton.setVisibility(View.GONE);
         noButton.setVisibility(View.GONE);
     }
     public static void showEncounters() {
         TextView randomEncounters = root.findViewById(R.id.encounter);
-        Button yesButton = root.findViewById(R.id.positiveButton);
-        Button noButton = root.findViewById(R.id.negativeButton);
+        Button yesButton = root.findViewById(R.id.firstButton);
+        Button noButton = root.findViewById(R.id.secondButton);
+        TextView encounterHeader = root.findViewById(R.id.encounterHeader);
+        View divider = root.findViewById(R.id.divider);
 
+        encounterHeader.setVisibility(View.VISIBLE);
+        divider.setVisibility(View.VISIBLE);
         randomEncounters.setVisibility(View.VISIBLE);
         yesButton.setVisibility(View.VISIBLE);
         noButton.setVisibility(View.VISIBLE);

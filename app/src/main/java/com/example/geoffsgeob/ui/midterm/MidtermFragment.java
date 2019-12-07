@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
+import com.example.geoffsgeob.ui.home.HomeFragment;
 
 import java.util.Random;
 
@@ -66,7 +67,8 @@ public class MidtermFragment extends Fragment {
 
         submitButton.setOnClickListener(v -> {
             MainActivity.setMidtermSubmit(true);
-            int midtermChange = 2 - Math.abs(MainActivity.getMidtermSelection() - optimumMidterm);
+            int midtermChange = (2 - Math.abs(MainActivity.getMidtermSelection() - optimumMidterm)) * 3 / 2;
+            HomeFragment.quizChange = midtermChange;
             MainActivity.thisWeekChange(0, midtermChange);
             r.onSubmit();
         });
@@ -82,6 +84,13 @@ public class MidtermFragment extends Fragment {
             submitButton.setVisibility(View.VISIBLE);
             Random random = new Random();
             optimumMidterm = random.nextInt(10);
+            if (optimumMidterm < 2) {
+                advice.setText(R.string.midterm_advice_02);
+            } else if (optimumMidterm < 6) {
+                advice.setText(R.string.midterm_advice_36);
+            } else {
+                advice.setText(R.string.midterm_advice_79);
+            }
 
             runSpinner();
         }

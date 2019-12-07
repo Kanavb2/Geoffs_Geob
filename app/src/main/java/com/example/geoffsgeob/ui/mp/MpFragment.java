@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
+import com.example.geoffsgeob.ui.home.HomeFragment;
 
 import java.util.Random;
 
@@ -66,7 +67,8 @@ public class MpFragment extends Fragment {
 
         submitButton.setOnClickListener(v -> {
             MainActivity.setMPSubmit(true);
-            int mpChange = 2 - Math.abs(MainActivity.getMpSelection() - optimumMp);
+            int mpChange = (2 - Math.abs(MainActivity.getMpSelection() - optimumMp)) * 5 / 4;
+            HomeFragment.mpChange = mpChange;
             MainActivity.thisWeekChange(0, mpChange);
             r.onSubmit();
         });
@@ -84,6 +86,13 @@ public class MpFragment extends Fragment {
         } else {
             Random random = new Random();
             optimumMp = random.nextInt(10);
+            if (optimumMp < 2) {
+                advice.setText(R.string.mp_advice_02);
+            } else if (optimumMp < 6) {
+                advice.setText(R.string.mp_advice_36);
+            } else {
+                advice.setText(R.string.mp_advice_79);
+            }
             enterDiff.setVisibility(View.VISIBLE);
             mp.setVisibility(View.VISIBLE);
             submitButton.setVisibility(View.VISIBLE);

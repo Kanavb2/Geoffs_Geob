@@ -50,4 +50,14 @@
         android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
         android:text="@string/fifteen_week" />
+
+    <Button
+        android:id="@+id/about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginTop="70dp"
+        android:textAllCaps="false"
+        android:background="@android:color/transparent"
+        android:text="@string/menu_about" />
 </LinearLayout>

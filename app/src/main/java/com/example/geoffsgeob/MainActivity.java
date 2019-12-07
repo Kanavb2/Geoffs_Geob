@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private static boolean quizSubmit;
     private static boolean midtermSubmit;
     private static boolean mpSubmit;
+    private static boolean encounter = false;
     private static int universityProgress;
     private static int studentProgress;
     private static int hwSelection;
@@ -41,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
     private static boolean disableEncounters = false;
     private static boolean disableBonuses = false;
     private static boolean chuchu = false;
-    private static boolean xyz = false;
     private static boolean ben = false;
     private static boolean challen = false;
     private static int uniChange;
     private static int studentChange;
+    private static String encounterAnswer;
 
     /*Current issues to fix:
         1. The previousWeek algorithm
@@ -237,12 +238,6 @@ public class MainActivity extends AppCompatActivity {
     public static boolean getChuchu() {
         return chuchu;
     }
-    public static void setXyz(boolean b) {
-        xyz = b;
-    }
-    public static boolean getXyz() {
-        return xyz;
-    }
     public static void setBen(boolean b) {
         ben = b;
     }
@@ -282,5 +277,21 @@ public class MainActivity extends AppCompatActivity {
     }
     public static void setWeek(int toSet) {
         week = toSet;
+    }
+    public static void resetProgress() {
+        universityProgress = 70;
+        studentProgress = 70;
+    }
+    public static void setEncounter(boolean b) {
+        encounter = b;
+    }
+    public static boolean getEncounter() {
+        return encounter;
+    }
+    public static String getEncounterAnswer() {
+        return encounterAnswer;
+    }
+    public static void setEncounterAnswer(String s) {
+        encounterAnswer = s;
     }
 }

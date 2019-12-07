@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.example.geoffsgeob.ui.home.HomeFragment;
 
+import java.util.Random;
+
 public class Bonuses extends Activity {
 
     @Override
@@ -17,26 +19,16 @@ public class Bonuses extends Activity {
         setContentView(R.layout.activity_bonuses);
 
         Button chuchu = findViewById(R.id.chuchu);
-        Button xyz = findViewById(R.id.xyz);
         Button ben = findViewById(R.id.benNordick);
         Button challen = findViewById(R.id.geoffreyChallen);
 
         TextView chuchuText = findViewById(R.id.chuchuText);
-        TextView xyzText = findViewById(R.id.xyzText);
         TextView benText = findViewById(R.id.benNordickText);
         TextView challenText = findViewById(R.id.geoffreyText);
 
         if (MainActivity.getChuchu()) {
             chuchu.setVisibility(View.GONE);
-            xyz.setVisibility(View.GONE);
             chuchuText.setVisibility(View.GONE);
-            xyzText.setVisibility(View.GONE);
-        }
-        if (MainActivity.getXyz()) {
-            chuchu.setVisibility(View.GONE);
-            xyz.setVisibility(View.GONE);
-            chuchuText.setVisibility(View.GONE);
-            xyzText.setVisibility(View.GONE);
         }
         if (MainActivity.getBen()) {
             ben.setVisibility(View.GONE);
@@ -47,42 +39,47 @@ public class Bonuses extends Activity {
             challenText.setVisibility(View.GONE);
         }
         chuchu.setOnClickListener(view -> {
-            HomeFragment.progressBar(0, 20);
+            Random random = new Random();
+            int studRand = random.nextInt(20) + 1;
+            if (studRand < 10) {
+                studRand += 10;
+            }
+            HomeFragment.progressBar(0, studRand);
             chuchu.setVisibility(View.GONE);
-            xyz.setVisibility(View.GONE);
             chuchuText.setVisibility(View.GONE);
-            xyzText.setVisibility(View.GONE);
             MainActivity.setChuchu(true);
-            MainActivity.setXyz(true);
             Toast.makeText(Bonuses.this,
-                    "You brought Chuchu to lecture this week!", Toast.LENGTH_SHORT).show();
-        });
-        xyz.setOnClickListener(view -> {
-            HomeFragment.progressBar(0, 20);
-            chuchu.setVisibility(View.GONE);
-            xyz.setVisibility(View.GONE);
-            chuchuText.setVisibility(View.GONE);
-            xyzText.setVisibility(View.GONE);
-            MainActivity.setChuchu(true);
-            MainActivity.setXyz(true);
-            Toast.makeText(Bonuses.this,
-                    "You brought Xyz to lecture this week!", Toast.LENGTH_SHORT).show();
+                    "You brought Chuchu to lecture this week!" + " \n+ " + studRand + " Student Satisfaction", Toast.LENGTH_LONG).show();
         });
         ben.setOnClickListener(view -> {
-            HomeFragment.progressBar(10, 10);
+            Random random = new Random();
+            int uniRand = random.nextInt(10) + 1;
+            int studRand = random.nextInt(10) + 1;
+            if (uniRand < 5) {
+                uniRand += 5;
+            }
+            if (studRand < 5) {
+                studRand += 5;
+            }
+            HomeFragment.progressBar(uniRand, studRand);
             ben.setVisibility(View.GONE);
             benText.setVisibility(View.GONE);
             MainActivity.setBen(true);
             Toast.makeText(Bonuses.this,
-                    "Ben did his magic!", Toast.LENGTH_SHORT).show();
+                    "Ben did his magic!" + " \n+ " + uniRand + " University Satisfaction" + " \n+ " + studRand + " Student Satisfaction" , Toast.LENGTH_LONG).show();
         });
         challen.setOnClickListener(view -> {
-            HomeFragment.progressBar(20, 0);
+            Random random = new Random();
+            int uniRand = random.nextInt(20) + 1;
+            if (uniRand < 10) {
+                uniRand += 10;
+            }
+            HomeFragment.progressBar(uniRand, 0);
             challen.setVisibility(View.GONE);
             challenText.setVisibility(View.GONE);
             MainActivity.setChallen(true);
             Toast.makeText(Bonuses.this,
-                    "The real Geoff fixed things up for you!", Toast.LENGTH_SHORT).show();
+                    "The real Geoff fixed things up for you!" + " \n+ " + uniRand + " University Satisfaction", Toast.LENGTH_LONG).show();
         });
     }
 }

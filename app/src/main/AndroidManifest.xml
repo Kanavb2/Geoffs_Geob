@@ -29,6 +29,7 @@
         <activity android:name=".About" />
         <activity android:name=".Bonuses" />
         <activity android:name=".GameActivity" />
+        <activity android:name=".EndGame" />
         <service android:enabled="true" android:name=".BackgroundSoundService" />
 
         <meta-data

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import java.net.Inet4Address;
+
 public class NewGameActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,13 @@ public class NewGameActivity extends Activity {
             startActivity(intent);
             MainActivity.setTotalWeeks(15);
             finish();
+        });
+
+        Button about = findViewById(R.id.about);
+
+        about.setOnClickListener(view -> {
+            Intent intent = new Intent(this, About.class);
+            startActivity(intent);
         });
     }
 }
