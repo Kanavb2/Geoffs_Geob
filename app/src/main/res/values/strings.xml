@@ -262,7 +262,7 @@
             related to CS 125. Depressed, you resigned as professor and never touched a computer again.</item>
     </string-array>
     <string-array name="endgame_student_40">
-        <item>The university is sick of your shenanigans
+        <item>The university is sick of your shenanigans.
             You are forced to resign immediately, and you end up leaving the country. You never teach again.</item>
         <item>Neither your students nor the administration was happy with your work this semester.
             You are no longer allowed to hold a teaching position at UIUC. You decide to leave and try your
@@ -284,7 +284,7 @@
             but was it really worth it?</item>
     </string-array>
     <string-array name="endgame_student_60">
-        <item>The university is sick of your shenanigans You are forced to resign immediately, and you end up leaving
+        <item>The university is sick of your shenanigans. You are forced to resign immediately, and you end up leaving
             the country. You never teach again.</item>
         <item>Your students considered your teaching to be average, but the university was not very pleased
             with your work. You have now been assigned to take CS 100.</item>
@@ -299,7 +299,7 @@
             for a lot more resources next semester, to try to make your students happier. </item>
     </string-array>
     <string-array name="endgame_student_80">
-        <item>The university is sick of your shenanigans You are forced to resign immediately, and you end up leaving
+        <item>The university is sick of your shenanigans. You are forced to resign immediately, and you end up leaving
             the country. You never teach again.</item>
         <item>Your students are moderately happy with your work, but you failed at pleasing the administration.
             You were placed on probation. Do better.</item>
@@ -316,7 +316,7 @@
             just for you. Good Geob!</item>
     </string-array>
     <string-array name="endgame_student_99">
-        <item>The university is sick of your shenanigans You are forced to resign immediately, and you end up leaving
+        <item>The university is sick of your shenanigans. You are forced to resign immediately, and you end up leaving
             the country. You never teach again.</item>
         <item>Your students are extremely happy with your teaching and grading processes, congrats!
             They even send you cards on your birthday. However, you failed at pleasing the administration
@@ -332,7 +332,7 @@
             where all Js are replaced by Gs, and all Es are replaced by ‘Eo’s. Congrats!</item>
     </string-array>
     <string-array name="endgame_student_100">
-        <item>The university is sick of your shenanigans You are forced to resign immediately, and you end up leaving
+        <item>The university is sick of your shenanigans. You are forced to resign immediately, and you end up leaving
             the country. You never teach again.</item>
         <item>The university is displeased with your work, and the course faced a lot of cuts.
             Many of your TAs and Course Developers are trying to look for different jobs. However, your students
