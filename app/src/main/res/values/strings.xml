@@ -255,4 +255,103 @@
         \n1. \tMidterms are available in weeks 4, 9, and 14. \n   Quizzes are not available during these weeks.
         \n2. \tMPs start from week 2, and won’t be available in week \t   14.</string>
 
+    <string-array name="endgame_student_0">
+        <item>Wow, you handled this really badly. Everybody: your students, staff, and the administration, hate you.
+            You were forced to resign, and end up hanging yourself in a janitor’s closet at Siebel.</item>
+        <item>Oh no! Your students absolutely despise you, and they all stopped coming to lecture or doing anything
+            related to CS 125. Depressed, you resigned as professor and never touched a computer again.</item>
+    </string-array>
+    <string-array name="endgame_student_40">
+        <item>The university is sick of your shenanigans
+            You are forced to resign immediately, and you end up leaving the country. You never teach again.</item>
+        <item>Neither your students nor the administration was happy with your work this semester.
+            You are no longer allowed to hold a teaching position at UIUC. You decide to leave and try your
+            hand at teaching at a different university.</item>
+        <item>The administration and staff consider your work to be average, but the students are really disappointed.
+            A lot of them change their major thanks to you, and nobody wants to be a CA next semester.
+            You do not get more resources from the administration, but that’s okay, since you probably won’t
+            have many students to teach anymore.</item>
+        <item>While the administration and your staff are moderately happy with your work, your students seriously
+            dislike you. This shows in the ICES forms, and nobody wants to be a CA for CS 125 next semester.
+            After a little grovelling, the university is willing to provide more resources to you, to keep the class
+            running.</item>
+        <item>The ICES forms are filled with intense criticism of your teaching methods. You get almost no CAs for
+            the next semester, and course registration drops significantly. The university is more than willing to
+            provide more resources since they’re extremely happy with your work, but was it really worth it?</item>
+        <item>The administration and your staff absolutely adore you! You’re offered multiple promotions into
+            administrative positions, and you take them immediately. This is just as well, because your students
+            seriously dislike you, and completely trashed you on the ICES forms. You’re getting paid more,
+            but was it really worth it?</item>
+    </string-array>
+    <string-array name="endgame_student_60">
+        <item>The university is sick of your shenanigans You are forced to resign immediately, and you end up leaving
+            the country. You never teach again.</item>
+        <item>Your students considered your teaching to be average, but the university was not very pleased
+            with your work. You have now been assigned to take CS 100.</item>
+        <item>Everybody: your students, your staff, and the administration, considers your work to be average. It was a dry semester
+            with nothing amazing. The expectations of you have lowered, but nothing else has changed.</item>
+        <item>Expectations from your staff and the administration haven’t changed, but your students consider your work
+            to be average. Buck up, Geoff!</item>
+        <item>Your students find you to be average, but you did a great job satisfying the university! You’re getting
+            plenty more resources, and are generally seen as a good professor by them. Maybe you should try again
+            to make your students happier, however.</item>
+        <item>Your students find you to be average, the university is absolutely in love with you. You’ve been approved
+            for a lot more resources next semester, to try to make your students happier. </item>
+    </string-array>
+    <string-array name="endgame_student_80">
+        <item>The university is sick of your shenanigans You are forced to resign immediately, and you end up leaving
+            the country. You never teach again.</item>
+        <item>Your students are moderately happy with your work, but you failed at pleasing the administration.
+            You were placed on probation. Do better.</item>
+        <item>Expectations from your students haven’t changed, but the administration and your staff consider your
+            work to be average. Buck up, Geoff!</item>
+        <item>Everybody: your students, your staff, and the administration, is moderately happy with your work.
+            The expectations from you haven’t changed much, and nothing much happened.
+            Nothing much WILL happen, either.</item>
+        <item>Expectations from your students haven’t changed, but you did a great job satisfying the administration
+            and your staff. You are generally seen as a good professor, and did a better job than you did
+            last semester. Congrats!</item>
+        <item>The expectations from your students haven’t changed much, but the administration and your staff
+            absolutely adore you. They’re inviting you to your weddings and are making Geoff-themed cakes,
+            just for you. Good Geob!</item>
+    </string-array>
+    <string-array name="endgame_student_99">
+        <item>The university is sick of your shenanigans You are forced to resign immediately, and you end up leaving
+            the country. You never teach again.</item>
+        <item>Your students are extremely happy with your teaching and grading processes, congrats!
+            They even send you cards on your birthday. However, you failed at pleasing the administration
+            and your staff; you end up facing a lot of cuts for CS 125.</item>
+        <item>Your students are extremely happy with your teaching and grading processes, congrats!
+            They even send you cards on your birthday. The administration and your staff consider your work to be average.
+            You did an okay job. That’s not too bad, but you could do better.</item>
+        <item>Your students are extremely happy with your teaching and grading processes, congrats!
+            They even send you cards on your birthday. Expectations from the administration and your staff haven’t
+            changed much. You did a better job than you did last semester. Good for you, Geoff!</item>
+        <item>Whoa, you’re insanely good at professoring, Mr. Professor. You were nominated for the World’s Best Geoff
+            award, and most people agree that you should win. Along with this award, you win a personal dictionary
+            where all Js are replaced by Gs, and all Es are replaced by ‘Eo’s. Congrats!</item>
+    </string-array>
+    <string-array name="endgame_student_100">
+        <item>The university is sick of your shenanigans You are forced to resign immediately, and you end up leaving
+            the country. You never teach again.</item>
+        <item>The university is displeased with your work, and the course faced a lot of cuts.
+            Many of your TAs and Course Developers are trying to look for different jobs. However, your students
+            are perfectly satisfied with your work, congrats! Years later, when you’re old and worn, you still
+            receive wedding invitations from your students.</item>
+        <item>The administration and your staff consider your work to be average. However, your students
+            are perfectly satisfied with your work, congrats! Years later, when you’re old and worn, you still
+            receive wedding invitations from your students.</item>
+        <item>The administration and your staff are moderately happy with your work. While a few of your TAs are
+            still going to leave, most of them are happy to stay on! Your students are perfectly satisfied
+            with your work, congrats! Years later, when you’re old and worn, you still receive wedding invitations
+            from your students.</item>
+        <item>Whoa, you’re insanely good at professoring, Mr. Professor. You were nominated for the World’s Best
+            Geoff award, and most people agree that you should win. Along with this award, you win a personal
+            dictionary where all Js are replaced by Gs, and all Es are replaced by ‘Eo’s. Congrats!</item>
+        <item>You beautiful professor, you. You managed to keep your students, staff, and the administration
+            perfectly happy. You miraculous professor. You genius. You’re being nominated for multiple awards for
+            best professor at the U of I. I don’t know how you did it, but goddamn.
+            Contact the makers of this game for a cookie.</item>
+    </string-array>
+
 </resources>
