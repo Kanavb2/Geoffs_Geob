@@ -30,10 +30,10 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private static View root;
-    private static int encounterButtons = 0;
     public static int hwChange;
     public static int quizChange;
     public static int mpChange;
+    public static int midtermChange;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -58,6 +58,10 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
         });
 
+        TextView encounterHeader = root.findViewById(R.id.encounterHeader);
+        String[] encounterArray = root.getResources().getStringArray(R.array.encounterHeader);
+        encounterHeader.setText(encounterArray[MainActivity.getWeek()]);
+
         TextView encounter = root.findViewById(R.id.encounter);
         String[] encounterText = root.getResources().getStringArray(R.array.random_encounters);
         encounter.setText(encounterText[MainActivity.getWeek()]);
@@ -79,13 +83,15 @@ public class HomeFragment extends Fragment {
         firstButton.setOnClickListener(view -> {
             MainActivity.setEncounter(true);
             hideEncounters();
-            encounterButtons = 1;
+            MainActivity.encounterButtons = 1;
+            encounterProgress();
         });
 
         secondButton.setOnClickListener(view -> {
             MainActivity.setEncounter(true);
             hideEncounters();
-            encounterButtons = 2;
+            MainActivity.encounterButtons = 2;
+            encounterProgress();
         });
 
         FloatingActionButton fab = root.findViewById(R.id.fab);
@@ -101,21 +107,16 @@ public class HomeFragment extends Fragment {
                 MainActivity.setQuizSubmit(false);
                 MainActivity.setEncounter(false);
                 progressBar(MainActivity.getUniChange(), MainActivity.getStudentChange());
+                showEncounters();
                 MainActivity.nextWeek();
-                if (encounterButtons == 1) {
-                    MainActivity.setEncounterAnswer("first");
-                }
-                if (encounterButtons == 2) {
-                    MainActivity.setEncounterAnswer("second");
-                }
+                encounterHeader.setText(encounterArray[MainActivity.getWeek()]);
                 encounter.setText(encounterText[MainActivity.getWeek()]);
                 firstButton.setText(positiveEncounter[MainActivity.getWeek()]);
                 secondButton.setText(negativeEncounter[MainActivity.getWeek()]);
-                showEncounters();
-                encounterProgress();
                 ForumFragment.setHwChange(hwChange);
                 ForumFragment.setQuizChange(quizChange);
                 ForumFragment.setMpChange(mpChange);
+                ForumFragment.setMidtermChange(midtermChange);
                 MainActivity.resetWeekChange();
                 textView.setText("Fall 2019: Week " + MainActivity.getWeek());
                 if (MainActivity.getWeek() == MainActivity.getTotalWeeks() || MainActivity.getUniversityProgress() <= 0 || MainActivity.getStudentProgress() <= 0) {
@@ -198,18 +199,16 @@ public class HomeFragment extends Fragment {
     }
 
     private void encounterProgress() {
-        int[] arrFirstStudent = {1, 2};
-        int[] arrFirstUniversity = {1, 2};
-        int[] arrSecondStudent = {1, 2};
-        int[] arrSecondUniversity = {1, 2};
+        int[] arrFirstStudent = {-1, 5, 3, 5, 1, 3, 7, -4, +4, -1, 4, 1, -1, 7, -7, 0};
+        int[] arrFirstUniversity = {5, -5, -3, -5, -3, -2, 5, 3, -3, 4, -2, -2, +3, -5, +7, 0};
+        int[] arrSecondStudent = {0, -5, -5, -7, -4, -5, -7, 0, -3, -4, -4, -3, 4, -2, 2, 0};
+        int[] arrSecondUniversity = {0, 3, 5, 3, 2, -5, -3, -4, 0, -5, 2, -3, -3, 0, -7, 0};
 
-        if (MainActivity.getEncounterAnswer().equals("first")) {
-            MainActivity.setStudentProgress(arrFirstStudent[MainActivity.getWeek()]);
-            MainActivity.setUniversityProgress(arrFirstUniversity[MainActivity.getWeek()]);
+        if (MainActivity.encounterButtons == 1) {
+            MainActivity.thisWeekChange(arrFirstUniversity[MainActivity.getWeek()], arrFirstStudent[MainActivity.getWeek()]);
         }
-        if (MainActivity.getEncounterAnswer().equals("second")) {
-            MainActivity.setStudentProgress(arrSecondStudent[MainActivity.getWeek()]);
-            MainActivity.setUniversityProgress(- arrSecondUniversity[MainActivity.getWeek()]);
+        if (MainActivity.encounterButtons == 2) {
+            MainActivity.thisWeekChange(arrSecondUniversity[MainActivity.getWeek()], arrSecondStudent[MainActivity.getWeek()]);
         }
     }
 

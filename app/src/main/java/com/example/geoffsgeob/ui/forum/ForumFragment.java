@@ -14,12 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.geoffsgeob.MainActivity;
 import com.example.geoffsgeob.R;
+import com.example.geoffsgeob.ui.homework.HomeworkFragment;
+import com.example.geoffsgeob.ui.midterm.MidtermFragment;
+import com.example.geoffsgeob.ui.mp.MpFragment;
+import com.example.geoffsgeob.ui.quiz.QuizFragment;
 
 public class ForumFragment extends Fragment {
 
     private ForumViewModel forumViewModel;
     private static int hwChange;
     private static int quizChange;
+    private static int midtermChange;
     private static int mpChange;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,44 +54,49 @@ public class ForumFragment extends Fragment {
         View d3 = root.findViewById(R.id.d3);
         View d4 = root.findViewById(R.id.d4);
 
-        if (MainActivity.getWeek() < 2 || MainActivity.getWeek() % 2 == 0 || MainActivity.getWeek() > 13) {
-            mpForum.setVisibility(View.GONE);
-            mpForumText.setVisibility(View.GONE);
-            d4.setVisibility(View.GONE);
-        }
 
         if (MainActivity.getWeek() != 0) {
-            if (MainActivity.getEncounterAnswer().equals("first")) {
+            if (MainActivity.encounterButtons == 1) {
                 String[] encounterArrayFirst = root.getResources().getStringArray(R.array.encounterForumFirst);
                 encounterForumText.setText(encounterArrayFirst[MainActivity.getWeek()]);
             }
-            if (MainActivity.getEncounterAnswer().equals("second")) {
+            if (MainActivity.encounterButtons == 2) {
                 String[] encounterArraySecond = root.getResources().getStringArray(R.array.encounterForumSecond);
                 encounterForumText.setText(encounterArraySecond[MainActivity.getWeek()]);
             }
 
-            if (Math.abs(hwChange) < 3) {
-                hwForumText.setText("you done good");
-            } else if (Math.abs(hwChange) < 6) {
-                hwForumText.setText("you done bad");
+            if (hwChange < -1 && MainActivity.getHwSelection() > HomeworkFragment.optimumHw) {
+                hwForumText.setText(R.string.forum_hw_hard);
+            } else if (hwChange < -1 && MainActivity.getHwSelection() < HomeworkFragment.optimumHw) {
+                hwForumText.setText(R.string.forum_hw_easy);
             } else {
-                hwForumText.setText("you done fucked up");
+                hwForumText.setText(R.string.forum_hw_perfect);
             }
 
-            if (Math.abs(quizChange) < 2) {
-
-            } else if (Math.abs(quizChange) < 6) {
-
+            if (quizChange < -1 && MainActivity.getQuizSelection() > QuizFragment.optimumQuiz) {
+                quizForumText.setText(R.string.forum_quiz_hard);
+            } else if (quizChange < -1 && MainActivity.getQuizSelection() < QuizFragment.optimumQuiz) {
+                quizForumText.setText(R.string.forum_quiz_easy);
             } else {
-
+                quizForumText.setText(R.string.forum_quiz_perfect);
             }
 
-            if (Math.abs(mpChange) < 2) {
+            if ((MainActivity.getWeek() + 2) % 5 == 0) {
+                if (midtermChange < -1 && MainActivity.getMidtermSelection() > MidtermFragment.optimumMidterm) {
+                    quizForumText.setText(R.string.forum_midterm_hard);
+                } else if (midtermChange < -1 && MainActivity.getMidtermSelection() < MidtermFragment.optimumMidterm) {
+                    quizForumText.setText(R.string.forum_midterm_easy);
+                } else {
+                    quizForumText.setText(R.string.forum_midterm_perfect);
+                }
+            }
 
-            } else if (Math.abs(mpChange) < 6) {
-
+            if (mpChange < -1 && MainActivity.getMpSelection() > MpFragment.optimumMp) {
+                mpForumText.setText(R.string.forum_mp_hard);
+            } else if (mpChange < -1 && MainActivity.getMpSelection() < MpFragment.optimumMp) {
+                mpForumText.setText(R.string.forum_mp_easy);
             } else {
-
+                mpForumText.setText(R.string.forum_mp_perfect);
             }
 
             noPosts.setVisibility(View.GONE);
@@ -102,6 +112,11 @@ public class ForumFragment extends Fragment {
             d2.setVisibility(View.VISIBLE);
             d3.setVisibility(View.VISIBLE);
             d4.setVisibility(View.VISIBLE);
+            if (MainActivity.getWeek() < 2 || MainActivity.getWeek() % 2 == 0 || MainActivity.getWeek() > 13) {
+                mpForum.setVisibility(View.GONE);
+                mpForumText.setVisibility(View.GONE);
+                d4.setVisibility(View.GONE);
+            }
         } else {
             noPosts.setVisibility(View.VISIBLE);
             encounterForum.setVisibility(View.GONE);
@@ -129,5 +144,8 @@ public class ForumFragment extends Fragment {
     }
     public static void setMpChange(int set) {
         mpChange = set;
+    }
+    public static void setMidtermChange(int set) {
+        midtermChange = set;
     }
 }

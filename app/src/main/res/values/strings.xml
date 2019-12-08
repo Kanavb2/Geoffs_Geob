@@ -99,7 +99,7 @@
 
     </string-array>
 
-    <string-array name="oneWord">
+    <string-array name="encounterHeader">
         <item>Coders</item>
         <item>Attendance</item>
         <item>Extra Office Hours</item>
@@ -115,6 +115,7 @@
         <item>CS 125 Project Fair</item>
         <item>Meow</item>
         <item>Netflix</item>
+        <item>Nothing</item>
     </string-array>
 
     <string-array name="positiveEncounter">
@@ -183,6 +184,25 @@
     <string name="midterm_advice_02">Maybe you should make this midterm easy. The students are really stressing over it.</string>
     <string name="midterm_advice_36">You should consider making the midterm difficulty just right: not too hard, not too easy.</string>
     <string name="midterm_advice_79">Give the students a challenge this time round! Even if they mess up, at least the midterm is only worth 2% of their grade.</string>
+
+    <string name="forum_hw_easy">The homework today was so easy lol this class is a joke</string>
+    <string name="forum_hw_hard">The homework today is too hard, I wanna die aaaaaa</string>
+    <string name="forum_hw_perfect">The homework today was perfect! It was so satisfying to see I got a 100% for once</string>
+
+    <string name="forum_quiz_easy">The quiz was too easy like WTF Geoff?!?!?!!?!?!!</string>
+    <string name="forum_quiz_hard">The quiz was so hard oh my god I got like a 50%</string>
+    <string name="forum_quiz_perfect">The quiz was amazing; I did amazing and it felt perfect!</string>
+
+    <string name="forum_midterm_easy">The midterm was too easy :/ I wish I’d just prof’d out of this course</string>
+    <string name="forum_midterm_hard">The midterm was really hard. I cried myself to sleep because of it :(</string>
+    <string name="forum_midterm_perfect">The midterm was great; I did really well!</string>
+
+    <string name="forum_mp_easy">The MP is too easy… I dunno if I’m even learning anything in this course</string>
+    <string name="forum_mp_hard">THE MP IS TOO HARD ONLY JESUS CAN SAVE ME</string>
+    <string name="forum_mp_perfect">The MP was surprisingly decent this time round. Thank goodness, my grade won’t die. </string>
+
+    <string name="first_quiz">This is the first quiz of the course! You probably should go easy on the students to get them used to quizzes</string>
+    <string name="first_homework">These are the first homework problems so you should probably make it really easy :)</string>
 
     <string name="five_week">5 weeks</string>
     <string name="ten_week">10 weeks</string>

@@ -28,7 +28,7 @@ public class QuizFragment extends Fragment {
         void onSubmit();
     }
     private QuizViewModel quizViewModel;
-    private int optimumQuiz;
+    public static int optimumQuiz;
     private Spinner quiz;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -79,12 +79,16 @@ public class QuizFragment extends Fragment {
         } else {
             Random random = new Random();
             optimumQuiz = random.nextInt(10);
-            if (optimumQuiz < 2) {
+            if (optimumQuiz <= 2) {
                 advice.setText(R.string.quiz_advice_02);
-            } else if (optimumQuiz < 6) {
+            } else if (optimumQuiz <= 6) {
                 advice.setText(R.string.quiz_advice_36);
             } else {
                 advice.setText(R.string.quiz_advice_79);
+            }
+            if (MainActivity.getWeek() == 0) {
+                optimumQuiz = 0;
+                advice.setText(R.string.first_quiz);
             }
             quiz.setVisibility(View.VISIBLE);
             submitButton.setVisibility(View.VISIBLE);

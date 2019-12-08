@@ -28,7 +28,7 @@ public class MpFragment extends Fragment {
         void onSubmit();
     }
     private MpViewModel mpViewModel;
-    private int optimumMp;
+    public static int optimumMp;
     private Spinner mp;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -86,9 +86,9 @@ public class MpFragment extends Fragment {
         } else {
             Random random = new Random();
             optimumMp = random.nextInt(10);
-            if (optimumMp < 2) {
+            if (optimumMp <= 2) {
                 advice.setText(R.string.mp_advice_02);
-            } else if (optimumMp < 6) {
+            } else if (optimumMp <= 6) {
                 advice.setText(R.string.mp_advice_36);
             } else {
                 advice.setText(R.string.mp_advice_79);

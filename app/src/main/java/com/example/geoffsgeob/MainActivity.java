@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private static int uniChange;
     private static int studentChange;
     private static String encounterAnswer;
+    public static int encounterButtons = 0;
 
     /*Current issues to fix:
         1. The previousWeek algorithm

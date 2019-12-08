@@ -29,7 +29,7 @@ public class HomeworkFragment extends Fragment {
         void onSubmit();
     }
     private HomeworkViewModel homeworkViewModel;
-    private int optimumHw;
+    public static int optimumHw;
     private Spinner homework;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -78,12 +78,16 @@ public class HomeworkFragment extends Fragment {
         }
         Random random = new Random();
         optimumHw = random.nextInt(10);
-        if (optimumHw < 2) {
+        if (optimumHw <= 2) {
             advice.setText(R.string.hw_advice_02);
-        } else if (optimumHw < 6) {
+        } else if (optimumHw <= 6) {
             advice.setText(R.string.hw_advice_36);
         } else {
             advice.setText(R.string.hw_advice_79);
+        }
+        if (MainActivity.getWeek() == 0) {
+            optimumHw = 2;
+            advice.setText(R.string.first_homework);
         }
         runSpinner();
 
