@@ -287,14 +287,46 @@
         <item>Samiya Shelton</item>
     </string-array>
 
-    <string-array name="extra_names">
+    <string name="mailAdmin">Administration</string>
+    <string name="mailTACA">CS 125 TAs/CAs/CDs</string>
+    <string name="mailBoth">Literally Everybody</string>
+
+    <string-array name="encounterMailFirst">
         <item>nothing</item>
-        <item></item>
+        <item>You added something unique to the coursework and we are pleased</item>
+        <item>LECTURE SLIDES BAD WE WANT I-CLICKERS REEEEE</item>
+        <item>I’m always helping out dumb kids in office hours and I’m T I R E D I wanna nap</item>
+        <item>PURDON’T HAS WEED OUT INTRO COURSES AND NOW WE HAVE KINDERGARTEN LEVEL JAVA COURSES HOW COULD YOU DO THIS</item>
+        <item>bruh are you encouraging cheating that’s straight up WRONG yo you gotta stop or we finna fire you</item>
+        <item>bruh there were like 3 people in your lecture on Monday wtf are you doing</item>
+        <item>Yeah we wanted the course to be hard but then we don’t have enough mental health resources to deal with all your kids so just let them be happy I guess</item>
+        <item>Thanks for getting those grades up in time bud</item>
+        <item>I’m tired and worn out and I wanna die</item>
+        <item>Thank goodness you took that meme down, it was b a d</item>
+        <item>Eugh you want to hire even m o r e people? We don’t want to throw so much money on an intro CS class geeeez</item>
+        <item>we’re not happy with the substitution, just do your job Geoff</item>
+        <item>Thanks for compromising buddy, we don’t really care about you and your students; we just wanted you to o b e y</item>
+        <item>ARE YOU TRYING TO GET EVERYBODY CAT ALLERGIES I SNEEZE AT THE MERE THOUGHT OF A CAT OH MY GOD GEOFF</item>
+        <item>nothing</item>
     </string-array>
 
-    <string-array name="extra_text">
+    <string-array name="encounterMailSecond">
         <item>nothing</item>
-        <item></item>
+        <item>lol what's a coders</item>
+        <item>thanks for adding i-clickers because we believe they’re useful even though they’re expensive trash</item>
+        <item>lol it sucks for the students but at least we’ve got our work cut out for us</item>
+        <item>That’s the spirit! Now it’s like a real college course and we maintain our reputation lol i’ve never taken a cs class idk how hard it’s supposed to be</item>
+        <item>yeah that’s the spirit! Catch the evil cheaters and make them face consequences whooooo</item>
+        <item>bruh you had to cancel lecture what the actual f dude</item>
+        <item>We hate mental health and we only have one psychiatrist on campus, don’t attack us by making students have breakdowns man</item>
+        <item>YOU DELAYED THE MID-TERM GRADES?!?!?!?!! HOW COULD YOU, YOU BETTER GET THEM UP ASAP</item>
+        <item>lol idc nothing has changed for us</item>
+        <item>WHY WOULD YOU LEAVE THAT TERRIBLE MEME UP OH MY GOD DUDE</item>
+        <item>That was a LOW move. We love it!</item>
+        <item>GET RID OF THE DAMN BUGS GEOFF</item>
+        <item>You didn’t o b e y and you have angered the university administration gods, but you get what you want</item>
+        <item>lol what's a Xyz</item>
+        <item>nothing</item>
     </string-array>
 
     <string name="hw_advice_02">The students have been slogging on the homework daily. They really need a break. </string>
@@ -320,7 +352,7 @@
 
     <string name="forum_quiz_easy">The quiz was too easy like WTF Geoff?!?!?!!?!?!!</string>
     <string name="forum_quiz_hard">The quiz was so hard oh my god I got like a 50%</string>
-    <string name="forum_quiz_perfect">The quiz was amazing; I did well and it felt perfect!</string>
+    <string name="forum_quiz_perfect">The quiz was amazing; I did amazing and it felt perfect!</string>
 
     <string name="forum_midterm_easy">The midterm was too easy :/ I wish I’d just prof’d out of this course</string>
     <string name="forum_midterm_hard">The midterm was really hard. I cried myself to sleep because of it :(</string>
@@ -331,7 +363,7 @@
     <string name="forum_mp_perfect">The MP was surprisingly decent this time round. Thank goodness, my grade won’t die. </string>
 
     <string name="first_quiz">This is the first quiz of the course! You probably should go easy on the students to get them used to quizzes</string>
-    <string name="first_homework">These are the first homework problems so you should probably make it easy </string>
+    <string name="first_homework">These are the first homework problems so you should probably make it really easy :)</string>
 
     <string name="five_week">5 weeks</string>
     <string name="ten_week">10 weeks</string>
@@ -340,9 +372,7 @@
     <string name="chuchu">Chuchu</string>
     <string name="xyz">Xyz</string>
     <string name="ben_nordick">Ben Nordick</string>
-    <string name="geoff">Geoff</string>
     <string name="geoffrey_challen">The real Geoffrey Challen</string>
-    <string name="iclicker_rant">I-clickers are the WORST, I would never make my students spend more money than they already are on college</string>
     <string name="bonuses">Bonuses</string>
     <string name="satisfaction_university">University Satisfaction: </string>
     <string name="satisfaction_student">Student Satisfaction: </string>
@@ -362,15 +392,15 @@
     <string name="half">50%</string>
     <string name="text_about">About</string>
     <string name="encounter">Encounter</string>
+    <string name="no_posts">There are no posts on the forum right now!</string>
+    <string name="details_about">This game was created by Ishita Rao and Kanav Bhatnagar as their final project for CS 125. They cool. Pls give them an A+, they’ll give you a singular cookie.
+</string>
     <string name="no_mail">You have no mail this week!</string>
     <string name="mail_sender">From: University Administration</string>
     <string name="dear_geoff">Dear Geoffrey Challen,</string>
     <string name="outro_good">Thank you for your exquisite decision making. We hope you will continue to have the university\'s interests in mind when making influential choices related to the course.</string>
     <string name="outro_bad">If you continue making decisions that are against the university\'s interests, there may be serious ramifications related to your position as the professor for CS125 in the future. We hope that you will be more cautious of the consequences of your actions in the future.</string>
     <string name="end_mail">Regards,\nUniversity Administration</string>
-    <string name="no_posts">There are no posts on the forum right now!</string>
-    <string name="details_about">This game was created by Ishita Rao and Kanav Bhatnagar as their final project for CS 125. They cool. Pls give them an A+, they’ll give you a singular cookie.
-</string>
     <string name="end_game">Game over!</string>
     <string name="chuchuText">▼・ᴥ・▼\nWho doesn\'t love dogs? If you bring Chuchu to lecture it will surely brighten up all of your students\' days.</string>
     <string name="benText">You call upon Jesus himself, the Messiah! With his big brain energy, he influences both the students and the university to help your reputation. How he does so is a mystery that us mere mortals can only hope to comprehend.</string>
