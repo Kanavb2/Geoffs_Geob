@@ -199,7 +199,7 @@
 
     <string-array name="encounterForumSecondNames">
         <item>nothing</item>
-        <item>Whiny STEM Kid</item>
+        <item>Entitled STEM Kid</item>
         <item>Broke College Kid</item>
         <item>Depressed Student</item>
         <item>Struggling Beginner</item>
@@ -234,6 +234,69 @@
         <item>Nothing</item>
     </string-array>
 
+    <string-array name="student_names">
+        <item>Chirag Gupta</item>
+        <item>Abby Cote</item>
+        <item>Alia Broughton</item>
+        <item>Chanel Hall</item>
+        <item>Arianna Franco</item>
+        <item>Kalum Talley</item>
+        <item>Imran Penn</item>
+        <item>Jules Lane</item>
+        <item>Jody Lucas</item>
+        <item>Kenzie Castaneda</item>
+        <item>Ernie Arias</item>
+        <item>Kya Mcgowan</item>
+        <item>Graham Mcintyre</item>
+        <item>Cairo Hartley</item>
+        <item>Nikhil Lewis</item>
+        <item>Rikesh Greene</item>
+        <item>Shakir Sellers</item>
+        <item>Anastazja Patton</item>
+        <item>Millie-Mae Dickson</item>
+        <item>Charis Dickens</item>
+        <item>Kiyan Flynn</item>
+        <item>Shelley Ramirez</item>
+        <item>Manraj Reeves</item>
+        <item>Mikaela Clarkson</item>
+        <item>Tyrell Rowland</item>
+        <item>Isabelle Joyner</item>
+        <item>Idrees Gilmour</item>
+        <item>Lilia Berry</item>
+        <item>Campbell Robbins</item>
+        <item>Cai Quinn</item>
+        <item>Alexa Dorsey</item>
+        <item>Garfield Feeney</item>
+        <item>Effie Mercer</item>
+        <item>Geraint Burnett</item>
+        <item>Tony Hooper</item>
+        <item>Raymond Dowling</item>
+        <item>Elyse O\'Quinn</item>
+        <item>Donald Brady</item>
+        <item>Franklin Chavez</item>
+        <item>Fahmida Cash</item>
+        <item>Ceara Patrick</item>
+        <item>Rafe Power</item>
+        <item>Inaya Mcmahon</item>
+        <item>Irving Bowman</item>
+        <item>Pooja Burrows</item>
+        <item>Kristy Bailey</item>
+        <item>Aaminah Irwin</item>
+        <item>Ava-Rose Faulkner</item>
+        <item>Eshan Knight</item>
+        <item>Samiya Shelton</item>
+    </string-array>
+
+    <string-array name="extra_names">
+        <item>nothing</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="extra_text">
+        <item>nothing</item>
+        <item></item>
+    </string-array>
+
     <string name="hw_advice_02">The students have been slogging on the homework daily. They really need a break. </string>
     <string name="hw_advice_36">I think it’s okay to give homework that’s a little challenging. Nothing too difficult, though… But I wouldn’t know, I’m just code.</string>
     <string name="hw_advice_79">The students seem ready to take on some real challenges in homework!</string>
@@ -257,7 +320,7 @@
 
     <string name="forum_quiz_easy">The quiz was too easy like WTF Geoff?!?!?!!?!?!!</string>
     <string name="forum_quiz_hard">The quiz was so hard oh my god I got like a 50%</string>
-    <string name="forum_quiz_perfect">The quiz was amazing; I did amazing and it felt perfect!</string>
+    <string name="forum_quiz_perfect">The quiz was amazing; I did well and it felt perfect!</string>
 
     <string name="forum_midterm_easy">The midterm was too easy :/ I wish I’d just prof’d out of this course</string>
     <string name="forum_midterm_hard">The midterm was really hard. I cried myself to sleep because of it :(</string>
@@ -268,7 +331,7 @@
     <string name="forum_mp_perfect">The MP was surprisingly decent this time round. Thank goodness, my grade won’t die. </string>
 
     <string name="first_quiz">This is the first quiz of the course! You probably should go easy on the students to get them used to quizzes</string>
-    <string name="first_homework">These are the first homework problems so you should probably make it really easy :)</string>
+    <string name="first_homework">These are the first homework problems so you should probably make it easy </string>
 
     <string name="five_week">5 weeks</string>
     <string name="ten_week">10 weeks</string>
@@ -277,7 +340,9 @@
     <string name="chuchu">Chuchu</string>
     <string name="xyz">Xyz</string>
     <string name="ben_nordick">Ben Nordick</string>
+    <string name="geoff">Geoff</string>
     <string name="geoffrey_challen">The real Geoffrey Challen</string>
+    <string name="iclicker_rant">I-clickers are the WORST, I would never make my students spend more money than they already are on college</string>
     <string name="bonuses">Bonuses</string>
     <string name="satisfaction_university">University Satisfaction: </string>
     <string name="satisfaction_student">Student Satisfaction: </string>
@@ -297,6 +362,12 @@
     <string name="half">50%</string>
     <string name="text_about">About</string>
     <string name="encounter">Encounter</string>
+    <string name="no_mail">You have no mail this week!</string>
+    <string name="mail_sender">From: University Administration</string>
+    <string name="dear_geoff">Dear Geoffrey Challen,</string>
+    <string name="outro_good">Thank you for your exquisite decision making. We hope you will continue to have the university\'s interests in mind when making influential choices related to the course.</string>
+    <string name="outro_bad">If you continue making decisions that are against the university\'s interests, there may be serious ramifications related to your position as the professor for CS125 in the future. We hope that you will be more cautious of the consequences of your actions in the future.</string>
+    <string name="end_mail">Regards,\nUniversity Administration</string>
     <string name="no_posts">There are no posts on the forum right now!</string>
     <string name="details_about">This game was created by Ishita Rao and Kanav Bhatnagar as their final project for CS 125. They cool. Pls give them an A+, they’ll give you a singular cookie.
 </string>

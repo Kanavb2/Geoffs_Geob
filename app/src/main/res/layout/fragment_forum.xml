@@ -36,8 +36,7 @@
     <TextView
         android:id="@+id/encounterForumText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/hwForum"
@@ -55,8 +54,7 @@
     <TextView
         android:id="@+id/hwForumText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/quizForum"
@@ -74,8 +72,7 @@
     <TextView
         android:id="@+id/quizForumText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/mpForum"
@@ -93,8 +90,25 @@
     <TextView
         android:id="@+id/mpForumText"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/extraForum"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginTop="16dp"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/d5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/extraForumText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/noPosts"

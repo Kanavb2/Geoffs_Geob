@@ -88,7 +88,7 @@ public class MpFragment extends Fragment {
             optimumMp = random.nextInt(10);
             if (optimumMp <= 2) {
                 advice.setText(R.string.mp_advice_02);
-            } else if (optimumMp <= 6) {
+            } else if (optimumMp <=  6) {
                 advice.setText(R.string.mp_advice_36);
             } else {
                 advice.setText(R.string.mp_advice_79);

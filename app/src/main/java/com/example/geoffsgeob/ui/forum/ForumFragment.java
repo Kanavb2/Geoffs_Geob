@@ -19,6 +19,8 @@ import com.example.geoffsgeob.ui.midterm.MidtermFragment;
 import com.example.geoffsgeob.ui.mp.MpFragment;
 import com.example.geoffsgeob.ui.quiz.QuizFragment;
 
+import java.util.Random;
+
 public class ForumFragment extends Fragment {
 
     private ForumViewModel forumViewModel;
@@ -49,10 +51,13 @@ public class ForumFragment extends Fragment {
         TextView mpForum = root.findViewById(R.id.mpForum);
         TextView mpForumText = root.findViewById(R.id.mpForumText);
         TextView noPosts = root.findViewById(R.id.noPosts);
+        TextView extraForum = root.findViewById(R.id.extraForum);
+        TextView extraForumText = root.findViewById(R.id.extraForumText);
         View d1 = root.findViewById(R.id.d1);
         View d2 = root.findViewById(R.id.d2);
         View d3 = root.findViewById(R.id.d3);
         View d4 = root.findViewById(R.id.d4);
+        View d5 = root.findViewById(R.id.d5);
 
 
         if (MainActivity.getWeek() != 0) {
@@ -68,6 +73,16 @@ public class ForumFragment extends Fragment {
                 encounterForum.setText(encounterArraySecond[MainActivity.getWeek()]);
                 encounterForumText.setText(encounterArraySecondText[MainActivity.getWeek()]);
             }
+
+            String[] studentNames = root.getResources().getStringArray(R.array.student_names);
+            Random random = new Random();
+            int hwName = random.nextInt(50);
+            int quizName = random.nextInt(50);
+            int mpName = random.nextInt(50);
+
+            hwForum.setText(studentNames[hwName]);
+            quizForum.setText(studentNames[quizName]);
+            mpForum.setText(studentNames[mpName]);
 
             if (hwChange < -1 && MainActivity.getHwSelection() > HomeworkFragment.optimumHw) {
                 hwForumText.setText(R.string.forum_hw_hard);
@@ -103,6 +118,17 @@ public class ForumFragment extends Fragment {
                 mpForumText.setText(R.string.forum_mp_perfect);
             }
 
+            String[] extraForumArray = root.getResources().getStringArray(R.array.extra_names);
+            String[] extraForumTextArray = root.getResources().getStringArray(R.array.extra_text);
+
+            extraForum.setText(extraForumArray[MainActivity.getWeek()]);
+            extraForumText.setText(extraForumTextArray[MainActivity.getWeek()]);
+
+            if (MainActivity.getWeek() == 2) {
+                extraForum.setText(R.string.geoff);
+                extraForum.setText(R.string.iclicker_rant);
+            }
+
             noPosts.setVisibility(View.GONE);
             encounterForum.setVisibility(View.VISIBLE);
             encounterForumText.setVisibility(View.VISIBLE);
@@ -112,10 +138,13 @@ public class ForumFragment extends Fragment {
             quizForumText.setVisibility(View.VISIBLE);
             mpForum.setVisibility(View.VISIBLE);
             mpForumText.setVisibility(View.VISIBLE);
+            extraForum.setVisibility(View.VISIBLE);
+            extraForumText.setVisibility(View.VISIBLE);
             d1.setVisibility(View.VISIBLE);
             d2.setVisibility(View.VISIBLE);
             d3.setVisibility(View.VISIBLE);
             d4.setVisibility(View.VISIBLE);
+            d5.setVisibility(View.VISIBLE);
             if (MainActivity.getWeek() < 2 || MainActivity.getWeek() % 2 == 0 || MainActivity.getWeek() > 13) {
                 mpForum.setVisibility(View.GONE);
                 mpForumText.setVisibility(View.GONE);
@@ -131,10 +160,13 @@ public class ForumFragment extends Fragment {
             quizForumText.setVisibility(View.GONE);
             mpForum.setVisibility(View.GONE);
             mpForumText.setVisibility(View.GONE);
+            extraForum.setVisibility(View.GONE);
+            extraForumText.setVisibility(View.GONE);
             d1.setVisibility(View.GONE);
             d2.setVisibility(View.GONE);
             d3.setVisibility(View.GONE);
             d4.setVisibility(View.GONE);
+            d5.setVisibility(View.GONE);
         }
 
         return root;
