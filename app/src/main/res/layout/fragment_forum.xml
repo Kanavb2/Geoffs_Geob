@@ -24,9 +24,8 @@
         android:id="@+id/encounterForum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView" />
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
 
     <View
         android:id="@+id/d1"
@@ -44,9 +43,8 @@
         android:id="@+id/hwForum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="TextView" />
+        android:textStyle="bold" />
 
     <View
         android:id="@+id/d2"
@@ -64,9 +62,8 @@
         android:id="@+id/quizForum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="TextView" />
+        android:textStyle="bold" />
 
     <View
         android:id="@+id/d3"
@@ -84,9 +81,8 @@
         android:id="@+id/mpForum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="TextView" />
+        android:textStyle="bold" />
 
     <View
         android:id="@+id/d4"

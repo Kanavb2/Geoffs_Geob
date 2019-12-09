@@ -28,11 +28,11 @@ public class EndGame extends Activity {
         String[] student100 = getResources().getStringArray(R.array.endgame_student_100);
 
         TextView ending = findViewById(R.id.ending);
-        if (studentProgress == 0 && universityProgress == 0) {
+        if (studentProgress <= 0 && universityProgress <= 0) {
             ending.setText(student0[0]);
-        } else if (studentProgress == 0) {
+        } else if (studentProgress <= 0) {
             ending.setText(student0[1]);
-        } else if (universityProgress == 0) {
+        } else if (universityProgress <= 0) {
             ending.setText(student40[0]);
         }
 

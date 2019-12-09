@@ -31,5 +31,7 @@ public class MailFragment extends Fragment {
             }
         });
         return root;
+
+
     }
 }

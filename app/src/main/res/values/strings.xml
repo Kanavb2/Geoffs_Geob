@@ -46,11 +46,13 @@
         <item>Trees and Recursion</item>
         <item>Sorting</item>
         <item>Internet, Exceptions, Hashing</item>
+        <item>Nothing</item>
     </string-array>
     <string-array name="midterm_names">
         <item>Imperative Programming</item>
         <item>Object-Oriented Programming</item>
         <item>meowdterm 2</item>
+        <item>Nothing</item>
     </string-array>
     <string-array name="mp_names">
         <item>Target Mode</item>
@@ -59,6 +61,7 @@
         <item>Refactoring and More JSON</item>
         <item>Polymorphism</item>
         <item>Final Project</item>
+        <item>Nothing</item>
     </string-array>
     <string-array name="homework_names">
         <item>Simple Conditionals</item>
@@ -76,6 +79,7 @@
         <item>Sorting</item>
         <item>Exceptions</item>
         <item>Hashing</item>
+        <item>Nothing</item>
     </string-array>
 
     <string-array name="random_encounters">
@@ -156,16 +160,78 @@
         <item>nothing</item>
     </string-array>
 
+    <string-array name="encounterForumFirstNames">
+        <item>nothing</item>
+        <item>Whiny STEM Kid</item>
+        <item>Broke College Kid</item>
+        <item>Depressed Student</item>
+        <item>Struggling Beginner</item>
+        <item>Dishonest Prick</item>
+        <item>Sick Kid</item>
+        <item>Struggling Student</item>
+        <item>Confused Kid</item>
+        <item>Student who bombed 4 quizzes in a row</item>
+        <item>Edgy kid</item>
+        <item>Satisfied Student</item>
+        <item>Ben Fan 3000</item>
+        <item>Uninspired student</item>
+        <item>Cat Lady</item>
+        <item>Nothing</item>
+    </string-array>
+
     <string-array name="encounterForumFirst">
         <item>nothing</item>
-        <item>meow</item>
-        <item>slkdgjlkg</item>
+        <item>Nooooo I hate Coders because I think I\'m a superior STEM student who should not READ and should only do STEM stuff</item>
+        <item>Thank you, Geoff, for being kind enough to understand that i-clickers are an absolute waste of money. You’re my hero</item>
+        <item>Oh man the extra office hours saved my life, I can finally go to bed</item>
+        <item>I’m glad that Geoff hasn’t acknowledged the cheating… the course is really hard on beginners y\'know. btw someone send me the MP code pls because I think everyone should do my work for me since I can’t really think for myself and don’t even want to try</item>
+        <item>Thanks a lot for letting us go home Geoff, I’m hoping for a speedy recovery and this really helps!</item>
+        <item>Oh my god this really saved my grade. I think I might actually get a solid B now, if I work hard enough!</item>
+        <item>There weren’t enough people in office hours today and I couldn’t submit my MP checkpoint on time because nobody was there to help me</item>
+        <item>Oh man I really needed this extra credit to fix my GPA, this is a lifesaver</item>
+        <item>Man Geoff is such a spoilsport, that was a funny meme. This is a violation of my freedom of speech!</item>
+        <item>Yaaaay more TAs! Now maybe I’ll actually get some attention in office hours</item>
+        <item>Honestly this was the best lecture in weeks, Ben made everything better just by existing</item>
+        <item>LOL no way am I going to the project fair if it’s in Spring! I only signed up for the extra credit</item>
+        <item>Ohmigosh an adorable cat in lecture is the best thing EVER, this is going on my snap</item>
+        <item>Nothing</item>
+    </string-array>
+
+    <string-array name="encounterForumSecondNames">
+        <item>nothing</item>
+        <item>Whiny STEM Kid</item>
+        <item>Broke College Kid</item>
+        <item>Depressed Student</item>
+        <item>Struggling Beginner</item>
+        <item>Innocent Kid</item>
+        <item>Geoff</item>
+        <item>Struggling Student</item>
+        <item>Average Student</item>
+        <item>Student who bombed 4 quizzes in a row</item>
+        <item>Sane student</item>
+        <item>Unhappy student</item>
+        <item>All students</item>
+        <item>Struggling Student</item>
+        <item>Bored student</item>
+        <item>Nothing</item>
     </string-array>
 
     <string-array name="encounterForumSecond">
         <item>nothing</item>
-        <item>meow2</item>
-        <item>aljfakslfjka</item>
+        <item>I\'m so glad there isn\'t required reading for this course, this reinforces my faux feeling of superiority over other majors in other courses</item>
+        <item>Why would you agree to this Geoff, I hate i-clickers they cost MONEY. f*** capitalism</item>
+        <item>I just had ANOTHER mental breakdown in office hours. I can’t take this anymore, why wouldn’t you just listen to us :’(“</item>
+        <item>Why do bad things happen to good people? I do all my work by myself why did the plagiarism checker think I cheated? This is really going to mess up my grade</item>
+        <item>Well, I made everybody come to class and now I’m sick too. Class is cancelled, guys. Peace out.</item>
+        <item>I cry myself to sleep every night because of the MP… I need therapy</item>
+        <item>Lol who cares about mid-term grades, they don’t affect my GPA</item>
+        <item>Office hours don’t help when TAs spend less than 4 minutes with you. I WANT EXTRA CREDIT</item>
+        <item>\@Challen Why would you leave that up, this is a university course forum it’s completely inappropriate and it’s awful, I don’t want to look at that!!!!</item>
+        <item>I can’t believe you’d do that to your loyal staff, Geoff. I mean, this is a new low. I hate you now</item>
+        <item>GET. RID. OF. THE. DAMN. BUGS.</item>
+        <item>Yaaaaay the fair gives us extra credit!! Now I definitely want to go</item>
+        <item>Nothing happens in lecture anymore, I wish Geoff did something cool</item>
+        <item>Nothing</item>
     </string-array>
 
     <string name="hw_advice_02">The students have been slogging on the homework daily. They really need a break. </string>
@@ -235,6 +301,9 @@
     <string name="details_about">This game was created by Ishita Rao and Kanav Bhatnagar as their final project for CS 125. They cool. Pls give them an A+, they’ll give you a singular cookie.
 </string>
     <string name="end_game">Game over!</string>
+    <string name="chuchuText">▼・ᴥ・▼\nWho doesn\'t love dogs? If you bring Chuchu to lecture it will surely brighten up all of your students\' days.</string>
+    <string name="benText">You call upon Jesus himself, the Messiah! With his big brain energy, he influences both the students and the university to help your reputation. How he does so is a mystery that us mere mortals can only hope to comprehend.</string>
+    <string name="challenText">If you really need help THAT bad, why not contact the man, the myth, the legend! As an experienced professor, he can influence the university\'s opinion of you for the better. He will give a 2 hour lecture before doing so, though.</string>
     <string name="text_settings">Settings</string>
     <string name="mute_sounds">Mute all sounds</string>
     <string name="reset_game">Reset Game</string>

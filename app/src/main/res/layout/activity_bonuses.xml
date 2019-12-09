@@ -22,6 +22,7 @@
         android:background="@android:color/transparent"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+        android:textAllCaps="false"
         android:text="@string/chuchu" />
 
     <TextView
@@ -29,7 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="@string/chuchuText" />
 
     <Button
         android:id="@+id/benNordick"
@@ -38,6 +40,7 @@
         android:background="@android:color/transparent"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+        android:textAllCaps="false"
         android:text="@string/ben_nordick" />
 
     <TextView
@@ -45,7 +48,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="@string/benText" />
 
     <Button
         android:id="@+id/geoffreyChallen"
@@ -54,6 +58,7 @@
         android:background="@android:color/transparent"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+        android:textAllCaps="false"
         android:text="@string/geoffrey_challen" />
 
     <TextView
@@ -61,6 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="@string/challenText" />
 
 </LinearLayout>
