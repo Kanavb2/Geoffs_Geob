@@ -168,13 +168,54 @@
         <item>aljfakslfjka</item>
     </string-array>
 
+    <string name="mailAdmin">Administration</string>
+    <string name"mailTACA">CS 125 TAs/CAs/CDs</string>
+    <string name="mailBoth">Literally Everybody</string>
+
+    <string-array name="encounterMailFirst">
+        <item>nothing</item>
+        <item>You added something unique to the coursework and we are pleased</item>
+        <item>LECTURE SLIDES BAD WE WANT I-CLICKERS REEEEE</item>
+        <item>I’m always helping out dumb kids in office hours and I’m T I R E D I wanna nap</item>
+        <item>PURDON’T HAS WEED OUT INTRO COURSES AND NOW WE HAVE KINDERGARTEN LEVEL JAVA COURSES HOW COULD YOU DO THIS</item>
+        <item>bruh are you encouraging cheating that’s straight up WRONG yo you gotta stop or we finna fire you</item>
+        <item>bruh there were like 3 people in your lecture on Monday wtf are you doing</item>
+        <item>Yeah we wanted the course to be hard but then we don’t have enough mental health resources to deal with all your kids so just let them be happy I guess</item>
+        <item>Thanks for getting those grades up in time bud</item>
+        <item>I’m tired and worn out and I wanna die</item>
+        <item>Thank goodness you took that meme down, it was b a d</item>
+        <item>Eugh you want to hire even m o r e people? We don’t want to throw so much money on an intro CS class geeeez</item>
+        <item>we’re not happy with the substitution, just do your job Geoff</item>
+        <item>Thanks for compromising buddy, we don’t really care about you and your students; we just wanted you to o b e y</item>
+        <item>ARE YOU TRYING TO GET EVERYBODY CAT ALLERGIES I SNEEZE AT THE MERE THOUGHT OF A CAT OH MY GOD GEOFF</item>
+        <item>nothing</item>
+    </string-array>
+
+    <string-array name="encounterMailSecond">
+        <item>nothing</item>
+        <item>lol what's a coders</item>
+        <item>thanks for adding i-clickers because we believe they’re useful even though they’re expensive trash</item>
+        <item>lol it sucks for the students but at least we’ve got our work cut out for us</item>
+        <item>That’s the spirit! Now it’s like a real college course and we maintain our reputation lol i’ve never taken a cs class idk how hard it’s supposed to be</item>
+        <item>yeah that’s the spirit! Catch the evil cheaters and make them face consequences whooooo</item>
+        <item>bruh you had to cancel lecture what the actual f dude</item>
+        <item>We hate mental health and we only have one psychiatrist on campus, don’t attack us by making students have breakdowns man</item>
+        <item>YOU DELAYED THE MID-TERM GRADES?!?!?!?!! HOW COULD YOU, YOU BETTER GET THEM UP ASAP</item>
+        <item>lol idc nothing has changed for us</item>
+        <item>WHY WOULD YOU LEAVE THAT TERRIBLE MEME UP OH MY GOD DUDE</item>
+        <item>That was a LOW move. We love it!</item>
+        <item>GET RID OF THE DAMN BUGS GEOFF</item>
+        <item>You didn’t o b e y and you have angered the university administration gods, but you get what you want</item>
+        <item>lol what's a Xyz</item>
+    </string-array>
+
+
     <string name="hw_advice_02">The students have been slogging on the homework daily. They really need a break. </string>
     <string name="hw_advice_36">I think it’s okay to give homework that’s a little challenging. Nothing too difficult, though… But I wouldn’t know, I’m just code.</string>
     <string name="hw_advice_79">The students seem ready to take on some real challenges in homework!</string>
 
     <string name="quiz_advice_02">Maybe you should give an easy quiz this time. The students are really stressing over their grades.</string>
-    <string name="quiz_advice_36">The students would like their quizzes to be just right: not too hard, and not too easy.
-</string>
+    <string name="quiz_advice_36">The students would like their quizzes to be just right: not too hard, and not too easy.</string>
     <string name="quiz_advice_79">The students aren’t taking the quizzes seriously enough. Maybe you should remind them that they need to properly study for this course.</string>
 
     <string name="mp_advice_02">The MP always ends up overwhelming a student. You should probably make this checkpoint easy.</string>
