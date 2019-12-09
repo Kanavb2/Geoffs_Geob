@@ -235,7 +235,7 @@
     </string-array>
 
     <string name="mailAdmin">Administration</string>
-    <string name"mailTACA">CS 125 TAs/CAs/CDs</string>
+    <string name="mailTACA">CS 125 TAs/CAs/CDs</string>
     <string name="mailBoth">Literally Everybody</string>
 
     <string-array name="encounterMailFirst">
@@ -484,5 +484,4 @@
             best professor at the U of I. I don’t know how you did it, but goddamn.
             Contact the makers of this game for a cookie.</item>
     </string-array>
-
 </resources>
