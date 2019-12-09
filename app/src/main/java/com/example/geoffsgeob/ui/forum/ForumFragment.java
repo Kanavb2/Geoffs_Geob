@@ -57,12 +57,16 @@ public class ForumFragment extends Fragment {
 
         if (MainActivity.getWeek() != 0) {
             if (MainActivity.encounterButtons == 1) {
-                String[] encounterArrayFirst = root.getResources().getStringArray(R.array.encounterForumFirst);
-                encounterForumText.setText(encounterArrayFirst[MainActivity.getWeek()]);
+                String[] encounterArrayFirst = root.getResources().getStringArray(R.array.encounterForumFirstNames);
+                String[] encounterArrayFirstText = root.getResources().getStringArray(R.array.encounterForumFirst);
+                encounterForum.setText(encounterArrayFirst[MainActivity.getWeek()]);
+                encounterForumText.setText(encounterArrayFirstText[MainActivity.getWeek()]);
             }
             if (MainActivity.encounterButtons == 2) {
-                String[] encounterArraySecond = root.getResources().getStringArray(R.array.encounterForumSecond);
-                encounterForumText.setText(encounterArraySecond[MainActivity.getWeek()]);
+                String[] encounterArraySecond = root.getResources().getStringArray(R.array.encounterForumSecondNames);
+                String[] encounterArraySecondText = root.getResources().getStringArray(R.array.encounterForumSecond);
+                encounterForum.setText(encounterArraySecond[MainActivity.getWeek()]);
+                encounterForumText.setText(encounterArraySecondText[MainActivity.getWeek()]);
             }
 
             if (hwChange < -1 && MainActivity.getHwSelection() > HomeworkFragment.optimumHw) {
