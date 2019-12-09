@@ -234,9 +234,16 @@
         <item>Nothing</item>
     </string-array>
 
-    <string name="mailAdmin">Administration</string>
-    <string name="mailTACA">CS 125 TAs/CAs/CDs</string>
-    <string name="mailBoth">Literally Everybody</string>
+    <string name="mailWelcome">Welcome to your Mail, Geoff!</string>
+    <string name="mailAdmin">From: administration@illinois.edu</string>
+    <string name="mailTACA">From: nordick@illinois.edu</string>
+    <string name="mailBoth">From: LiterallyEverybody@illinois.edu</string>
+    <string name="mailTo">To: challen@illinois.edu</string>
+    <string name="mailSubject">Subject: </string>
+    <string name="mailSalutation">Dear Geoff, </string>
+    <string name="mailClosingAdmin">Regards, \nUniversity Administration</string>
+    <string name="mailClosingTACA">Regards, \nYour TAs, CAs, and CDs</string>
+    <string name="mailCLosingEverybody">Regards, \nLiterally Everybody</string>
 
     <string-array name="encounterMailFirst">
         <item>nothing</item>
