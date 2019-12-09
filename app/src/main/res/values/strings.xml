@@ -199,7 +199,7 @@
 
     <string-array name="encounterForumSecondNames">
         <item>nothing</item>
-        <item>Entitled STEM Kid</item>
+        <item>Whiny STEM Kid</item>
         <item>Broke College Kid</item>
         <item>Depressed Student</item>
         <item>Struggling Beginner</item>
@@ -287,9 +287,16 @@
         <item>Samiya Shelton</item>
     </string-array>
 
-    <string name="mailAdmin">Administration</string>
-    <string name="mailTACA">CS 125 TAs/CAs/CDs</string>
-    <string name="mailBoth">Literally Everybody</string>
+    <string name="mailWelcome">Welcome to your Mail, Geoff!</string>
+    <string name="mailAdmin">From: administration@illinois.edu</string>
+    <string name="mailTACA">From: nordick@illinois.edu</string>
+    <string name="mailBoth">From: LiterallyEverybody@illinois.edu</string>
+    <string name="mailTo">To: challen@illinois.edu</string>
+    <string name="mailSubject">Subject: </string>
+    <string name="mailSalutation">Dear Geoff, </string>
+    <string name="mailClosingAdmin">Regards, \nUniversity Administration</string>
+    <string name="mailClosingTACA">Regards, \nYour TAs, CAs, and CDs</string>
+    <string name="mailCLosingEverybody">Regards, \nLiterally Everybody</string>
 
     <string-array name="encounterMailFirst">
         <item>nothing</item>
@@ -328,6 +335,7 @@
         <item>lol what's a Xyz</item>
         <item>nothing</item>
     </string-array>
+
 
     <string name="hw_advice_02">The students have been slogging on the homework daily. They really need a break. </string>
     <string name="hw_advice_36">I think it’s okay to give homework that’s a little challenging. Nothing too difficult, though… But I wouldn’t know, I’m just code.</string>
@@ -395,12 +403,6 @@
     <string name="no_posts">There are no posts on the forum right now!</string>
     <string name="details_about">This game was created by Ishita Rao and Kanav Bhatnagar as their final project for CS 125. They cool. Pls give them an A+, they’ll give you a singular cookie.
 </string>
-    <string name="no_mail">You have no mail this week!</string>
-    <string name="mail_sender">From: University Administration</string>
-    <string name="dear_geoff">Dear Geoffrey Challen,</string>
-    <string name="outro_good">Thank you for your exquisite decision making. We hope you will continue to have the university\'s interests in mind when making influential choices related to the course.</string>
-    <string name="outro_bad">If you continue making decisions that are against the university\'s interests, there may be serious ramifications related to your position as the professor for CS125 in the future. We hope that you will be more cautious of the consequences of your actions in the future.</string>
-    <string name="end_mail">Regards,\nUniversity Administration</string>
     <string name="end_game">Game over!</string>
     <string name="chuchuText">▼・ᴥ・▼\nWho doesn\'t love dogs? If you bring Chuchu to lecture it will surely brighten up all of your students\' days.</string>
     <string name="benText">You call upon Jesus himself, the Messiah! With his big brain energy, he influences both the students and the university to help your reputation. How he does so is a mystery that us mere mortals can only hope to comprehend.</string>
@@ -543,5 +545,4 @@
             best professor at the U of I. I don’t know how you did it, but goddamn.
             Contact the makers of this game for a cookie.</item>
     </string-array>
-
 </resources>
