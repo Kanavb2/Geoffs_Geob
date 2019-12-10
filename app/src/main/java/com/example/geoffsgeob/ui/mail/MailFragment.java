@@ -33,14 +33,50 @@ public class MailFragment extends Fragment {
             }
         });
 
+        TextView mailSender = root.findViewById(R.id.mailSender);
         TextView mailSubject = root.findViewById(R.id.mailSubject);
         TextView mainBody = root.findViewById(R.id.mainBody);
         TextView outro = root.findViewById(R.id.outro);
+        TextView endMail = root.findViewById(R.id.endMail);
 
         outro.setVisibility(View.VISIBLE);
 
-        if (MainActivity.encounterButtons == 1) {
-            int[] arrFirstUniversity = {0, 5, -5, -3, -5, -3, -2, 5, 3, -3, 4, -2, -2, +3, -5, +7, 0};
+        if (MainActivity.getWeek() == 3 || MainActivity.getWeek() == 9) {
+            mailSender.setText(R.string.mailTACA);
+            endMail.setText(R.string.mailClosingTACA);
+        } else {
+            mailSender.setText(R.string.mailAdmin);
+            endMail.setText(R.string.mailClosingAdmin);
+            if (MainActivity.getWeek() == 10 && MainActivity.getEncounterButtons() == 2) {
+                mailSender.setText(R.string.mailBoth);
+                mailSender.setText(R.string.mailCLosingEverybody);
+            }
+        }
+
+        String[] mailSubjectArray = root.getResources().getStringArray(R.array.mailSubject);
+        mailSubject.setText(mailSubjectArray[MainActivity.getWeek()]);
+        if (MainActivity.getWeek() == 1 && MainActivity.getEncounterButtons() == 2) {
+            mailSubject.setText(R.string.check_in);
+        }
+        if (MainActivity.getWeek() == 7 && MainActivity.getEncounterButtons() == 2) {
+            mailSubject.setText(R.string.stressed_students);
+        }
+
+        if (MainActivity.getEncounterButtons() == 1) {
+            String[] encounterMailFirst = root.getResources().getStringArray(R.array.encounterMailFirst);
+            mainBody.setText(encounterMailFirst[MainActivity.getWeek()]);
+        } else if (MainActivity.getEncounterButtons() == 2) {
+            String[] encounterMailSecond = root.getResources().getStringArray(R.array.encounterMailSecond);
+            mainBody.setText(encounterMailSecond[MainActivity.getWeek()]);
+        }
+
+        if (MainActivity.getWeek() == 0) {
+            mainBody.setText(R.string.mail_welcome);
+            outro.setVisibility(View.GONE);
+        }
+
+        if (MainActivity.getEncounterButtons() == 1) {
+            int[] arrFirstUniversity = {0, 5, -5, -3, -5, -3, -2, 5, 4, -3, 4, -2, -2, +3, -3, +7, 0};
             if (arrFirstUniversity[MainActivity.getWeek()] > 0) {
                 outro.setText(R.string.outro_good);
             } else if (arrFirstUniversity[MainActivity.getWeek()] < 0) {
@@ -49,8 +85,8 @@ public class MailFragment extends Fragment {
                 outro.setVisibility(View.GONE);
             }
         }
-        if (MainActivity.encounterButtons == 2) {
-            int[] arrSecondUniversity = {0, 0, 3, 5, 3, 2, -5, -3, -4, 0, -5, 2, -3, -3, 0, -7, 0};
+        if (MainActivity.getEncounterButtons() == 2) {
+            int[] arrSecondUniversity = {0, 0, 4, 5, 3, 4, -5, -3, -4, 0, -5, 2, -3, -3, 0, -7, 0};
             if (arrSecondUniversity[MainActivity.getWeek()] > 0) {
                 outro.setText(R.string.outro_good);
             } else if (arrSecondUniversity[MainActivity.getWeek()] < 0) {

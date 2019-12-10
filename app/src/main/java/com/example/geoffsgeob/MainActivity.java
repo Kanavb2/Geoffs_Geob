@@ -1,6 +1,5 @@
 package com.example.geoffsgeob;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -19,7 +18,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 
 /** Navigation menu.
@@ -41,17 +39,16 @@ public class MainActivity extends AppCompatActivity {
     private static int mpSelection;
     private static int week;
     private static int bgValue = 50;
-    private static int sfxValue = 50;
     private static boolean disableProgress = false;
     private static boolean disableEncounters = false;
     private static boolean disableBonuses = false;
+    private static boolean cat = false;
     private static boolean chuchu = false;
     private static boolean ben = false;
     private static boolean challen = false;
     private static int uniChange;
     private static int studentChange;
-    private static String encounterAnswer;
-    public static int encounterButtons = 0;
+    private static int encounterButtons = 0;
 
     /** Runs when the menu button is clicked.
      * @param savedInstanceState is a bundle man idk we didn't learn this in the MPs.
@@ -86,10 +83,24 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
 
-        
-        Menu menu = navigationView.getMenu();
-        MenuItem navForum = menu.findItem(R.id.nav_forum);
-        navForum.setIcon(R.drawable.ic_cat_black_24dp);
+        if (getCat()) {
+            Menu menu = navigationView.getMenu();
+            MenuItem navForum = menu.findItem(R.id.nav_forum);
+            navForum.setIcon(R.drawable.ic_cat_black_24dp);
+            MenuItem navMail = menu.findItem(R.id.nav_mail);
+            navMail.setIcon(R.drawable.ic_cat_black_24dp);
+            MenuItem navHW = menu.findItem(R.id.nav_homework);
+            navHW.setIcon(R.drawable.ic_cat_black_24dp);
+            MenuItem navQuiz = menu.findItem(R.id.nav_quiz);
+            navQuiz.setIcon(R.drawable.ic_cat_black_24dp);
+            MenuItem navMidterm = menu.findItem(R.id.nav_midterm);
+            navMidterm.setIcon(R.drawable.ic_cat_black_24dp);
+            MenuItem navMP = menu.findItem(R.id.nav_mp);
+            navMP.setIcon(R.drawable.ic_cat_black_24dp);
+            MenuItem navHome = menu.findItem(R.id.nav_home);
+            navHome.setIcon(R.drawable.ic_cat_black_24dp);
+        }
+
 
         Button settings = findViewById(R.id.settings);
         Button help = findViewById(R.id.help);
@@ -106,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
 
         Intent svc = new Intent(this, BackgroundSoundService.class);
         startService(svc);
-
     }
 
     @Override
@@ -193,14 +203,8 @@ public class MainActivity extends AppCompatActivity {
     public static void setBgValue(int set) {
         bgValue = set;
     }
-    public static void setSfxValue(int set) {
-        sfxValue = set;
-    }
     public static int getBgValue() {
         return bgValue;
-    }
-    public static int getSfxValue() {
-        return sfxValue;
     }
     public static void setDisableProgress(boolean b) {
         disableProgress = b;
@@ -292,10 +296,16 @@ public class MainActivity extends AppCompatActivity {
     public static boolean getEncounter() {
         return encounter;
     }
-    public static String getEncounterAnswer() {
-        return encounterAnswer;
+    public static void setEncounterButtons(int set) {
+        encounterButtons = set;
     }
-    public static void setEncounterAnswer(String s) {
-        encounterAnswer = s;
+    public static int getEncounterButtons() {
+        return encounterButtons;
+    }
+    public static void setCat(boolean b) {
+        cat = b;
+    }
+    public static boolean getCat() {
+        return cat;
     }
 }

@@ -2,6 +2,7 @@ package com.example.geoffsgeob;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.widget.Button;
@@ -81,6 +82,20 @@ public class Settings extends Activity {
             } else {
                 MainActivity.setDisableBonuses(false);
             }
+        }));
+
+        CheckBox cat = findViewById(R.id.catMode);
+        if (MainActivity.getCat()) {
+            cat.setChecked(true);
+        }
+        disableBonuses.setOnCheckedChangeListener(((compoundButton, b) -> {
+            if (compoundButton.isChecked()) {
+                MainActivity.setCat(true);
+            } else {
+                MainActivity.setCat(false);
+            }
+            Intent svc = new Intent(this, BackgroundSoundService.class);
+            startService(svc);
         }));
 
         Button resetGame = findViewById(R.id.resetGame);

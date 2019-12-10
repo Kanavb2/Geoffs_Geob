@@ -61,13 +61,13 @@ public class ForumFragment extends Fragment {
 
 
         if (MainActivity.getWeek() != 0) {
-            if (MainActivity.encounterButtons == 1) {
+            if (MainActivity.getEncounterButtons() == 1) {
                 String[] encounterArrayFirst = root.getResources().getStringArray(R.array.encounterForumFirstNames);
                 String[] encounterArrayFirstText = root.getResources().getStringArray(R.array.encounterForumFirst);
                 encounterForum.setText(encounterArrayFirst[MainActivity.getWeek()]);
                 encounterForumText.setText(encounterArrayFirstText[MainActivity.getWeek()]);
             }
-            if (MainActivity.encounterButtons == 2) {
+            if (MainActivity.getEncounterButtons() == 2) {
                 String[] encounterArraySecond = root.getResources().getStringArray(R.array.encounterForumSecondNames);
                 String[] encounterArraySecondText = root.getResources().getStringArray(R.array.encounterForumSecond);
                 encounterForum.setText(encounterArraySecond[MainActivity.getWeek()]);
@@ -118,17 +118,6 @@ public class ForumFragment extends Fragment {
                 mpForumText.setText(R.string.forum_mp_perfect);
             }
 
-            String[] extraForumArray = root.getResources().getStringArray(R.array.extra_names);
-            String[] extraForumTextArray = root.getResources().getStringArray(R.array.extra_text);
-
-            extraForum.setText(extraForumArray[MainActivity.getWeek()]);
-            extraForumText.setText(extraForumTextArray[MainActivity.getWeek()]);
-
-            if (MainActivity.getWeek() == 2) {
-                extraForum.setText(R.string.geoff);
-                extraForum.setText(R.string.iclicker_rant);
-            }
-
             noPosts.setVisibility(View.GONE);
             encounterForum.setVisibility(View.VISIBLE);
             encounterForumText.setVisibility(View.VISIBLE);
@@ -149,6 +138,14 @@ public class ForumFragment extends Fragment {
                 mpForum.setVisibility(View.GONE);
                 mpForumText.setVisibility(View.GONE);
                 d4.setVisibility(View.GONE);
+            }
+            if (MainActivity.getWeek() == 2 && MainActivity.getEncounterButtons() == 1) {
+                extraForum.setText(R.string.geoff);
+                extraForumText.setText(R.string.iclicker_rant);
+            } else {
+                extraForum.setVisibility(View.GONE);
+                extraForumText.setVisibility(View.GONE);
+                d5.setVisibility(View.GONE);
             }
         } else {
             noPosts.setVisibility(View.VISIBLE);
