@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+
         Button settings = findViewById(R.id.settings);
         Button help = findViewById(R.id.help);
 
@@ -101,22 +102,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void changeIcons() {
+        Menu menu = navigationView.getMenu();
+        MenuItem navForum = menu.findItem(R.id.nav_forum);
+        MenuItem navMail = menu.findItem(R.id.nav_mail);
+        MenuItem navHW = menu.findItem(R.id.nav_homework);
+        MenuItem navQuiz = menu.findItem(R.id.nav_quiz);
+        MenuItem navMidterm = menu.findItem(R.id.nav_midterm);
+        MenuItem navMP = menu.findItem(R.id.nav_mp);
+        MenuItem navHome = menu.findItem(R.id.nav_home);
+
         if (getCat()) {
-            Menu menu = navigationView.getMenu();
-            MenuItem navForum = menu.findItem(R.id.nav_forum);
             navForum.setIcon(R.drawable.ic_cat_black_24dp);
-            MenuItem navMail = menu.findItem(R.id.nav_mail);
             navMail.setIcon(R.drawable.ic_cat_black_24dp);
-            MenuItem navHW = menu.findItem(R.id.nav_homework);
             navHW.setIcon(R.drawable.ic_cat_black_24dp);
-            MenuItem navQuiz = menu.findItem(R.id.nav_quiz);
             navQuiz.setIcon(R.drawable.ic_cat_black_24dp);
-            MenuItem navMidterm = menu.findItem(R.id.nav_midterm);
             navMidterm.setIcon(R.drawable.ic_cat_black_24dp);
-            MenuItem navMP = menu.findItem(R.id.nav_mp);
             navMP.setIcon(R.drawable.ic_cat_black_24dp);
-            MenuItem navHome = menu.findItem(R.id.nav_home);
             navHome.setIcon(R.drawable.ic_cat_black_24dp);
+        } else {
+            navForum.setIcon(R.drawable.ic_forum_black_24dp);
+            navMail.setIcon(R.drawable.ic_email);
+            navHW.setIcon(R.drawable.ic_code_black_24dp);
+            navQuiz.setIcon(R.drawable.ic_question_mark);
+            navMidterm.setIcon(R.drawable.ic_assessment_black_24dp);
+            navMP.setIcon(R.drawable.ic_android_black_24dp);
+            navHome.setIcon(R.drawable.ic_home_black_24dp);
         }
     }
 

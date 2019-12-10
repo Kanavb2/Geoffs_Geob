@@ -91,12 +91,11 @@ public class Settings extends Activity {
         cat.setOnCheckedChangeListener(((compoundButton, b) -> {
             if (compoundButton.isChecked()) {
                 MainActivity.setCat(true);
-                MainActivity.changeIcons();
             } else {
                 MainActivity.setCat(false);
-                MainActivity.changeIcons();
             }
-
+            MainActivity.changeIcons();
+            BackgroundSoundService.changeMusic();
         }));
 
         Button resetGame = findViewById(R.id.resetGame);
