@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private static int uniChange;
     private static int studentChange;
     private static int encounterButtons = 0;
+    private static NavigationView navigationView;
 
     /** Runs when the menu button is clicked.
      * @param savedInstanceState is a bundle man idk we didn't learn this in the MPs.
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         resetWeekChange();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -81,25 +82,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-
-        if (getCat()) {
-            Menu menu = navigationView.getMenu();
-            MenuItem navForum = menu.findItem(R.id.nav_forum);
-            navForum.setIcon(R.drawable.ic_cat_black_24dp);
-            MenuItem navMail = menu.findItem(R.id.nav_mail);
-            navMail.setIcon(R.drawable.ic_cat_black_24dp);
-            MenuItem navHW = menu.findItem(R.id.nav_homework);
-            navHW.setIcon(R.drawable.ic_cat_black_24dp);
-            MenuItem navQuiz = menu.findItem(R.id.nav_quiz);
-            navQuiz.setIcon(R.drawable.ic_cat_black_24dp);
-            MenuItem navMidterm = menu.findItem(R.id.nav_midterm);
-            navMidterm.setIcon(R.drawable.ic_cat_black_24dp);
-            MenuItem navMP = menu.findItem(R.id.nav_mp);
-            navMP.setIcon(R.drawable.ic_cat_black_24dp);
-            MenuItem navHome = menu.findItem(R.id.nav_home);
-            navHome.setIcon(R.drawable.ic_cat_black_24dp);
-        }
 
 
         Button settings = findViewById(R.id.settings);
@@ -117,6 +99,35 @@ public class MainActivity extends AppCompatActivity {
 
         Intent svc = new Intent(this, BackgroundSoundService.class);
         startService(svc);
+    }
+
+    public void changeIcons() {
+        Menu menu = navigationView.getMenu();
+        MenuItem navForum = menu.findItem(R.id.nav_forum);
+        MenuItem navMail = menu.findItem(R.id.nav_mail);
+        MenuItem navHW = menu.findItem(R.id.nav_homework);
+        MenuItem navQuiz = menu.findItem(R.id.nav_quiz);
+        MenuItem navMidterm = menu.findItem(R.id.nav_midterm);
+        MenuItem navMP = menu.findItem(R.id.nav_mp);
+        MenuItem navHome = menu.findItem(R.id.nav_home);
+
+        if (getCat()) {
+            navForum.setIcon(R.drawable.ic_cat_black_24dp);
+            navMail.setIcon(R.drawable.ic_cat_black_24dp);
+            navHW.setIcon(R.drawable.ic_cat_black_24dp);
+            navQuiz.setIcon(R.drawable.ic_cat_black_24dp);
+            navMidterm.setIcon(R.drawable.ic_cat_black_24dp);
+            navMP.setIcon(R.drawable.ic_cat_black_24dp);
+            navHome.setIcon(R.drawable.ic_cat_black_24dp);
+        } else {
+            navForum.setIcon(R.drawable.ic_forum_black_24dp);
+            navMail.setIcon(R.drawable.ic_email);
+            navHW.setIcon(R.drawable.ic_code_black_24dp);
+            navQuiz.setIcon(R.drawable.ic_question_mark);
+            navMidterm.setIcon(R.drawable.ic_assessment_black_24dp);
+            navMP.setIcon(R.drawable.ic_android_black_24dp);
+            navHome.setIcon(R.drawable.ic_home_black_24dp);
+        }
     }
 
     @Override
