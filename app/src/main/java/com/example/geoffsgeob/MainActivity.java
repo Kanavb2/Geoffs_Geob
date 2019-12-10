@@ -1,5 +1,6 @@
 package com.example.geoffsgeob;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -16,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.View;
 import android.widget.Button;
 
 /** Navigation menu.
@@ -48,14 +50,6 @@ public class MainActivity extends AppCompatActivity {
     private static int studentChange;
     private static String encounterAnswer;
     public static int encounterButtons = 0;
-
-    /*Current issues to fix:
-        1. The previousWeek algorithm
-        2. You have to open MP/Midterm fragments every week just to set their booleans to true. resolved :)
-        3. Next week FAB doesn't go to the next week kmn in ANY of them. kinda sorta did it maybe i dunno im sorry
-        4. The submit button in quiz just pops up in week 1 for some reason. resolved :)
-        5. MP fragment isn't showing the right text. resolved :)
-     */
 
     /** Runs when the menu button is clicked.
      * @param savedInstanceState is a bundle man idk we didn't learn this in the MPs.
@@ -104,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent svc = new Intent(this, BackgroundSoundService.class);
         startService(svc);
+        
     }
 
     @Override
