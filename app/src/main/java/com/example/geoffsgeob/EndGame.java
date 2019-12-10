@@ -57,7 +57,7 @@ public class EndGame extends Activity {
                 ending.setText(student60[3]);
             } else if (universityProgress > 80 && universityProgress <= 99) {
                 ending.setText(student60[4]);
-            } else if (universityProgress == 100) {
+            } else if (universityProgress >= 100) {
                 ending.setText(student60[5]);
             }
         } else if (studentProgress > 60 && studentProgress <= 80) {
