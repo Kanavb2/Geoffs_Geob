@@ -52,7 +52,7 @@ public class EndGame extends Activity {
                 ending.setText(student40[3]);
             } else if (universityProgress > 80 && universityProgress <= 99) {
                 ending.setText(student40[4]);
-            } else if (universityProgress == 100) {
+            } else if (universityProgress >= 100) {
                 ending.setText(student40[5]);
             }
         } else if (studentProgress > 40 && studentProgress <= 60) {
@@ -64,7 +64,7 @@ public class EndGame extends Activity {
                 ending.setText(student60[3]);
             } else if (universityProgress > 80 && universityProgress <= 99) {
                 ending.setText(student60[4]);
-            } else if (universityProgress == 100) {
+            } else if (universityProgress >= 100) {
                 ending.setText(student60[5]);
             }
         } else if (studentProgress > 60 && studentProgress <= 80) {
@@ -76,7 +76,7 @@ public class EndGame extends Activity {
                 ending.setText(student80[3]);
             } else if (universityProgress > 80 && universityProgress <= 99) {
                 ending.setText(student80[4]);
-            } else if (universityProgress == 100) {
+            } else if (universityProgress >= 100) {
                 ending.setText(student80[5]);
             }
         } else if (studentProgress > 80 && studentProgress <= 99) {
@@ -88,7 +88,7 @@ public class EndGame extends Activity {
                 ending.setText(student99[3]);
             } else if (universityProgress > 80 && universityProgress <= 99) {
                 ending.setText(student99[4]);
-            } else if (universityProgress == 100) {
+            } else if (universityProgress >= 100) {
                 ending.setText(student99[5]);
             }
         } else if (studentProgress == 100) {
@@ -100,7 +100,7 @@ public class EndGame extends Activity {
                 ending.setText(student100[3]);
             } else if (universityProgress > 80 && universityProgress <= 99) {
                 ending.setText(student100[4]);
-            } else if (universityProgress == 100) {
+            } else if (universityProgress >= 100) {
                 ending.setText(student100[5]);
             }
         }
