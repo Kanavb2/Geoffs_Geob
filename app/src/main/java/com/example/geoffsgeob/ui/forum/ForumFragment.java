@@ -100,7 +100,7 @@ public class ForumFragment extends Fragment {
                 quizForumText.setText(R.string.forum_quiz_perfect);
             }
 
-            if ((MainActivity.getWeek() + 2) % 5 == 0) {
+            if (MainActivity.getWeek() % 5 == 0) {
                 if (midtermChange < -1 && MainActivity.getMidtermSelection() > MidtermFragment.optimumMidterm) {
                     quizForumText.setText(R.string.forum_midterm_hard);
                 } else if (midtermChange < -1 && MainActivity.getMidtermSelection() < MidtermFragment.optimumMidterm) {

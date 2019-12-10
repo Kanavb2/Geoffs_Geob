@@ -206,7 +206,7 @@ public class HomeFragment extends Fragment {
 
 
         if (MainActivity.getEncounterButtons() == 1) {
-            MainActivity.thisWeekChange(arrFirstUniversity[MainActivity.getWeek() - 1], arrFirstStudent[MainActivity.getWeek() - 1]);
+            MainActivity.thisWeekChange(arrFirstUniversity[MainActivity.getWeek() - 1], arrFirstStudent[MainActivity.getWeek() - 1      ]);
         }
         if (MainActivity.getEncounterButtons() == 2) {
             MainActivity.thisWeekChange(arrSecondUniversity[MainActivity.getWeek() - 1], arrSecondStudent[MainActivity.getWeek() - 1]);
