@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
             navHW.setIcon(R.drawable.ic_cat_black_24dp);
             navQuiz.setIcon(R.drawable.ic_cat_black_24dp);
             navMidterm.setIcon(R.drawable.ic_cat_black_24dp);
+            navMidterm.setTitle("Meowdterm");
             navMP.setIcon(R.drawable.ic_cat_black_24dp);
             navHome.setIcon(R.drawable.ic_cat_black_24dp);
         } else {
@@ -126,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
             navHW.setIcon(R.drawable.ic_code_black_24dp);
             navQuiz.setIcon(R.drawable.ic_question_mark);
             navMidterm.setIcon(R.drawable.ic_assessment_black_24dp);
+            navMidterm.setTitle(R.string.menu_midterm);
             navMP.setIcon(R.drawable.ic_android_black_24dp);
             navHome.setIcon(R.drawable.ic_home_black_24dp);
         }

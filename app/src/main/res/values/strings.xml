@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Geoff\'s Geob</string>
-    <string name="app_name_title">Geoff\'s \nGeob</string>
+    <string name="app_name_title">Geoff\'s Geob</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Challen\'s Chontrols</string>
@@ -414,7 +414,7 @@
     <string name="no_mp">There is no MP this week. Check back later!</string>
     <string name="no_midterm">There are no midterms this week. Check back later!</string>
     <string name="text_submit">Submit</string>
-    <string name="cat_mode">Cat mode</string>
+    <string name="cat_mode">Xyz mode</string>
     <string name="disable_progress_bars">Hide satisfaction meters</string>
     <string name="disable_encounters">Disable encounters</string>
     <string name="text_general">General</string>
