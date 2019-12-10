@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private static boolean chuchu = false;
     private static boolean ben = false;
     private static boolean challen = false;
+    public static int encounterMeow = 0;
     private static int uniChange;
     private static int studentChange;
     private static int encounterButtons = 0;
