@@ -32,11 +32,11 @@
         android:layout_marginTop="8dp" />
 
     <TextView
-        android:id="@+id/dearGeoff"
+        android:id="@+id/mailSalutation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/dear_geoff" />
+        android:text="@string/mailSalutation" />
 
     <TextView
         android:id="@+id/mainBody"
@@ -54,8 +54,7 @@
         android:id="@+id/endMail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/end_mail" />
+        android:layout_marginTop="8dp" />
 
 
 </LinearLayout>

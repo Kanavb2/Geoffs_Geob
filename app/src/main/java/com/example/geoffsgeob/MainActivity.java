@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     private static int mpSelection;
     private static int week;
     private static int bgValue = 50;
-    private static int sfxValue = 50;
     private static boolean disableProgress = false;
     private static boolean disableEncounters = false;
     private static boolean disableBonuses = false;
@@ -46,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private static boolean challen = false;
     private static int uniChange;
     private static int studentChange;
-    private static String encounterAnswer;
-    public static int encounterButtons = 0;
+    private static int encounterButtons = 0;
 
     /*Current issues to fix:
         1. The previousWeek algorithm
@@ -190,14 +188,8 @@ public class MainActivity extends AppCompatActivity {
     public static void setBgValue(int set) {
         bgValue = set;
     }
-    public static void setSfxValue(int set) {
-        sfxValue = set;
-    }
     public static int getBgValue() {
         return bgValue;
-    }
-    public static int getSfxValue() {
-        return sfxValue;
     }
     public static void setDisableProgress(boolean b) {
         disableProgress = b;
@@ -289,10 +281,10 @@ public class MainActivity extends AppCompatActivity {
     public static boolean getEncounter() {
         return encounter;
     }
-    public static String getEncounterAnswer() {
-        return encounterAnswer;
+    public static void setEncounterButtons(int set) {
+        encounterButtons = set;
     }
-    public static void setEncounterAnswer(String s) {
-        encounterAnswer = s;
+    public static int getEncounterButtons() {
+        return encounterButtons;
     }
 }

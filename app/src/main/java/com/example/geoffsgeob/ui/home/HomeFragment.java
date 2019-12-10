@@ -34,6 +34,7 @@ public class HomeFragment extends Fragment {
     public static int quizChange;
     public static int mpChange;
     public static int midtermChange;
+    private static int encountermeow = 0;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -83,14 +84,14 @@ public class HomeFragment extends Fragment {
         firstButton.setOnClickListener(view -> {
             MainActivity.setEncounter(true);
             hideEncounters();
-            MainActivity.encounterButtons = 1;
+            encountermeow = 1;
             encounterProgress();
         });
 
         secondButton.setOnClickListener(view -> {
             MainActivity.setEncounter(true);
             hideEncounters();
-            MainActivity.encounterButtons = 2;
+            encountermeow = 2;
             encounterProgress();
         });
 
@@ -118,6 +119,7 @@ public class HomeFragment extends Fragment {
                 ForumFragment.setMpChange(mpChange);
                 ForumFragment.setMidtermChange(midtermChange);
                 MainActivity.resetWeekChange();
+                MainActivity.setEncounterButtons(encountermeow);
                 textView.setText("Fall 2019: Week " + MainActivity.getWeek());
                 if (MainActivity.getWeek() == MainActivity.getTotalWeeks() || MainActivity.getUniversityProgress() <= 0 || MainActivity.getStudentProgress() <= 0) {
                     Intent intent = new Intent(view.getContext(), EndGame.class);
@@ -204,10 +206,10 @@ public class HomeFragment extends Fragment {
         int[] arrSecondStudent = {0, -5, -5, -7, -4, -5, -7, 0, -3, -4, -4, -3, 4, -2, 2, 0};
         int[] arrSecondUniversity = {0, 3, 5, 3, 2, -5, -3, -4, 0, -5, 2, -3, -3, 0, -7, 0};
 
-        if (MainActivity.encounterButtons == 1) {
+        if (MainActivity.getEncounterButtons() == 1) {
             MainActivity.thisWeekChange(arrFirstUniversity[MainActivity.getWeek()], arrFirstStudent[MainActivity.getWeek()]);
         }
-        if (MainActivity.encounterButtons == 2) {
+        if (MainActivity.getEncounterButtons() == 2) {
             MainActivity.thisWeekChange(arrSecondUniversity[MainActivity.getWeek()], arrSecondStudent[MainActivity.getWeek()]);
         }
     }

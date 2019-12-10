@@ -199,7 +199,7 @@
 
     <string-array name="encounterForumSecondNames">
         <item>nothing</item>
-        <item>Whiny STEM Kid</item>
+        <item>Entitled STEM Kid</item>
         <item>Broke College Kid</item>
         <item>Depressed Student</item>
         <item>Struggling Beginner</item>
@@ -287,55 +287,73 @@
         <item>Samiya Shelton</item>
     </string-array>
 
-    <string name="mailWelcome">Welcome to your Mail, Geoff!</string>
     <string name="mailAdmin">From: administration@illinois.edu</string>
     <string name="mailTACA">From: nordick@illinois.edu</string>
     <string name="mailBoth">From: LiterallyEverybody@illinois.edu</string>
     <string name="mailTo">To: challen@illinois.edu</string>
-    <string name="mailSubject">Subject: </string>
     <string name="mailSalutation">Dear Geoff, </string>
     <string name="mailClosingAdmin">Regards, \nUniversity Administration</string>
     <string name="mailClosingTACA">Regards, \nYour TAs, CAs, and CDs</string>
     <string name="mailCLosingEverybody">Regards, \nLiterally Everybody</string>
 
+    <string-array name="mailSubject">
+        <item>Welcome!</item>
+        <item>Coders</item>
+        <item>Attendance</item>
+        <item>Extra Office Hours</item>
+        <item>Course Difficulty</item>
+        <item>Cheating</item>
+        <item>Coughing</item>
+        <item>MP Drop</item>
+        <item>Mid-term Grades</item>
+        <item>Extra Credit</item>
+        <item>Offensive Meme</item>
+        <item>Staff Strike!</item>
+        <item>Bugs</item>
+        <item>CS 125 Project Fair</item>
+        <item>Meow</item>
+        <item>Netflix</item>
+    </string-array>
+
     <string-array name="encounterMailFirst">
         <item>nothing</item>
-        <item>You added something unique to the coursework and we are pleased</item>
-        <item>LECTURE SLIDES BAD WE WANT I-CLICKERS REEEEE</item>
-        <item>I’m always helping out dumb kids in office hours and I’m T I R E D I wanna nap</item>
-        <item>PURDON’T HAS WEED OUT INTRO COURSES AND NOW WE HAVE KINDERGARTEN LEVEL JAVA COURSES HOW COULD YOU DO THIS</item>
-        <item>bruh are you encouraging cheating that’s straight up WRONG yo you gotta stop or we finna fire you</item>
-        <item>bruh there were like 3 people in your lecture on Monday wtf are you doing</item>
-        <item>Yeah we wanted the course to be hard but then we don’t have enough mental health resources to deal with all your kids so just let them be happy I guess</item>
-        <item>Thanks for getting those grades up in time bud</item>
-        <item>I’m tired and worn out and I wanna die</item>
-        <item>Thank goodness you took that meme down, it was b a d</item>
-        <item>Eugh you want to hire even m o r e people? We don’t want to throw so much money on an intro CS class geeeez</item>
-        <item>we’re not happy with the substitution, just do your job Geoff</item>
-        <item>Thanks for compromising buddy, we don’t really care about you and your students; we just wanted you to o b e y</item>
-        <item>ARE YOU TRYING TO GET EVERYBODY CAT ALLERGIES I SNEEZE AT THE MERE THOUGHT OF A CAT OH MY GOD GEOFF</item>
+        <item>Thank you for the requested pictures of your dog. It really brightened up our day. Now, about CS 125, you added something unique to the coursework and we are pleased. Computer Science at Illinois has been extremely prestigious, but I think your plan of introducing students to the tech world from the very beginning, through an interesting piece of literature, is an interesting approach which may work out for the better.</item>
+        <item>Thank you for considering our request to use i-clickers as a means of attendance in your class. Although we are disappointed that you still won’t agree to use them despite constant pursuance of the matter, we understand that some people just don’t listen. You can keep using your little lecture slide toy you created to amuse yourself and your students, but the bottom line is: if things don’t cost students, we probably don’t want them.</item>
+        <item>One of our CAs collapsed during office hours because he ran around so much trying to help everybody. None of us feel fulfilled enough because we can never completely help students since we’re not allowed to spend more than a few minutes with a student. We’re tired and all we want is a nap but we’re not getting any and now you go ahead and add extra office hours. We love you Geoff and we love the students, but why? TELL ME WHY?</item>
+        <item>Our competitor, Purdon’t, has weed-out introductory courses in Computer Science. We accepted your terms when you said you didn’t want to make this course weed-out, but this is just ridiculous. Why do you want to teach your students kindergarten level courses in CS? Of course, I have no idea how to educate a student and how hard an intro-level CS course should be like, but you should really increase the difficulty tenfold.</item>
+        <item>Rumours that you were aware of ongoing cheating in your course, but chose to turn a blind eye among it, have been flying around. I hope you realise that if these claims turn out to be true, you could be removed from your position at the university. Please remember our code of conduct and strictly adhere to it.</item>
+        <item>Out of the 500+ people enrolled in CS 125, there was a grand total of 10 people in lecture this week. Why, Geoff, why? Why would you tell them to go home? Do you not want your students to suffer like everybody else does? Come on, man.</item>
+        <item>We’re happy that you’re providing an MP Drop for CS 125. No, we really are! We wanted you to increase the course difficulty earlier, but we realised that the students are becoming increasingly depressed now. We cannot be expected to spend even more money on mental health resources than we already are— our lone psychiatrist can’t handle all of them, so we’re happy if you’re letting your students be happy!</item>
+        <item>We understand that there were a few major bugs in your autograder. We’re overjoyed that you fixed them in time and were able to put up the mid-term grades. This allows us to go over our grading processes smoothly. Good Geob, Geoff!</item>
+        <item>The staff is tired and worn out. The extra credit portion is much harder than the rest of the MP, and students just keep piling in. We can’t help them all. It’s day 31 and we’re running out of food and water supplies. Stop this madness, Geoff. </item>
+        <item>We noticed you finally took down that terrible image from the forum. Such derogatory content is completely inappropriate, not just for academic purposes. The University of Illinois will never condone such images, and the student who posted it will be dealt with appropriately.</item>
+        <item>Your decision to hire more staff members following the protests of the course staff last week is a disappointing one. The university cannot afford to do redirect funds, especially for an introductory course, thus doing so will reflect badly on your profile.</item>
+        <item>We have been made aware that you were not present at the lecture for the last week for CS125, while your Head CA, Ben Nordick, took your place. This is not in accordance with our policies since we weren’t notified prior to this substitution. We are not happy with the situation, just do your job Geoff.</item>
+        <item>Thank you for rescheduling the Project Fair. Thank you for understanding that the students’ apps are not going anywhere. In its stead, we will be able to hold a TED conference at the university on the topic “Consequences of actions in controlled environments”. You are free to attend with no entry fee.</item>
+        <item>This is in reference to you having your pet, “Xyz”, at lecture last week. We have received complaints from students stating they have serious allergies that were caused by the presence of your cat. They have agreed not to take legal action. We are disappointed, and we hope that you will abstain from carrying personal pets to your classes.</item>
         <item>nothing</item>
     </string-array>
 
     <string-array name="encounterMailSecond">
         <item>nothing</item>
-        <item>lol what's a coders</item>
-        <item>thanks for adding i-clickers because we believe they’re useful even though they’re expensive trash</item>
-        <item>lol it sucks for the students but at least we’ve got our work cut out for us</item>
-        <item>That’s the spirit! Now it’s like a real college course and we maintain our reputation lol i’ve never taken a cs class idk how hard it’s supposed to be</item>
-        <item>yeah that’s the spirit! Catch the evil cheaters and make them face consequences whooooo</item>
-        <item>bruh you had to cancel lecture what the actual f dude</item>
-        <item>We hate mental health and we only have one psychiatrist on campus, don’t attack us by making students have breakdowns man</item>
-        <item>YOU DELAYED THE MID-TERM GRADES?!?!?!?!! HOW COULD YOU, YOU BETTER GET THEM UP ASAP</item>
-        <item>lol idc nothing has changed for us</item>
-        <item>WHY WOULD YOU LEAVE THAT TERRIBLE MEME UP OH MY GOD DUDE</item>
-        <item>That was a LOW move. We love it!</item>
-        <item>GET RID OF THE DAMN BUGS GEOFF</item>
-        <item>You didn’t o b e y and you have angered the university administration gods, but you get what you want</item>
-        <item>lol what's a Xyz</item>
+        <item>Thank you for the requested pictures of your dog. It really brightened up our day. Now, about CS 125, we noticed that you’re still the professor. Wonderful. It would’ve been great if you had added something new to the course this semester, but now I guess it’s just another dry semester of coding and nothing unique. Ah well.</item>
+        <item>Thank you for accepting our requests and adding i-clickers to CS125. We love that students have to spend more money than they already are on their education, and even though we’re one of the top 5 universities for CS, we hate embracing new, useful technology that could save students’ money! You’re the best, dude.</item>
+        <item>One of our CAs collapsed during office hours because he ran around so much trying to help everybody. None of us feel fulfilled enough because we can never completely help students since we’re not allowed to spend more than a few minutes with a student.  Thanks a lot for not agreeing to extra office hours, because I don’t think we could’ve survived that. Of course, the students are not going to be happy about this, but at least we’ll survive now.</item>
+        <item>You finally realised that you need to make the course harder. We love it. We’d go so far as to use an emoji in our email: :’) \nCS 125 finally feels like a real college course and we maintain our reputation for being one of the best universities for CS in the world. Of course, I have no idea how to educate a student and how hard an intro-level CS course should be like, but it should definitely make students cry themselves to sleep.</item>
+        <item>CONGRATULATIONS! You just caught a bunch of evil cheaters. Good job, Geoff! Cheating is bad and always will be, and we’re going to use your plagiarism checker in all courses offered by the university! We’re aware of the few honest students being caught, but we’ll just have them file recheck requests and make them do more work due to our mistakes. We love doing that!</item>
+        <item>We are positively mortified that you, a professor at our university, had to cancel Monday’s lecture. How could you let yourself get sick? Why didn’t you just tell your sick students to go home? This is not how we expected a professor of your esteem to act.</item>
+        <item>Your students are increasingly becoming stressed out due to the pressures of CS 125, especially the MP. We had initially wanted the course to be more difficult, but we don’t have the mental health resources to help all your students. Our lone psychiatrist cannot help them all, and we’re never going to spend another dime on something the students actually need, so we can’t have you making them all sad and such.</item>
+        <item>We understand that there were a few major bugs in your autograder. However, we’re extremely disappointed that you didn’t try to fix them as soon as possible and put up the mid-term grades. Delaying the mid-term grades is an atrocious act against the administration, and we will not stand for this.</item>
+        <item>The staff is tired and worn out from helping students. Thank you for not adding the extra credit portion. We understand that students need to increase their grades, but we honestly could not have been able to survive much longer if a longer, harder extra credit portion was added. We are grateful.</item>
+        <item>We noticed that you decided to leave a horribly derogatory meme on the CS 125 forum, up. You have made a severe and continuous lapse in your judgement. This kind of behaviour will not be tolerated, with no exceptions. </item>
+        <item>We have finished processing the legal charges you pressed against the Course Assistants and Teaching Assistants for CS125. The course staff should be back to work now, unless they want to lose their positions. As you did not negotiate with the protesters, we believe you made the correct decision.</item>
+        <item>It has come to our attention that the CS125 course website is riddled with bugs. This is completely unacceptable, as a CS professor should lead by example, especially in an introductory course. We hope that you are able to correct the issues soon.</item>
+        <item>We are disappointed you could not host the Project Fair at another time. As a direct consequence of your decision, the university lost a considerable amount of exposure and experience. This will not bode well for your future as a university employee.</item>
+        <item>We have been receiving an increasing number of complaints regarding the quality of your course deteriorating over the course of the semester, with more and more students saying that it is boring. We hope that this is a mere  coincidence, and you will try to make lectures more enjoyable.</item>
         <item>nothing</item>
     </string-array>
 
+    <string name="mail_welcome">Welcome to the course! This is where you will receive periodic emails from us, letting you know what you are doing right and what you are doing wrong. As you are the professor, your decisions influence everyone involved with the course, from the students to the CAs and TAs to the administration. Make your decisions wisely!</string>
 
     <string name="hw_advice_02">The students have been slogging on the homework daily. They really need a break. </string>
     <string name="hw_advice_36">I think it’s okay to give homework that’s a little challenging. Nothing too difficult, though… But I wouldn’t know, I’m just code.</string>
@@ -360,7 +378,7 @@
 
     <string name="forum_quiz_easy">The quiz was too easy like WTF Geoff?!?!?!!?!?!!</string>
     <string name="forum_quiz_hard">The quiz was so hard oh my god I got like a 50%</string>
-    <string name="forum_quiz_perfect">The quiz was amazing; I did amazing and it felt perfect!</string>
+    <string name="forum_quiz_perfect">The quiz was amazing; I did well and it felt perfect!</string>
 
     <string name="forum_midterm_easy">The midterm was too easy :/ I wish I’d just prof’d out of this course</string>
     <string name="forum_midterm_hard">The midterm was really hard. I cried myself to sleep because of it :(</string>
@@ -371,7 +389,7 @@
     <string name="forum_mp_perfect">The MP was surprisingly decent this time round. Thank goodness, my grade won’t die. </string>
 
     <string name="first_quiz">This is the first quiz of the course! You probably should go easy on the students to get them used to quizzes</string>
-    <string name="first_homework">These are the first homework problems so you should probably make it really easy :)</string>
+    <string name="first_homework">These are the first homework problems so you should probably make it  easy :)</string>
 
     <string name="five_week">5 weeks</string>
     <string name="ten_week">10 weeks</string>
@@ -380,7 +398,11 @@
     <string name="chuchu">Chuchu</string>
     <string name="xyz">Xyz</string>
     <string name="ben_nordick">Ben Nordick</string>
+    <string name="geoff">Geoff</string>
+    <string name="check_in">General Check-in</string>
+    <string name="stressed_students">Stressed Students</string>
     <string name="geoffrey_challen">The real Geoffrey Challen</string>
+    <string name="iclicker_rant">I-clickers are the WORST, I would never make my students pay more than they already are for college! </string>
     <string name="bonuses">Bonuses</string>
     <string name="satisfaction_university">University Satisfaction: </string>
     <string name="satisfaction_student">Student Satisfaction: </string>
@@ -400,9 +422,19 @@
     <string name="half">50%</string>
     <string name="text_about">About</string>
     <string name="encounter">Encounter</string>
+
     <string name="no_posts">There are no posts on the forum right now!</string>
-    <string name="details_about">This game was created by Ishita Rao and Kanav Bhatnagar as their final project for CS 125. They cool. Pls give them an A+, they’ll give you a singular cookie.
-</string>
+    <string name="details_about">This game was created by Ishita Rao and Kanav Bhatnagar as their final project for CS 125. They cool. Pls give them an A+, they’ll give you a singular cookie.</string>
+    <string name="using_about">
+        Music we’re using:
+        \n"8 Bit Win!" By HeatleyBros
+        \nNyan Cat [original] by Daniwell-P/Momone Momo UTAU
+
+        \n\nCat Icon:
+        \nIcons made by Smashicons
+        \nwww.flaticon.com</string>
+    <string name="outro_good">Thank you for your impeccable decision making. We hope you will continue to have the university\'s interests in mind when making influential choices related to the course.</string>
+    <string name="outro_bad">If you continue making decisions that are against the university\'s interests, there may be serious ramifications related to your position as the professor for CS125 in the future. We hope that you will be more cautious of the consequences of your actions in the future.</string>
     <string name="end_game">Game over!</string>
     <string name="chuchuText">▼・ᴥ・▼\nWho doesn\'t love dogs? If you bring Chuchu to lecture it will surely brighten up all of your students\' days.</string>
     <string name="benText">You call upon Jesus himself, the Messiah! With his big brain energy, he influences both the students and the university to help your reputation. How he does so is a mystery that us mere mortals can only hope to comprehend.</string>
@@ -545,4 +577,5 @@
             best professor at the U of I. I don’t know how you did it, but goddamn.
             Contact the makers of this game for a cookie.</item>
     </string-array>
+
 </resources>

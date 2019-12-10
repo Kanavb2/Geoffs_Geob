@@ -10,7 +10,7 @@ public class MailViewModel extends ViewModel {
 
     public MailViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Welcome challen@illinois.edu!");
+        mText.setValue("Welcome to your Mail, Geoff!");
     }
 
     public LiveData<String> getText() {
