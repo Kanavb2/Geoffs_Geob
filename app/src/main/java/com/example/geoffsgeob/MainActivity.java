@@ -17,7 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
+
 import android.widget.Button;
 
 /** Navigation menu.
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private static boolean disableProgress = false;
     private static boolean disableEncounters = false;
     private static boolean disableBonuses = false;
+    private static boolean cat = false;
     private static boolean chuchu = false;
     private static boolean ben = false;
     private static boolean challen = false;
@@ -96,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
 
         Intent svc = new Intent(this, BackgroundSoundService.class);
         startService(svc);
-        
     }
 
     @Override
@@ -281,5 +281,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public static int getEncounterButtons() {
         return encounterButtons;
+    }
+    public static void setCat(boolean b) {
+        cat = b;
+    }
+    public static boolean getCat() {
+        return cat;
     }
 }
