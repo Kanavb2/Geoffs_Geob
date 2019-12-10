@@ -17,6 +17,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -83,6 +85,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+
+        
+        Menu menu = navigationView.getMenu();
+        MenuItem navForum = menu.findItem(R.id.nav_forum);
+        navForum.setIcon(R.drawable.ic_cat_black_24dp);
+
         Button settings = findViewById(R.id.settings);
         Button help = findViewById(R.id.help);
 
@@ -98,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent svc = new Intent(this, BackgroundSoundService.class);
         startService(svc);
-        
+
     }
 
     @Override
