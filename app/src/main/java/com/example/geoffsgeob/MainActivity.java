@@ -1,6 +1,5 @@
 package com.example.geoffsgeob;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -17,7 +16,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 
 /** Navigation menu.
@@ -81,6 +81,26 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+        if (getCat()) {
+            Menu menu = navigationView.getMenu();
+            MenuItem navForum = menu.findItem(R.id.nav_forum);
+            navForum.setIcon(R.drawable.ic_cat_black_24dp);
+            MenuItem navMail = menu.findItem(R.id.nav_mail);
+            navMail.setIcon(R.drawable.ic_cat_black_24dp);
+            MenuItem navHW = menu.findItem(R.id.nav_homework);
+            navHW.setIcon(R.drawable.ic_cat_black_24dp);
+            MenuItem navQuiz = menu.findItem(R.id.nav_quiz);
+            navQuiz.setIcon(R.drawable.ic_cat_black_24dp);
+            MenuItem navMidterm = menu.findItem(R.id.nav_midterm);
+            navMidterm.setIcon(R.drawable.ic_cat_black_24dp);
+            MenuItem navMP = menu.findItem(R.id.nav_mp);
+            navMP.setIcon(R.drawable.ic_cat_black_24dp);
+            MenuItem navHome = menu.findItem(R.id.nav_home);
+            navHome.setIcon(R.drawable.ic_cat_black_24dp);
+        }
+
 
         Button settings = findViewById(R.id.settings);
         Button help = findViewById(R.id.help);
