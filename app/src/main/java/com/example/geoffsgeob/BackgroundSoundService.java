@@ -14,12 +14,7 @@ public class BackgroundSoundService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        if (MainActivity.getCat()) {
-            player = MediaPlayer.create(this, R.raw.nyancat);
-        } else {
-            player = MediaPlayer.create(this, R.raw.bitwin);
-        }
+        player = MediaPlayer.create(this, R.raw.bitwin);
         player.setLooping(true); // Set looping
         player.setVolume(100,100);
 
@@ -37,6 +32,7 @@ public class BackgroundSoundService extends Service {
     public void onStart(Intent intent, int startId) {
 
     }
+
     public IBinder onUnBind(Intent arg0) {
 
         return null;

@@ -88,14 +88,15 @@ public class Settings extends Activity {
         if (MainActivity.getCat()) {
             cat.setChecked(true);
         }
-        disableBonuses.setOnCheckedChangeListener(((compoundButton, b) -> {
+        cat.setOnCheckedChangeListener(((compoundButton, b) -> {
             if (compoundButton.isChecked()) {
                 MainActivity.setCat(true);
+                MainActivity.changeIcons();
             } else {
                 MainActivity.setCat(false);
+                MainActivity.changeIcons();
             }
-            Intent svc = new Intent(this, BackgroundSoundService.class);
-            startService(svc);
+
         }));
 
         Button resetGame = findViewById(R.id.resetGame);

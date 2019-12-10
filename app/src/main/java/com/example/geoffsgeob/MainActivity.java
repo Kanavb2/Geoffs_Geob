@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private static int uniChange;
     private static int studentChange;
     private static int encounterButtons = 0;
+    private static NavigationView navigationView;
 
     /** Runs when the menu button is clicked.
      * @param savedInstanceState is a bundle man idk we didn't learn this in the MPs.
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         resetWeekChange();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -82,7 +83,24 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        Button settings = findViewById(R.id.settings);
+        Button help = findViewById(R.id.help);
 
+        settings.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Settings.class);
+            startActivity(intent);
+        });
+
+        help.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Help.class);
+            startActivity(intent);
+        });
+
+        Intent svc = new Intent(this, BackgroundSoundService.class);
+        startService(svc);
+    }
+
+    public static void changeIcons() {
         if (getCat()) {
             Menu menu = navigationView.getMenu();
             MenuItem navForum = menu.findItem(R.id.nav_forum);
@@ -100,23 +118,6 @@ public class MainActivity extends AppCompatActivity {
             MenuItem navHome = menu.findItem(R.id.nav_home);
             navHome.setIcon(R.drawable.ic_cat_black_24dp);
         }
-
-
-        Button settings = findViewById(R.id.settings);
-        Button help = findViewById(R.id.help);
-
-        settings.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Settings.class);
-            startActivity(intent);
-        });
-
-        help.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Help.class);
-            startActivity(intent);
-        });
-
-        Intent svc = new Intent(this, BackgroundSoundService.class);
-        startService(svc);
     }
 
     @Override
