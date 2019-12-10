@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         startService(svc);
     }
 
-    public void changeIcons() {
+    public static void changeIcons() {
         Menu menu = navigationView.getMenu();
         MenuItem navForum = menu.findItem(R.id.nav_forum);
         MenuItem navMail = menu.findItem(R.id.nav_mail);
