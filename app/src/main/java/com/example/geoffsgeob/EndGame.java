@@ -17,6 +17,13 @@ public class EndGame extends Activity {
         TextView endUniversity = findViewById(R.id.endUniversity);
         TextView endStudent = findViewById(R.id.endStudent);
 
+        if (universityProgress < 0) {
+            universityProgress = 0;
+        }
+        if (studentProgress < 0) {
+            studentProgress = 0;
+        }
+
         endUniversity.setText("Your final University Satisfaction: " + universityProgress);
         endStudent.setText("Your final Student Satisfaction: " + studentProgress);
 

@@ -3,7 +3,6 @@
     android:id="@+id/ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/geoff"
     android:orientation="vertical">
 
     <TextView
@@ -11,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="#66030000"
-        android:backgroundTintMode="src_atop"
+        android:background="@android:color/transparent"
         android:fontFamily="@font/open_sans_semibold"
         android:gravity="center"
         android:text="@string/app_name_title"
@@ -27,10 +25,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="130dp"
         android:layout_marginEnd="8dp"
-        android:background="#85FFFFFF"
+        android:background="@android:color/transparent"
         android:text="@string/desc_main"
         android:textAlignment="center"
-        android:textColor="#000000"
         android:textSize="16sp" />
 
     <Button
@@ -39,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:background="#AE969992"
+        android:background="@android:color/transparent"
         android:text="@string/five_week" />
 
     <Button
@@ -48,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="#AE969992"
+        android:background="@android:color/transparent"
         android:text="@string/ten_week" />
 
     <Button
@@ -57,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="#AE969992"
+        android:background="@android:color/transparent"
         android:text="@string/fifteen_week" />
 
     <Button
@@ -68,6 +65,5 @@
         android:layout_marginTop="70dp"
         android:background="#00AFB42B"
         android:text="@string/menu_about"
-        android:textAllCaps="false"
-        android:textColor="#FFFDFD" />
+        android:textAllCaps="false" />
 </LinearLayout>
